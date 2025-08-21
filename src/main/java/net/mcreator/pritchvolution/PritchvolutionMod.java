@@ -17,6 +17,10 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.network.FriendlyByteBuf;
 
+import net.mcreator.pritchvolution.init.PritchvolutionModTabs;
+import net.mcreator.pritchvolution.init.PritchvolutionModItems;
+import net.mcreator.pritchvolution.init.PritchvolutionModEntities;
+
 import java.util.function.Supplier;
 import java.util.function.Function;
 import java.util.function.BiConsumer;
@@ -36,6 +40,11 @@ public class PritchvolutionMod {
 		// End of user code block mod constructor
 		MinecraftForge.EVENT_BUS.register(this);
 		IEventBus bus = context.getModEventBus();
+
+		PritchvolutionModItems.REGISTRY.register(bus);
+		PritchvolutionModEntities.REGISTRY.register(bus);
+
+		PritchvolutionModTabs.REGISTRY.register(bus);
 
 		// Start of user code block mod init
 		// End of user code block mod init
