@@ -58,6 +58,9 @@ public class PritchanimalEntity extends Animal {
 	public static final EntityDataAccessor<Integer> DATA_SCALE_Leg_z = SynchedEntityData.defineId(PritchanimalEntity.class, EntityDataSerializers.INT);
 	public static final EntityDataAccessor<Integer> DATA_ROTATION_Arm_x = SynchedEntityData.defineId(PritchanimalEntity.class, EntityDataSerializers.INT);
 	public static final EntityDataAccessor<Integer> DATA_ROTATION_Body_x = SynchedEntityData.defineId(PritchanimalEntity.class, EntityDataSerializers.INT);
+	public static final EntityDataAccessor<Integer> DATA_SCALE_Body_x = SynchedEntityData.defineId(PritchanimalEntity.class, EntityDataSerializers.INT);
+	public static final EntityDataAccessor<Integer> DATA_SCALE_Body_y = SynchedEntityData.defineId(PritchanimalEntity.class, EntityDataSerializers.INT);
+	public static final EntityDataAccessor<Integer> DATA_SCALE_Body_z = SynchedEntityData.defineId(PritchanimalEntity.class, EntityDataSerializers.INT);
 	public final AnimationState animationState0 = new AnimationState();
 
 	public PritchanimalEntity(PlayMessages.SpawnEntity packet, Level world) {
@@ -88,6 +91,9 @@ public class PritchanimalEntity extends Animal {
 		this.entityData.define(DATA_SCALE_Leg_z, 100);
 		this.entityData.define(DATA_ROTATION_Arm_x, 0);
 		this.entityData.define(DATA_ROTATION_Body_x, 0);
+		this.entityData.define(DATA_SCALE_Body_x, 100);
+		this.entityData.define(DATA_SCALE_Body_y, 100);
+		this.entityData.define(DATA_SCALE_Body_z, 100);
 	}
 
 	@Override
@@ -140,6 +146,9 @@ public class PritchanimalEntity extends Animal {
 		compound.putInt("DataSCALE_Leg_z", this.entityData.get(DATA_SCALE_Leg_z));
 		compound.putInt("DataROTATION_Arm_x", this.entityData.get(DATA_ROTATION_Arm_x));
 		compound.putInt("DataROTATION_Body_x", this.entityData.get(DATA_ROTATION_Body_x));
+		compound.putInt("DataSCALE_Body_x", this.entityData.get(DATA_SCALE_Body_x));
+		compound.putInt("DataSCALE_Body_y", this.entityData.get(DATA_SCALE_Body_y));
+		compound.putInt("DataSCALE_Body_z", this.entityData.get(DATA_SCALE_Body_z));
 	}
 
 	@Override
@@ -163,6 +172,12 @@ public class PritchanimalEntity extends Animal {
 			this.entityData.set(DATA_ROTATION_Arm_x, compound.getInt("DataROTATION_Arm_x"));
 		if (compound.contains("DataROTATION_Body_x"))
 			this.entityData.set(DATA_ROTATION_Body_x, compound.getInt("DataROTATION_Body_x"));
+		if (compound.contains("DataSCALE_Body_x"))
+			this.entityData.set(DATA_SCALE_Body_x, compound.getInt("DataSCALE_Body_x"));
+		if (compound.contains("DataSCALE_Body_y"))
+			this.entityData.set(DATA_SCALE_Body_y, compound.getInt("DataSCALE_Body_y"));
+		if (compound.contains("DataSCALE_Body_z"))
+			this.entityData.set(DATA_SCALE_Body_z, compound.getInt("DataSCALE_Body_z"));
 	}
 
 	@Override

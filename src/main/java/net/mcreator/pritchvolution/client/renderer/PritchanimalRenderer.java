@@ -50,6 +50,18 @@ public class PritchanimalRenderer extends MobRenderer<PritchanimalEntity, Modelp
 										new Keyframe(0.0F, 
 												KeyframeAnimations.degreeVec((float) entity.getEntityData().get(PritchanimalEntity.DATA_ROTATION_Body_x), 0.0F, 0.0F), AnimationChannel.Interpolations.LINEAR)))
 						.addAnimation("left_arm",
+								new AnimationChannel(AnimationChannel.Targets.ROTATION, 
+										new Keyframe(0.0F, 
+												KeyframeAnimations.degreeVec((float) entity.getEntityData().get(PritchanimalEntity.DATA_ROTATION_Arm_x), 0.0F, 0.0F), AnimationChannel.Interpolations.LINEAR)))
+						.addAnimation("right_arm",
+								new AnimationChannel(AnimationChannel.Targets.ROTATION, 
+										new Keyframe(0.0F, 
+												KeyframeAnimations.degreeVec((float) entity.getEntityData().get(PritchanimalEntity.DATA_ROTATION_Arm_x), 0.0F, 0.0F), AnimationChannel.Interpolations.LINEAR)))
+						.addAnimation("body", 
+								new AnimationChannel(AnimationChannel.Targets.SCALE, 
+										new Keyframe(0.0F, 
+												KeyframeAnimations.scaleVec((float) entity.getEntityData().get(PritchanimalEntity.DATA_SCALE_Body_x) / 100, (float) entity.getEntityData().get(PritchanimalEntity.DATA_SCALE_Body_y) / 100, (float) entity.getEntityData().get(PritchanimalEntity.DATA_SCALE_Body_z) / 100), AnimationChannel.Interpolations.LINEAR)))
+						.addAnimation("left_arm",
 								new AnimationChannel(AnimationChannel.Targets.SCALE,
 										new Keyframe(0.0F,
 												KeyframeAnimations.scaleVec((float) entity.getEntityData().get(PritchanimalEntity.DATA_SCALE_Arm_x) / 100, (float) entity.getEntityData().get(PritchanimalEntity.DATA_SCALE_Arm_y) / 100,
@@ -64,8 +76,11 @@ public class PritchanimalRenderer extends MobRenderer<PritchanimalEntity, Modelp
 						.addAnimation("left_leg", 
 								new AnimationChannel(AnimationChannel.Targets.SCALE, 
 										new Keyframe(0.0F, 
-												KeyframeAnimations.scaleVec(0.8F, 0.8F, 0.8F), AnimationChannel.Interpolations.LINEAR)))
-						.addAnimation("right_leg", new AnimationChannel(AnimationChannel.Targets.SCALE, new Keyframe(0.0F, KeyframeAnimations.scaleVec(0.8F, 0.8F, 0.8F), AnimationChannel.Interpolations.LINEAR)))
+												KeyframeAnimations.scaleVec((float) entity.getEntityData().get(PritchanimalEntity.DATA_SCALE_Leg_x) / 100, (float) entity.getEntityData().get(PritchanimalEntity.DATA_SCALE_Leg_y) / 100, (float) entity.getEntityData().get(PritchanimalEntity.DATA_SCALE_Leg_z) / 100), AnimationChannel.Interpolations.LINEAR)))
+						.addAnimation("right_leg", 
+								new AnimationChannel(AnimationChannel.Targets.SCALE, 
+										new Keyframe(0.0F, 
+												KeyframeAnimations.scaleVec((float) entity.getEntityData().get(PritchanimalEntity.DATA_SCALE_Leg_x) / 100, (float) entity.getEntityData().get(PritchanimalEntity.DATA_SCALE_Leg_y) / 100, (float) entity.getEntityData().get(PritchanimalEntity.DATA_SCALE_Leg_z) / 100), AnimationChannel.Interpolations.LINEAR)))						
 						.addAnimation("root", new AnimationChannel(AnimationChannel.Targets.POSITION, new Keyframe(0.0F, KeyframeAnimations.posVec(0.0F, -10.0F, 0.0F), AnimationChannel.Interpolations.LINEAR))).build();
 				this.animate(entity.animationState0, armslegstest, ageInTicks, 1f);
 			}
