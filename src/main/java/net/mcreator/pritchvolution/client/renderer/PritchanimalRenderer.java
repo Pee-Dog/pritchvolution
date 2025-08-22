@@ -61,6 +61,10 @@ public class PritchanimalRenderer extends MobRenderer<PritchanimalEntity, Modelp
 								new AnimationChannel(AnimationChannel.Targets.SCALE, 
 										new Keyframe(0.0F, 
 												KeyframeAnimations.scaleVec((float) entity.getEntityData().get(PritchanimalEntity.DATA_SCALE_Body_x) / 100, (float) entity.getEntityData().get(PritchanimalEntity.DATA_SCALE_Body_y) / 100, (float) entity.getEntityData().get(PritchanimalEntity.DATA_SCALE_Body_z) / 100), AnimationChannel.Interpolations.LINEAR)))
+						.addAnimation("head", 
+								new AnimationChannel(AnimationChannel.Targets.SCALE, 
+										new Keyframe(0.0F, 
+												KeyframeAnimations.scaleVec((float) entity.getEntityData().get(PritchanimalEntity.DATA_SCALE_Head_x) / 100, (float) entity.getEntityData().get(PritchanimalEntity.DATA_SCALE_Head_y) / 100, (float) entity.getEntityData().get(PritchanimalEntity.DATA_SCALE_Head_z) / 100), AnimationChannel.Interpolations.LINEAR)))
 						.addAnimation("left_arm",
 								new AnimationChannel(AnimationChannel.Targets.SCALE,
 										new Keyframe(0.0F,
@@ -81,7 +85,14 @@ public class PritchanimalRenderer extends MobRenderer<PritchanimalEntity, Modelp
 								new AnimationChannel(AnimationChannel.Targets.SCALE, 
 										new Keyframe(0.0F, 
 												KeyframeAnimations.scaleVec((float) entity.getEntityData().get(PritchanimalEntity.DATA_SCALE_Leg_x) / 100, (float) entity.getEntityData().get(PritchanimalEntity.DATA_SCALE_Leg_y) / 100, (float) entity.getEntityData().get(PritchanimalEntity.DATA_SCALE_Leg_z) / 100), AnimationChannel.Interpolations.LINEAR)))						
-						.addAnimation("root", new AnimationChannel(AnimationChannel.Targets.POSITION, new Keyframe(0.0F, KeyframeAnimations.posVec(0.0F, -10.0F, 0.0F), AnimationChannel.Interpolations.LINEAR))).build();
+						.addAnimation("root", 
+								new AnimationChannel(AnimationChannel.Targets.POSITION, 
+										new Keyframe(0.0F, 
+												KeyframeAnimations.posVec(0.0F, -10.0F, 0.0F), AnimationChannel.Interpolations.LINEAR)))
+						.addAnimation("head", 
+								new AnimationChannel(AnimationChannel.Targets.POSITION, 
+										new Keyframe(0.0F, 
+												KeyframeAnimations.posVec(0.0F, (float) entity.getEntityData().get(PritchanimalEntity.DATA_POSITION_Head_y), (float) entity.getEntityData().get(PritchanimalEntity.DATA_POSITION_Head_z)), AnimationChannel.Interpolations.LINEAR))).build();
 				this.animate(entity.animationState0, armslegstest, ageInTicks, 1f);
 			}
 		};
