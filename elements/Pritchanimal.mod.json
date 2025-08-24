@@ -16,7 +16,8 @@
       "fixedValue": false
     },
     "visualScale": {
-      "fixedValue": 1.0
+      "fixedValue": 1.0,
+      "name": "PritchanimalModelVisualScale"
     },
     "boundingBoxScale": {
       "fixedValue": 1.0
@@ -248,8 +249,25 @@
         "name": "POSITION_Head_z",
         "type": "integer",
         "value": 0
+      },
+      {
+        "min": -2147483648,
+        "max": 2147483647,
+        "name": "POSITION_Arm_y",
+        "type": "integer",
+        "value": 0
+      },
+      {
+        "min": -2147483648,
+        "max": 2147483647,
+        "name": "POSITION_Arm_z",
+        "type": "integer",
+        "value": 0
       }
     ],
+    "onRightClickedOn": {
+      "name": "PritchanimalRightClickedOnEntity"
+    },
     "onMobTickUpdate": {
       "name": "PritchanimalOnEntityTickUpdate"
     },

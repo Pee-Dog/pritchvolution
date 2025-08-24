@@ -61,17 +61,17 @@ public class PritchanimalRenderer extends MobRenderer<PritchanimalEntity, Modelp
 								new AnimationChannel(AnimationChannel.Targets.SCALE, 
 										new Keyframe(0.0F, 
 												KeyframeAnimations.scaleVec((float) entity.getEntityData().get(PritchanimalEntity.DATA_SCALE_Body_x) / 100, (float) entity.getEntityData().get(PritchanimalEntity.DATA_SCALE_Body_y) / 100, (float) entity.getEntityData().get(PritchanimalEntity.DATA_SCALE_Body_z) / 100), AnimationChannel.Interpolations.LINEAR)))
-						.addAnimation("head", 
+						.addAnimation("head_offset", 
 								new AnimationChannel(AnimationChannel.Targets.SCALE, 
 										new Keyframe(0.0F, 
 												KeyframeAnimations.scaleVec((float) entity.getEntityData().get(PritchanimalEntity.DATA_SCALE_Head_x) / 100, (float) entity.getEntityData().get(PritchanimalEntity.DATA_SCALE_Head_y) / 100, (float) entity.getEntityData().get(PritchanimalEntity.DATA_SCALE_Head_z) / 100), AnimationChannel.Interpolations.LINEAR)))
-						.addAnimation("left_arm",
+						.addAnimation("left_arm_offset",
 								new AnimationChannel(AnimationChannel.Targets.SCALE,
 										new Keyframe(0.0F,
 												KeyframeAnimations.scaleVec((float) entity.getEntityData().get(PritchanimalEntity.DATA_SCALE_Arm_x) / 100, (float) entity.getEntityData().get(PritchanimalEntity.DATA_SCALE_Arm_y) / 100,
 														(float) entity.getEntityData().get(PritchanimalEntity.DATA_SCALE_Arm_z) / 100),
 												AnimationChannel.Interpolations.LINEAR)))
-						.addAnimation("right_arm", 
+						.addAnimation("right_arm_offset", 
 								new AnimationChannel(AnimationChannel.Targets.SCALE, 
 										new Keyframe(0.0F, 
 												KeyframeAnimations.scaleVec((float) entity.getEntityData().get(PritchanimalEntity.DATA_SCALE_Arm_x) / 100,(float) entity.getEntityData().get(PritchanimalEntity.DATA_SCALE_Arm_y) / 100, 
@@ -92,7 +92,15 @@ public class PritchanimalRenderer extends MobRenderer<PritchanimalEntity, Modelp
 						.addAnimation("head", 
 								new AnimationChannel(AnimationChannel.Targets.POSITION, 
 										new Keyframe(0.0F, 
-												KeyframeAnimations.posVec(0.0F, (float) entity.getEntityData().get(PritchanimalEntity.DATA_POSITION_Head_y), (float) entity.getEntityData().get(PritchanimalEntity.DATA_POSITION_Head_z)), AnimationChannel.Interpolations.LINEAR))).build();
+												KeyframeAnimations.posVec(0.0F, (float) entity.getEntityData().get(PritchanimalEntity.DATA_POSITION_Head_y), (float) entity.getEntityData().get(PritchanimalEntity.DATA_POSITION_Head_z)), AnimationChannel.Interpolations.LINEAR)))
+						.addAnimation("right_arm", 
+								new AnimationChannel(AnimationChannel.Targets.POSITION, 
+										new Keyframe(0.0F, 
+												KeyframeAnimations.posVec(0.0F, (float) entity.getEntityData().get(PritchanimalEntity.DATA_POSITION_Arm_y), (float) entity.getEntityData().get(PritchanimalEntity.DATA_POSITION_Arm_z)), AnimationChannel.Interpolations.LINEAR)))
+						.addAnimation("left_arm", 
+								new AnimationChannel(AnimationChannel.Targets.POSITION, 
+										new Keyframe(0.0F, 
+												KeyframeAnimations.posVec(0.0F, (float) entity.getEntityData().get(PritchanimalEntity.DATA_POSITION_Arm_y), (float) entity.getEntityData().get(PritchanimalEntity.DATA_POSITION_Arm_z)), AnimationChannel.Interpolations.LINEAR))).build();
 				this.animate(entity.animationState0, armslegstest, ageInTicks, 1f);
 			}
 		};
