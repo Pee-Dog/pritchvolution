@@ -51,6 +51,46 @@
           "src/main/java/net/mcreator/pritchvolution/procedures/PritchanimalOnEntityTickUpdateProcedure.java"
         ]
       }
+    },
+    {
+      "name": "PritchanimalRightClickedOnEntity",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "pritchanimal_right_clicked_on_entity",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/pritchvolution/procedures/PritchanimalRightClickedOnEntityProcedure.java"
+        ]
+      }
+    },
+    {
+      "name": "PritchanimalModelVisualScale",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "pritchanimal_model_visual_scale",
+      "metadata": {
+        "dependencies": [],
+        "return_type": "number",
+        "files": [
+          "src/main/java/net/mcreator/pritchvolution/procedures/PritchanimalModelVisualScaleProcedure.java"
+        ]
+      }
     }
   ],
   "variable_elements": [],

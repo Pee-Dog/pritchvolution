@@ -10,6 +10,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
@@ -27,9 +28,12 @@ import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.AnimationState;
 import net.minecraft.world.entity.AgeableMob;
 import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.InteractionHand;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.Difficulty;
 import net.minecraft.sounds.SoundEvent;
@@ -42,6 +46,7 @@ import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.nbt.CompoundTag;
 
+import net.mcreator.pritchvolution.procedures.PritchanimalRightClickedOnEntityProcedure;
 import net.mcreator.pritchvolution.procedures.PritchanimalOnInitialEntitySpawnProcedure;
 import net.mcreator.pritchvolution.procedures.PritchanimalOnEntityTickUpdateProcedure;
 import net.mcreator.pritchvolution.init.PritchvolutionModEntities;
@@ -61,6 +66,13 @@ public class PritchanimalEntity extends Animal {
 	public static final EntityDataAccessor<Integer> DATA_SCALE_Body_x = SynchedEntityData.defineId(PritchanimalEntity.class, EntityDataSerializers.INT);
 	public static final EntityDataAccessor<Integer> DATA_SCALE_Body_y = SynchedEntityData.defineId(PritchanimalEntity.class, EntityDataSerializers.INT);
 	public static final EntityDataAccessor<Integer> DATA_SCALE_Body_z = SynchedEntityData.defineId(PritchanimalEntity.class, EntityDataSerializers.INT);
+	public static final EntityDataAccessor<Integer> DATA_SCALE_Head_x = SynchedEntityData.defineId(PritchanimalEntity.class, EntityDataSerializers.INT);
+	public static final EntityDataAccessor<Integer> DATA_SCALE_Head_y = SynchedEntityData.defineId(PritchanimalEntity.class, EntityDataSerializers.INT);
+	public static final EntityDataAccessor<Integer> DATA_SCALE_Head_z = SynchedEntityData.defineId(PritchanimalEntity.class, EntityDataSerializers.INT);
+	public static final EntityDataAccessor<Integer> DATA_POSITION_Head_y = SynchedEntityData.defineId(PritchanimalEntity.class, EntityDataSerializers.INT);
+	public static final EntityDataAccessor<Integer> DATA_POSITION_Head_z = SynchedEntityData.defineId(PritchanimalEntity.class, EntityDataSerializers.INT);
+	public static final EntityDataAccessor<Integer> DATA_POSITION_Arm_y = SynchedEntityData.defineId(PritchanimalEntity.class, EntityDataSerializers.INT);
+	public static final EntityDataAccessor<Integer> DATA_POSITION_Arm_z = SynchedEntityData.defineId(PritchanimalEntity.class, EntityDataSerializers.INT);
 	public final AnimationState animationState0 = new AnimationState();
 
 	public PritchanimalEntity(PlayMessages.SpawnEntity packet, Level world) {
@@ -94,6 +106,13 @@ public class PritchanimalEntity extends Animal {
 		this.entityData.define(DATA_SCALE_Body_x, 100);
 		this.entityData.define(DATA_SCALE_Body_y, 100);
 		this.entityData.define(DATA_SCALE_Body_z, 100);
+		this.entityData.define(DATA_SCALE_Head_x, 100);
+		this.entityData.define(DATA_SCALE_Head_y, 100);
+		this.entityData.define(DATA_SCALE_Head_z, 100);
+		this.entityData.define(DATA_POSITION_Head_y, 0);
+		this.entityData.define(DATA_POSITION_Head_z, 0);
+		this.entityData.define(DATA_POSITION_Arm_y, 0);
+		this.entityData.define(DATA_POSITION_Arm_z, 0);
 	}
 
 	@Override
@@ -149,6 +168,13 @@ public class PritchanimalEntity extends Animal {
 		compound.putInt("DataSCALE_Body_x", this.entityData.get(DATA_SCALE_Body_x));
 		compound.putInt("DataSCALE_Body_y", this.entityData.get(DATA_SCALE_Body_y));
 		compound.putInt("DataSCALE_Body_z", this.entityData.get(DATA_SCALE_Body_z));
+		compound.putInt("DataSCALE_Head_x", this.entityData.get(DATA_SCALE_Head_x));
+		compound.putInt("DataSCALE_Head_y", this.entityData.get(DATA_SCALE_Head_y));
+		compound.putInt("DataSCALE_Head_z", this.entityData.get(DATA_SCALE_Head_z));
+		compound.putInt("DataPOSITION_Head_y", this.entityData.get(DATA_POSITION_Head_y));
+		compound.putInt("DataPOSITION_Head_z", this.entityData.get(DATA_POSITION_Head_z));
+		compound.putInt("DataPOSITION_Arm_y", this.entityData.get(DATA_POSITION_Arm_y));
+		compound.putInt("DataPOSITION_Arm_z", this.entityData.get(DATA_POSITION_Arm_z));
 	}
 
 	@Override
@@ -178,6 +204,35 @@ public class PritchanimalEntity extends Animal {
 			this.entityData.set(DATA_SCALE_Body_y, compound.getInt("DataSCALE_Body_y"));
 		if (compound.contains("DataSCALE_Body_z"))
 			this.entityData.set(DATA_SCALE_Body_z, compound.getInt("DataSCALE_Body_z"));
+		if (compound.contains("DataSCALE_Head_x"))
+			this.entityData.set(DATA_SCALE_Head_x, compound.getInt("DataSCALE_Head_x"));
+		if (compound.contains("DataSCALE_Head_y"))
+			this.entityData.set(DATA_SCALE_Head_y, compound.getInt("DataSCALE_Head_y"));
+		if (compound.contains("DataSCALE_Head_z"))
+			this.entityData.set(DATA_SCALE_Head_z, compound.getInt("DataSCALE_Head_z"));
+		if (compound.contains("DataPOSITION_Head_y"))
+			this.entityData.set(DATA_POSITION_Head_y, compound.getInt("DataPOSITION_Head_y"));
+		if (compound.contains("DataPOSITION_Head_z"))
+			this.entityData.set(DATA_POSITION_Head_z, compound.getInt("DataPOSITION_Head_z"));
+		if (compound.contains("DataPOSITION_Arm_y"))
+			this.entityData.set(DATA_POSITION_Arm_y, compound.getInt("DataPOSITION_Arm_y"));
+		if (compound.contains("DataPOSITION_Arm_z"))
+			this.entityData.set(DATA_POSITION_Arm_z, compound.getInt("DataPOSITION_Arm_z"));
+	}
+
+	@Override
+	public InteractionResult mobInteract(Player sourceentity, InteractionHand hand) {
+		ItemStack itemstack = sourceentity.getItemInHand(hand);
+		InteractionResult retval = InteractionResult.sidedSuccess(this.level().isClientSide());
+		super.mobInteract(sourceentity, hand);
+		double x = this.getX();
+		double y = this.getY();
+		double z = this.getZ();
+		Entity entity = this;
+		Level world = this.level();
+
+		PritchanimalRightClickedOnEntityProcedure.execute(world, entity, sourceentity);
+		return retval;
 	}
 
 	@Override
