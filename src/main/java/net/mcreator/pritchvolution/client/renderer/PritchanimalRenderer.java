@@ -61,10 +61,42 @@ public class PritchanimalRenderer extends MobRenderer<PritchanimalEntity, Modelp
 								new AnimationChannel(AnimationChannel.Targets.SCALE, 
 										new Keyframe(0.0F, 
 												KeyframeAnimations.scaleVec((float) entity.getEntityData().get(PritchanimalEntity.DATA_SCALE_Body_x) / 100, (float) entity.getEntityData().get(PritchanimalEntity.DATA_SCALE_Body_y) / 100, (float) entity.getEntityData().get(PritchanimalEntity.DATA_SCALE_Body_z) / 100), AnimationChannel.Interpolations.LINEAR)))
+						.addAnimation("tail", 
+								new AnimationChannel(AnimationChannel.Targets.SCALE, 
+										new Keyframe(0.0F, 
+												KeyframeAnimations.scaleVec((float) entity.getEntityData().get(PritchanimalEntity.DATA_SCALE_Tail_x) / 100, (float) entity.getEntityData().get(PritchanimalEntity.DATA_SCALE_Tail_y) / 100, (float) entity.getEntityData().get(PritchanimalEntity.DATA_SCALE_Tail_z) / 100), AnimationChannel.Interpolations.LINEAR)))
 						.addAnimation("head_offset", 
 								new AnimationChannel(AnimationChannel.Targets.SCALE, 
 										new Keyframe(0.0F, 
 												KeyframeAnimations.scaleVec((float) entity.getEntityData().get(PritchanimalEntity.DATA_SCALE_Head_x) / 100, (float) entity.getEntityData().get(PritchanimalEntity.DATA_SCALE_Head_y) / 100, (float) entity.getEntityData().get(PritchanimalEntity.DATA_SCALE_Head_z) / 100), AnimationChannel.Interpolations.LINEAR)))
+						.addAnimation("nose", 
+								new AnimationChannel(AnimationChannel.Targets.SCALE, 
+										new Keyframe(0.0F, 
+												KeyframeAnimations.scaleVec((float) entity.getEntityData().get(PritchanimalEntity.DATA_SCALE_Nose_x) / 100, (float) entity.getEntityData().get(PritchanimalEntity.DATA_SCALE_Nose_y) / 100, (float) entity.getEntityData().get(PritchanimalEntity.DATA_SCALE_Nose_z) / 100), AnimationChannel.Interpolations.LINEAR)))
+						.addAnimation("snout", 
+								new AnimationChannel(AnimationChannel.Targets.SCALE, 
+										new Keyframe(0.0F, 
+												KeyframeAnimations.scaleVec((float) entity.getEntityData().get(PritchanimalEntity.DATA_SCALE_Snout_x) / 100, 1.0F, (float) entity.getEntityData().get(PritchanimalEntity.DATA_SCALE_Snout_z) / 100), AnimationChannel.Interpolations.LINEAR)))
+						.addAnimation("beak", 
+								new AnimationChannel(AnimationChannel.Targets.SCALE, 
+										new Keyframe(0.0F, 
+												KeyframeAnimations.scaleVec((float) entity.getEntityData().get(PritchanimalEntity.DATA_SCALE_Beak_x) / 100, (float) entity.getEntityData().get(PritchanimalEntity.DATA_SCALE_Beak_y) / 100, (float) entity.getEntityData().get(PritchanimalEntity.DATA_SCALE_Beak_z) / 100), AnimationChannel.Interpolations.LINEAR)))
+						.addAnimation("left_ear", 
+								new AnimationChannel(AnimationChannel.Targets.SCALE, 
+										new Keyframe(0.0F, 
+												KeyframeAnimations.scaleVec((float) entity.getEntityData().get(PritchanimalEntity.DATA_SCALE_Ear_x) / 100, (float) entity.getEntityData().get(PritchanimalEntity.DATA_SCALE_Ear_y) / 100, (float) entity.getEntityData().get(PritchanimalEntity.DATA_SCALE_Ear_z) / 100), AnimationChannel.Interpolations.LINEAR)))
+						.addAnimation("right_ear", 
+								new AnimationChannel(AnimationChannel.Targets.SCALE, 
+										new Keyframe(0.0F, 
+												KeyframeAnimations.scaleVec((float) entity.getEntityData().get(PritchanimalEntity.DATA_SCALE_Ear_x) / 100, (float) entity.getEntityData().get(PritchanimalEntity.DATA_SCALE_Ear_y) / 100, (float) entity.getEntityData().get(PritchanimalEntity.DATA_SCALE_Ear_z) / 100), AnimationChannel.Interpolations.LINEAR)))
+						.addAnimation("left_bunnyear", 
+								new AnimationChannel(AnimationChannel.Targets.SCALE, 
+										new Keyframe(0.0F, 
+												KeyframeAnimations.scaleVec((float) entity.getEntityData().get(PritchanimalEntity.DATA_SCALE_Bunnyear_x) / 100, (float) entity.getEntityData().get(PritchanimalEntity.DATA_SCALE_Bunnyear_y) / 100, (float) entity.getEntityData().get(PritchanimalEntity.DATA_SCALE_Bunnyear_z) / 100), AnimationChannel.Interpolations.LINEAR)))
+						.addAnimation("right_bunnyear", 
+								new AnimationChannel(AnimationChannel.Targets.SCALE, 
+										new Keyframe(0.0F, 
+												KeyframeAnimations.scaleVec((float) entity.getEntityData().get(PritchanimalEntity.DATA_SCALE_Bunnyear_x) / 100, (float) entity.getEntityData().get(PritchanimalEntity.DATA_SCALE_Bunnyear_y) / 100, (float) entity.getEntityData().get(PritchanimalEntity.DATA_SCALE_Bunnyear_z) / 100), AnimationChannel.Interpolations.LINEAR)))
 						.addAnimation("left_arm_offset",
 								new AnimationChannel(AnimationChannel.Targets.SCALE,
 										new Keyframe(0.0F,
@@ -85,10 +117,10 @@ public class PritchanimalRenderer extends MobRenderer<PritchanimalEntity, Modelp
 								new AnimationChannel(AnimationChannel.Targets.SCALE, 
 										new Keyframe(0.0F, 
 												KeyframeAnimations.scaleVec((float) entity.getEntityData().get(PritchanimalEntity.DATA_SCALE_Leg_x) / 100, (float) entity.getEntityData().get(PritchanimalEntity.DATA_SCALE_Leg_y) / 100, (float) entity.getEntityData().get(PritchanimalEntity.DATA_SCALE_Leg_z) / 100), AnimationChannel.Interpolations.LINEAR)))						
-						.addAnimation("root", 
+						.addAnimation("root_bone", 
 								new AnimationChannel(AnimationChannel.Targets.POSITION, 
 										new Keyframe(0.0F, 
-												KeyframeAnimations.posVec(0.0F, -10.0F, 0.0F), AnimationChannel.Interpolations.LINEAR)))
+												KeyframeAnimations.posVec(0.0F, 0.0F, 0.0F), AnimationChannel.Interpolations.LINEAR)))
 						.addAnimation("head", 
 								new AnimationChannel(AnimationChannel.Targets.POSITION, 
 										new Keyframe(0.0F, 

@@ -30,7 +30,8 @@
         ],
         "files": [
           "src/main/java/net/mcreator/pritchvolution/procedures/PritchanimalOnInitialEntitySpawnProcedure.java"
-        ]
+        ],
+        "return_type": "number"
       }
     },
     {
