@@ -3,14 +3,24 @@ package net.mcreator.pritchvolution.entity;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.network.PlayMessages;
 import net.minecraftforge.network.NetworkHooks;
+import net.minecraftforge.items.wrapper.EntityHandsInvWrapper;
+import net.minecraftforge.items.wrapper.EntityArmorInvWrapper;
+import net.minecraftforge.items.wrapper.CombinedInvWrapper;
+import net.minecraftforge.items.ItemStackHandler;
+import net.minecraftforge.common.util.LazyOptional;
+import net.minecraftforge.common.capabilities.ForgeCapabilities;
+import net.minecraftforge.common.capabilities.Capability;
 
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
@@ -28,15 +38,16 @@ import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.AnimationState;
 import net.minecraft.world.entity.AgeableMob;
 import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.MenuProvider;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.Difficulty;
 import net.minecraft.sounds.SoundEvent;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.network.syncher.SynchedEntityData;
@@ -44,14 +55,20 @@ import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.network.protocol.Packet;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.core.Direction;
 
-import net.mcreator.pritchvolution.procedures.PritchanimalRightClickedOnEntityProcedure;
+import net.mcreator.pritchvolution.world.inventory.DebugUsefulMenu;
 import net.mcreator.pritchvolution.procedures.PritchanimalOnInitialEntitySpawnProcedure;
 import net.mcreator.pritchvolution.procedures.PritchanimalOnEntityTickUpdateProcedure;
 import net.mcreator.pritchvolution.init.PritchvolutionModEntities;
 
 import javax.annotation.Nullable;
+import javax.annotation.Nonnull;
+
+import io.netty.buffer.Unpooled;
 
 public class PritchanimalEntity extends Animal {
 	public static final EntityDataAccessor<Boolean> DATA_armslegstest = SynchedEntityData.defineId(PritchanimalEntity.class, EntityDataSerializers.BOOLEAN);
@@ -195,6 +212,32 @@ public class PritchanimalEntity extends Animal {
 		return retval;
 	}
 
+	private final ItemStackHandler inventory = new ItemStackHandler(9) {
+		@Override
+		public int getSlotLimit(int slot) {
+			return 99;
+		}
+	};
+	private final CombinedInvWrapper combined = new CombinedInvWrapper(inventory, new EntityHandsInvWrapper(this), new EntityArmorInvWrapper(this));
+
+	@Override
+	public <T> LazyOptional<T> getCapability(@Nonnull Capability<T> capability, @Nullable Direction side) {
+		if (this.isAlive() && capability == ForgeCapabilities.ITEM_HANDLER && side == null)
+			return LazyOptional.of(() -> combined).cast();
+		return super.getCapability(capability, side);
+	}
+
+	@Override
+	protected void dropEquipment() {
+		super.dropEquipment();
+		for (int i = 0; i < inventory.getSlots(); ++i) {
+			ItemStack itemstack = inventory.getStackInSlot(i);
+			if (!itemstack.isEmpty() && !EnchantmentHelper.hasVanishingCurse(itemstack)) {
+				this.spawnAtLocation(itemstack);
+			}
+		}
+	}
+
 	@Override
 	public void addAdditionalSaveData(CompoundTag compound) {
 		super.addAdditionalSaveData(compound);
@@ -238,6 +281,7 @@ public class PritchanimalEntity extends Animal {
 		compound.putInt("DataSCALE_Tail_x", this.entityData.get(DATA_SCALE_Tail_x));
 		compound.putInt("DataSCALE_Tail_y", this.entityData.get(DATA_SCALE_Tail_y));
 		compound.putInt("DataSCALE_Tail_z", this.entityData.get(DATA_SCALE_Tail_z));
+		compound.put("InventoryCustom", inventory.serializeNBT());
 	}
 
 	@Override
@@ -323,20 +367,36 @@ public class PritchanimalEntity extends Animal {
 			this.entityData.set(DATA_SCALE_Tail_y, compound.getInt("DataSCALE_Tail_y"));
 		if (compound.contains("DataSCALE_Tail_z"))
 			this.entityData.set(DATA_SCALE_Tail_z, compound.getInt("DataSCALE_Tail_z"));
+		if (compound.get("InventoryCustom") instanceof CompoundTag inventoryTag)
+			inventory.deserializeNBT(inventoryTag);
 	}
 
 	@Override
 	public InteractionResult mobInteract(Player sourceentity, InteractionHand hand) {
 		ItemStack itemstack = sourceentity.getItemInHand(hand);
 		InteractionResult retval = InteractionResult.sidedSuccess(this.level().isClientSide());
-		super.mobInteract(sourceentity, hand);
-		double x = this.getX();
-		double y = this.getY();
-		double z = this.getZ();
-		Entity entity = this;
-		Level world = this.level();
+		if (sourceentity instanceof ServerPlayer serverPlayer) {
+			NetworkHooks.openScreen(serverPlayer, new MenuProvider() {
+				@Override
+				public Component getDisplayName() {
+					return Component.literal("Pritch Animal");
+				}
 
-		PritchanimalRightClickedOnEntityProcedure.execute(world, entity, sourceentity);
+				@Override
+				public AbstractContainerMenu createMenu(int id, Inventory inventory, Player player) {
+					FriendlyByteBuf packetBuffer = new FriendlyByteBuf(Unpooled.buffer());
+					packetBuffer.writeBlockPos(sourceentity.blockPosition());
+					packetBuffer.writeByte(0);
+					packetBuffer.writeVarInt(PritchanimalEntity.this.getId());
+					return new DebugUsefulMenu(id, inventory, packetBuffer);
+				}
+			}, buf -> {
+				buf.writeBlockPos(sourceentity.blockPosition());
+				buf.writeByte(0);
+				buf.writeVarInt(this.getId());
+			});
+		}
+		super.mobInteract(sourceentity, hand);
 		return retval;
 	}
 

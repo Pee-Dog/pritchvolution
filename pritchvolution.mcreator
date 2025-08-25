@@ -54,32 +54,6 @@
       }
     },
     {
-      "name": "PritchanimalRightClickedOnEntity",
-      "type": "procedure",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "pritchanimal_right_clicked_on_entity",
-      "metadata": {
-        "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          },
-          {
-            "name": "sourceentity",
-            "type": "entity"
-          },
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ],
-        "files": [
-          "src/main/java/net/mcreator/pritchvolution/procedures/PritchanimalRightClickedOnEntityProcedure.java"
-        ]
-      }
-    },
-    {
       "name": "PritchanimalModelVisualScale",
       "type": "procedure",
       "compiles": true,
@@ -90,6 +64,19 @@
         "return_type": "number",
         "files": [
           "src/main/java/net/mcreator/pritchvolution/procedures/PritchanimalModelVisualScaleProcedure.java"
+        ]
+      }
+    },
+    {
+      "name": "DebugUseful",
+      "type": "gui",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "debug_useful",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/pritchvolution/world/inventory/DebugUsefulMenu.java",
+          "src/main/java/net/mcreator/pritchvolution/client/gui/DebugUsefulScreen.java"
         ]
       }
     }
@@ -107,10 +94,13 @@
   "metadata": {
     "files": [
       "src/main/resources/pack.mcmeta",
-      "src/main/java/net/mcreator/pritchvolution/init/PritchvolutionModModels.java",
       "src/main/java/net/mcreator/pritchvolution/PritchvolutionMod.java",
-      "src/main/java/net/mcreator/pritchvolution/init/PritchvolutionModTabs.java",
       "src/main/resources/META-INF/mods.toml",
+      "src/main/java/net/mcreator/pritchvolution/init/PritchvolutionModModels.java",
+      "src/main/java/net/mcreator/pritchvolution/init/PritchvolutionModTabs.java",
+      "src/main/java/net/mcreator/pritchvolution/init/PritchvolutionModMenus.java",
+      "src/main/java/net/mcreator/pritchvolution/init/PritchvolutionModScreens.java",
+      "src/main/java/net/mcreator/pritchvolution/network/MenuStateUpdateMessage.java",
       "src/main/java/net/mcreator/pritchvolution/init/PritchvolutionModItems.java",
       "src/main/java/net/mcreator/pritchvolution/init/PritchvolutionModEntityRenderers.java",
       "src/main/java/net/mcreator/pritchvolution/init/PritchvolutionModEntities.java"

@@ -61,9 +61,13 @@ public class PritchanimalOnInitialEntitySpawnProcedure {
 			_datEntSetI.getEntityData().set(PritchanimalEntity.DATA_SCALE_Head_z,
 					(int) ((entity instanceof PritchanimalEntity _datEntI ? _datEntI.getEntityData().get(PritchanimalEntity.DATA_SCALE_Head_z) : 0) + Mth.nextDouble(RandomSource.create(), -50, 50)));
 		if (entity instanceof PritchanimalEntity _datEntSetI)
-			_datEntSetI.getEntityData().set(PritchanimalEntity.DATA_POSITION_Head_y, (int) ((entity instanceof PritchanimalEntity _datEntI ? _datEntI.getEntityData().get(PritchanimalEntity.DATA_ROTATION_Body_x) : 0) / (-5)));
+			_datEntSetI.getEntityData().set(PritchanimalEntity.DATA_POSITION_Head_y,
+					(int) ((-12) * Math.sin(Math.toRadians(entity instanceof PritchanimalEntity _datEntI ? _datEntI.getEntityData().get(PritchanimalEntity.DATA_ROTATION_Body_x) : 0))
+							+ 12 * ((entity instanceof PritchanimalEntity _datEntI ? _datEntI.getEntityData().get(PritchanimalEntity.DATA_SCALE_Body_y) : 0) / 100 - 1)
+									* Math.cos(Math.toRadians(entity instanceof PritchanimalEntity _datEntI ? _datEntI.getEntityData().get(PritchanimalEntity.DATA_ROTATION_Body_x) : 0))));
 		if (entity instanceof PritchanimalEntity _datEntSetI)
-			_datEntSetI.getEntityData().set(PritchanimalEntity.DATA_POSITION_Head_z, (int) ((entity instanceof PritchanimalEntity _datEntI ? _datEntI.getEntityData().get(PritchanimalEntity.DATA_ROTATION_Body_x) : 0) / (-5)));
+			_datEntSetI.getEntityData().set(PritchanimalEntity.DATA_POSITION_Head_z, (int) ((-16) * ((entity instanceof PritchanimalEntity _datEntI ? _datEntI.getEntityData().get(PritchanimalEntity.DATA_SCALE_Body_y) : 0) / 100)
+					* Math.sin(Math.toRadians(entity instanceof PritchanimalEntity _datEntI ? _datEntI.getEntityData().get(PritchanimalEntity.DATA_ROTATION_Body_x) : 0))));
 		if (entity instanceof PritchanimalEntity _datEntSetI)
 			_datEntSetI.getEntityData().set(PritchanimalEntity.DATA_POSITION_Arm_y, (int) ((entity instanceof PritchanimalEntity _datEntI ? _datEntI.getEntityData().get(PritchanimalEntity.DATA_ROTATION_Body_x) : 0) / (-9)));
 		if (entity instanceof PritchanimalEntity _datEntSetI)

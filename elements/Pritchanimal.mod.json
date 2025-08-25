@@ -94,6 +94,7 @@
       "fixedValue": true
     },
     "flyingMob": false,
+    "guiBoundTo": "DebugUseful",
     "inventorySize": 9,
     "inventoryStackSize": 99,
     "disableCollisions": false,
@@ -411,9 +412,6 @@
         "value": 0
       }
     ],
-    "onRightClickedOn": {
-      "name": "PritchanimalRightClickedOnEntity"
-    },
     "onMobTickUpdate": {
       "name": "PritchanimalOnEntityTickUpdate"
     },
