@@ -40,41 +40,9 @@
       "locked_code": false,
       "registry_name": "pritchanimal_on_entity_tick_update",
       "metadata": {
-        "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          }
-        ],
-        "return_type": "logic",
+        "dependencies": [],
         "files": [
           "src/main/java/net/mcreator/pritchvolution/procedures/PritchanimalOnEntityTickUpdateProcedure.java"
-        ]
-      }
-    },
-    {
-      "name": "PritchanimalRightClickedOnEntity",
-      "type": "procedure",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "pritchanimal_right_clicked_on_entity",
-      "metadata": {
-        "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          },
-          {
-            "name": "sourceentity",
-            "type": "entity"
-          },
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ],
-        "files": [
-          "src/main/java/net/mcreator/pritchvolution/procedures/PritchanimalRightClickedOnEntityProcedure.java"
         ]
       }
     },
@@ -85,7 +53,12 @@
       "locked_code": false,
       "registry_name": "pritchanimal_model_visual_scale",
       "metadata": {
-        "dependencies": [],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ],
         "return_type": "number",
         "files": [
           "src/main/java/net/mcreator/pritchvolution/procedures/PritchanimalModelVisualScaleProcedure.java"
@@ -106,10 +79,10 @@
   "metadata": {
     "files": [
       "src/main/resources/pack.mcmeta",
-      "src/main/java/net/mcreator/pritchvolution/init/PritchvolutionModModels.java",
       "src/main/java/net/mcreator/pritchvolution/PritchvolutionMod.java",
-      "src/main/java/net/mcreator/pritchvolution/init/PritchvolutionModTabs.java",
       "src/main/resources/META-INF/mods.toml",
+      "src/main/java/net/mcreator/pritchvolution/init/PritchvolutionModModels.java",
+      "src/main/java/net/mcreator/pritchvolution/init/PritchvolutionModTabs.java",
       "src/main/java/net/mcreator/pritchvolution/init/PritchvolutionModItems.java",
       "src/main/java/net/mcreator/pritchvolution/init/PritchvolutionModEntityRenderers.java",
       "src/main/java/net/mcreator/pritchvolution/init/PritchvolutionModEntities.java"

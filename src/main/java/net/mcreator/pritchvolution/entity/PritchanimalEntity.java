@@ -10,7 +10,6 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
@@ -28,12 +27,9 @@ import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.AnimationState;
 import net.minecraft.world.entity.AgeableMob;
 import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.InteractionResult;
-import net.minecraft.world.InteractionHand;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.Difficulty;
 import net.minecraft.sounds.SoundEvent;
@@ -46,9 +42,7 @@ import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.nbt.CompoundTag;
 
-import net.mcreator.pritchvolution.procedures.PritchanimalRightClickedOnEntityProcedure;
 import net.mcreator.pritchvolution.procedures.PritchanimalOnInitialEntitySpawnProcedure;
-import net.mcreator.pritchvolution.procedures.PritchanimalOnEntityTickUpdateProcedure;
 import net.mcreator.pritchvolution.init.PritchvolutionModEntities;
 
 import javax.annotation.Nullable;
@@ -73,6 +67,28 @@ public class PritchanimalEntity extends Animal {
 	public static final EntityDataAccessor<Integer> DATA_POSITION_Head_z = SynchedEntityData.defineId(PritchanimalEntity.class, EntityDataSerializers.INT);
 	public static final EntityDataAccessor<Integer> DATA_POSITION_Arm_y = SynchedEntityData.defineId(PritchanimalEntity.class, EntityDataSerializers.INT);
 	public static final EntityDataAccessor<Integer> DATA_POSITION_Arm_z = SynchedEntityData.defineId(PritchanimalEntity.class, EntityDataSerializers.INT);
+	public static final EntityDataAccessor<Integer> DATA_nose_type = SynchedEntityData.defineId(PritchanimalEntity.class, EntityDataSerializers.INT);
+	public static final EntityDataAccessor<Integer> DATA_ears_type = SynchedEntityData.defineId(PritchanimalEntity.class, EntityDataSerializers.INT);
+	public static final EntityDataAccessor<Integer> DATA_tail_type = SynchedEntityData.defineId(PritchanimalEntity.class, EntityDataSerializers.INT);
+	public static final EntityDataAccessor<Integer> DATA_SCALE_Nose_x = SynchedEntityData.defineId(PritchanimalEntity.class, EntityDataSerializers.INT);
+	public static final EntityDataAccessor<Integer> DATA_SCALE_Nose_y = SynchedEntityData.defineId(PritchanimalEntity.class, EntityDataSerializers.INT);
+	public static final EntityDataAccessor<Integer> DATA_SCALE_Nose_z = SynchedEntityData.defineId(PritchanimalEntity.class, EntityDataSerializers.INT);
+	public static final EntityDataAccessor<Integer> DATA_SCALE_Snout_x = SynchedEntityData.defineId(PritchanimalEntity.class, EntityDataSerializers.INT);
+	public static final EntityDataAccessor<Integer> DATA_SCALE_Snout_z = SynchedEntityData.defineId(PritchanimalEntity.class, EntityDataSerializers.INT);
+	public static final EntityDataAccessor<Integer> DATA_SCALE_Ear_x = SynchedEntityData.defineId(PritchanimalEntity.class, EntityDataSerializers.INT);
+	public static final EntityDataAccessor<Integer> DATA_SCALE_Ear_y = SynchedEntityData.defineId(PritchanimalEntity.class, EntityDataSerializers.INT);
+	public static final EntityDataAccessor<Integer> DATA_SCALE_Ear_z = SynchedEntityData.defineId(PritchanimalEntity.class, EntityDataSerializers.INT);
+	public static final EntityDataAccessor<Integer> DATA_SCALE_Bunnyear_x = SynchedEntityData.defineId(PritchanimalEntity.class, EntityDataSerializers.INT);
+	public static final EntityDataAccessor<Integer> DATA_SCALE_Bunnyear_y = SynchedEntityData.defineId(PritchanimalEntity.class, EntityDataSerializers.INT);
+	public static final EntityDataAccessor<Integer> DATA_SCALE_Bunnyear_z = SynchedEntityData.defineId(PritchanimalEntity.class, EntityDataSerializers.INT);
+	public static final EntityDataAccessor<Integer> DATA_POSITION_Root_y = SynchedEntityData.defineId(PritchanimalEntity.class, EntityDataSerializers.INT);
+	public static final EntityDataAccessor<Integer> DATA_SCALE_Beak_x = SynchedEntityData.defineId(PritchanimalEntity.class, EntityDataSerializers.INT);
+	public static final EntityDataAccessor<Integer> DATA_SCALE_Beak_y = SynchedEntityData.defineId(PritchanimalEntity.class, EntityDataSerializers.INT);
+	public static final EntityDataAccessor<Integer> DATA_SCALE_Beak_z = SynchedEntityData.defineId(PritchanimalEntity.class, EntityDataSerializers.INT);
+	public static final EntityDataAccessor<Integer> DATA_SCALE_Tail_x = SynchedEntityData.defineId(PritchanimalEntity.class, EntityDataSerializers.INT);
+	public static final EntityDataAccessor<Integer> DATA_SCALE_Tail_y = SynchedEntityData.defineId(PritchanimalEntity.class, EntityDataSerializers.INT);
+	public static final EntityDataAccessor<Integer> DATA_SCALE_Tail_z = SynchedEntityData.defineId(PritchanimalEntity.class, EntityDataSerializers.INT);
+	public static final EntityDataAccessor<Integer> DATA_size = SynchedEntityData.defineId(PritchanimalEntity.class, EntityDataSerializers.INT);
 	public final AnimationState animationState0 = new AnimationState();
 
 	public PritchanimalEntity(PlayMessages.SpawnEntity packet, Level world) {
@@ -113,6 +129,28 @@ public class PritchanimalEntity extends Animal {
 		this.entityData.define(DATA_POSITION_Head_z, 0);
 		this.entityData.define(DATA_POSITION_Arm_y, 0);
 		this.entityData.define(DATA_POSITION_Arm_z, 0);
+		this.entityData.define(DATA_nose_type, 0);
+		this.entityData.define(DATA_ears_type, 0);
+		this.entityData.define(DATA_tail_type, 0);
+		this.entityData.define(DATA_SCALE_Nose_x, 0);
+		this.entityData.define(DATA_SCALE_Nose_y, 0);
+		this.entityData.define(DATA_SCALE_Nose_z, 0);
+		this.entityData.define(DATA_SCALE_Snout_x, 0);
+		this.entityData.define(DATA_SCALE_Snout_z, 0);
+		this.entityData.define(DATA_SCALE_Ear_x, 0);
+		this.entityData.define(DATA_SCALE_Ear_y, 0);
+		this.entityData.define(DATA_SCALE_Ear_z, 0);
+		this.entityData.define(DATA_SCALE_Bunnyear_x, 0);
+		this.entityData.define(DATA_SCALE_Bunnyear_y, 0);
+		this.entityData.define(DATA_SCALE_Bunnyear_z, 0);
+		this.entityData.define(DATA_POSITION_Root_y, 0);
+		this.entityData.define(DATA_SCALE_Beak_x, 0);
+		this.entityData.define(DATA_SCALE_Beak_y, 0);
+		this.entityData.define(DATA_SCALE_Beak_z, 0);
+		this.entityData.define(DATA_SCALE_Tail_x, 0);
+		this.entityData.define(DATA_SCALE_Tail_y, 0);
+		this.entityData.define(DATA_SCALE_Tail_z, 0);
+		this.entityData.define(DATA_size, 0);
 	}
 
 	@Override
@@ -175,6 +213,28 @@ public class PritchanimalEntity extends Animal {
 		compound.putInt("DataPOSITION_Head_z", this.entityData.get(DATA_POSITION_Head_z));
 		compound.putInt("DataPOSITION_Arm_y", this.entityData.get(DATA_POSITION_Arm_y));
 		compound.putInt("DataPOSITION_Arm_z", this.entityData.get(DATA_POSITION_Arm_z));
+		compound.putInt("Datanose_type", this.entityData.get(DATA_nose_type));
+		compound.putInt("Dataears_type", this.entityData.get(DATA_ears_type));
+		compound.putInt("Datatail_type", this.entityData.get(DATA_tail_type));
+		compound.putInt("DataSCALE_Nose_x", this.entityData.get(DATA_SCALE_Nose_x));
+		compound.putInt("DataSCALE_Nose_y", this.entityData.get(DATA_SCALE_Nose_y));
+		compound.putInt("DataSCALE_Nose_z", this.entityData.get(DATA_SCALE_Nose_z));
+		compound.putInt("DataSCALE_Snout_x", this.entityData.get(DATA_SCALE_Snout_x));
+		compound.putInt("DataSCALE_Snout_z", this.entityData.get(DATA_SCALE_Snout_z));
+		compound.putInt("DataSCALE_Ear_x", this.entityData.get(DATA_SCALE_Ear_x));
+		compound.putInt("DataSCALE_Ear_y", this.entityData.get(DATA_SCALE_Ear_y));
+		compound.putInt("DataSCALE_Ear_z", this.entityData.get(DATA_SCALE_Ear_z));
+		compound.putInt("DataSCALE_Bunnyear_x", this.entityData.get(DATA_SCALE_Bunnyear_x));
+		compound.putInt("DataSCALE_Bunnyear_y", this.entityData.get(DATA_SCALE_Bunnyear_y));
+		compound.putInt("DataSCALE_Bunnyear_z", this.entityData.get(DATA_SCALE_Bunnyear_z));
+		compound.putInt("DataPOSITION_Root_y", this.entityData.get(DATA_POSITION_Root_y));
+		compound.putInt("DataSCALE_Beak_x", this.entityData.get(DATA_SCALE_Beak_x));
+		compound.putInt("DataSCALE_Beak_y", this.entityData.get(DATA_SCALE_Beak_y));
+		compound.putInt("DataSCALE_Beak_z", this.entityData.get(DATA_SCALE_Beak_z));
+		compound.putInt("DataSCALE_Tail_x", this.entityData.get(DATA_SCALE_Tail_x));
+		compound.putInt("DataSCALE_Tail_y", this.entityData.get(DATA_SCALE_Tail_y));
+		compound.putInt("DataSCALE_Tail_z", this.entityData.get(DATA_SCALE_Tail_z));
+		compound.putInt("Datasize", this.entityData.get(DATA_size));
 	}
 
 	@Override
@@ -218,35 +278,58 @@ public class PritchanimalEntity extends Animal {
 			this.entityData.set(DATA_POSITION_Arm_y, compound.getInt("DataPOSITION_Arm_y"));
 		if (compound.contains("DataPOSITION_Arm_z"))
 			this.entityData.set(DATA_POSITION_Arm_z, compound.getInt("DataPOSITION_Arm_z"));
-	}
-
-	@Override
-	public InteractionResult mobInteract(Player sourceentity, InteractionHand hand) {
-		ItemStack itemstack = sourceentity.getItemInHand(hand);
-		InteractionResult retval = InteractionResult.sidedSuccess(this.level().isClientSide());
-		super.mobInteract(sourceentity, hand);
-		double x = this.getX();
-		double y = this.getY();
-		double z = this.getZ();
-		Entity entity = this;
-		Level world = this.level();
-
-		PritchanimalRightClickedOnEntityProcedure.execute(world, entity, sourceentity);
-		return retval;
+		if (compound.contains("Datanose_type"))
+			this.entityData.set(DATA_nose_type, compound.getInt("Datanose_type"));
+		if (compound.contains("Dataears_type"))
+			this.entityData.set(DATA_ears_type, compound.getInt("Dataears_type"));
+		if (compound.contains("Datatail_type"))
+			this.entityData.set(DATA_tail_type, compound.getInt("Datatail_type"));
+		if (compound.contains("DataSCALE_Nose_x"))
+			this.entityData.set(DATA_SCALE_Nose_x, compound.getInt("DataSCALE_Nose_x"));
+		if (compound.contains("DataSCALE_Nose_y"))
+			this.entityData.set(DATA_SCALE_Nose_y, compound.getInt("DataSCALE_Nose_y"));
+		if (compound.contains("DataSCALE_Nose_z"))
+			this.entityData.set(DATA_SCALE_Nose_z, compound.getInt("DataSCALE_Nose_z"));
+		if (compound.contains("DataSCALE_Snout_x"))
+			this.entityData.set(DATA_SCALE_Snout_x, compound.getInt("DataSCALE_Snout_x"));
+		if (compound.contains("DataSCALE_Snout_z"))
+			this.entityData.set(DATA_SCALE_Snout_z, compound.getInt("DataSCALE_Snout_z"));
+		if (compound.contains("DataSCALE_Ear_x"))
+			this.entityData.set(DATA_SCALE_Ear_x, compound.getInt("DataSCALE_Ear_x"));
+		if (compound.contains("DataSCALE_Ear_y"))
+			this.entityData.set(DATA_SCALE_Ear_y, compound.getInt("DataSCALE_Ear_y"));
+		if (compound.contains("DataSCALE_Ear_z"))
+			this.entityData.set(DATA_SCALE_Ear_z, compound.getInt("DataSCALE_Ear_z"));
+		if (compound.contains("DataSCALE_Bunnyear_x"))
+			this.entityData.set(DATA_SCALE_Bunnyear_x, compound.getInt("DataSCALE_Bunnyear_x"));
+		if (compound.contains("DataSCALE_Bunnyear_y"))
+			this.entityData.set(DATA_SCALE_Bunnyear_y, compound.getInt("DataSCALE_Bunnyear_y"));
+		if (compound.contains("DataSCALE_Bunnyear_z"))
+			this.entityData.set(DATA_SCALE_Bunnyear_z, compound.getInt("DataSCALE_Bunnyear_z"));
+		if (compound.contains("DataPOSITION_Root_y"))
+			this.entityData.set(DATA_POSITION_Root_y, compound.getInt("DataPOSITION_Root_y"));
+		if (compound.contains("DataSCALE_Beak_x"))
+			this.entityData.set(DATA_SCALE_Beak_x, compound.getInt("DataSCALE_Beak_x"));
+		if (compound.contains("DataSCALE_Beak_y"))
+			this.entityData.set(DATA_SCALE_Beak_y, compound.getInt("DataSCALE_Beak_y"));
+		if (compound.contains("DataSCALE_Beak_z"))
+			this.entityData.set(DATA_SCALE_Beak_z, compound.getInt("DataSCALE_Beak_z"));
+		if (compound.contains("DataSCALE_Tail_x"))
+			this.entityData.set(DATA_SCALE_Tail_x, compound.getInt("DataSCALE_Tail_x"));
+		if (compound.contains("DataSCALE_Tail_y"))
+			this.entityData.set(DATA_SCALE_Tail_y, compound.getInt("DataSCALE_Tail_y"));
+		if (compound.contains("DataSCALE_Tail_z"))
+			this.entityData.set(DATA_SCALE_Tail_z, compound.getInt("DataSCALE_Tail_z"));
+		if (compound.contains("Datasize"))
+			this.entityData.set(DATA_size, compound.getInt("Datasize"));
 	}
 
 	@Override
 	public void tick() {
 		super.tick();
 		if (this.level().isClientSide()) {
-			this.animationState0.animateWhen(PritchanimalOnEntityTickUpdateProcedure.execute(this), this.tickCount);
+			this.animationState0.animateWhen(true, this.tickCount);
 		}
-	}
-
-	@Override
-	public void baseTick() {
-		super.baseTick();
-		PritchanimalOnEntityTickUpdateProcedure.execute(this);
 	}
 
 	@Override
