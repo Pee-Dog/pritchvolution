@@ -18,7 +18,6 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.network.FriendlyByteBuf;
 
 import net.mcreator.pritchvolution.init.PritchvolutionModTabs;
-import net.mcreator.pritchvolution.init.PritchvolutionModMenus;
 import net.mcreator.pritchvolution.init.PritchvolutionModItems;
 import net.mcreator.pritchvolution.init.PritchvolutionModEntities;
 
@@ -46,8 +45,6 @@ public class PritchvolutionMod {
 		PritchvolutionModEntities.REGISTRY.register(bus);
 
 		PritchvolutionModTabs.REGISTRY.register(bus);
-
-		PritchvolutionModMenus.REGISTRY.register(bus);
 
 		// Start of user code block mod init
 		// End of user code block mod init

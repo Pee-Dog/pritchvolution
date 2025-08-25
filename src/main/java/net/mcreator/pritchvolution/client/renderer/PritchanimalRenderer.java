@@ -116,11 +116,15 @@ public class PritchanimalRenderer extends MobRenderer<PritchanimalEntity, Modelp
 						.addAnimation("right_leg", 
 								new AnimationChannel(AnimationChannel.Targets.SCALE, 
 										new Keyframe(0.0F, 
-												KeyframeAnimations.scaleVec((float) entity.getEntityData().get(PritchanimalEntity.DATA_SCALE_Leg_x) / 100, (float) entity.getEntityData().get(PritchanimalEntity.DATA_SCALE_Leg_y) / 100, (float) entity.getEntityData().get(PritchanimalEntity.DATA_SCALE_Leg_z) / 100), AnimationChannel.Interpolations.LINEAR)))						
+												KeyframeAnimations.scaleVec((float) entity.getEntityData().get(PritchanimalEntity.DATA_SCALE_Leg_x) / 100, (float) entity.getEntityData().get(PritchanimalEntity.DATA_SCALE_Leg_y) / 100, (float) entity.getEntityData().get(PritchanimalEntity.DATA_SCALE_Leg_z) / 100), AnimationChannel.Interpolations.LINEAR)))
+						.addAnimation("root_bone", 
+								new AnimationChannel(AnimationChannel.Targets.SCALE, 
+										new Keyframe(0.0F, 
+												KeyframeAnimations.scaleVec((float) entity.getEntityData().get(PritchanimalEntity.DATA_size) / 100, (float) entity.getEntityData().get(PritchanimalEntity.DATA_size) / 100, (float) entity.getEntityData().get(PritchanimalEntity.DATA_size) / 100), AnimationChannel.Interpolations.LINEAR)))
 						.addAnimation("root_bone", 
 								new AnimationChannel(AnimationChannel.Targets.POSITION, 
 										new Keyframe(0.0F, 
-												KeyframeAnimations.posVec(0.0F, 0.0F, 0.0F), AnimationChannel.Interpolations.LINEAR)))
+												KeyframeAnimations.posVec(0.0F, (float) entity.getEntityData().get(PritchanimalEntity.DATA_POSITION_Root_y), 0.0F), AnimationChannel.Interpolations.LINEAR)))
 						.addAnimation("head", 
 								new AnimationChannel(AnimationChannel.Targets.POSITION, 
 										new Keyframe(0.0F, 

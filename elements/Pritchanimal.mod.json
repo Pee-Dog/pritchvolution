@@ -28,9 +28,6 @@
           "value": "CUSTOM:pritchanimalAnimation.armslegstest"
         },
         "speed": 1.0,
-        "condition": {
-          "name": "PritchanimalOnEntityTickUpdate"
-        },
         "walking": false,
         "amplitude": 1.0
       }
@@ -94,7 +91,6 @@
       "fixedValue": true
     },
     "flyingMob": false,
-    "guiBoundTo": "DebugUseful",
     "inventorySize": 9,
     "inventoryStackSize": 99,
     "disableCollisions": false,
@@ -410,11 +406,15 @@
         "name": "SCALE_Tail_z",
         "type": "integer",
         "value": 0
+      },
+      {
+        "min": -2147483648,
+        "max": 2147483647,
+        "name": "size",
+        "type": "integer",
+        "value": 0
       }
     ],
-    "onMobTickUpdate": {
-      "name": "PritchanimalOnEntityTickUpdate"
-    },
     "onInitialSpawn": {
       "name": "PritchanimalOnInitialEntitySpawn"
     },

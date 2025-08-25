@@ -9,9 +9,9 @@ import net.minecraft.util.Mth;
 import net.mcreator.pritchvolution.entity.PritchanimalEntity;
 
 public class PritchanimalOnInitialEntitySpawnProcedure {
-	public static double execute(Entity entity) {
+	public static void execute(Entity entity) {
 		if (entity == null)
-			return 0;
+			return;
 		if (Math.random() < 0.3) {
 			if (entity instanceof PritchanimalEntity _datEntSetL)
 				_datEntSetL.getEntityData().set(PritchanimalEntity.DATA_armslegstest, true);
@@ -31,8 +31,7 @@ public class PritchanimalOnInitialEntitySpawnProcedure {
 			_datEntSetI.getEntityData().set(PritchanimalEntity.DATA_SCALE_Leg_x,
 					(int) ((entity instanceof PritchanimalEntity _datEntI ? _datEntI.getEntityData().get(PritchanimalEntity.DATA_SCALE_Leg_x) : 0) + Mth.nextDouble(RandomSource.create(), -50, 50)));
 		if (entity instanceof PritchanimalEntity _datEntSetI)
-			_datEntSetI.getEntityData().set(PritchanimalEntity.DATA_SCALE_Leg_y,
-					(int) ((entity instanceof PritchanimalEntity _datEntI ? _datEntI.getEntityData().get(PritchanimalEntity.DATA_SCALE_Leg_y) : 0) + Mth.nextDouble(RandomSource.create(), -50, 50)));
+			_datEntSetI.getEntityData().set(PritchanimalEntity.DATA_SCALE_Leg_y, (int) Mth.nextDouble(RandomSource.create(), 50, 150));
 		if (entity instanceof PritchanimalEntity _datEntSetI)
 			_datEntSetI.getEntityData().set(PritchanimalEntity.DATA_SCALE_Leg_z,
 					(int) ((entity instanceof PritchanimalEntity _datEntI ? _datEntI.getEntityData().get(PritchanimalEntity.DATA_SCALE_Leg_z) : 0) + Mth.nextDouble(RandomSource.create(), -50, 50)));
@@ -122,7 +121,8 @@ public class PritchanimalOnInitialEntitySpawnProcedure {
 				_datEntSetI.getEntityData().set(PritchanimalEntity.DATA_SCALE_Tail_z, (int) Mth.nextDouble(RandomSource.create(), 50, 200));
 		}
 		if (entity instanceof PritchanimalEntity _datEntSetI)
-			_datEntSetI.getEntityData().set(PritchanimalEntity.DATA_POSITION_Root_y, (int) ((entity instanceof PritchanimalEntity _datEntI ? _datEntI.getEntityData().get(PritchanimalEntity.DATA_SCALE_Leg_y) : 0) / 80));
-		return Mth.nextDouble(RandomSource.create(), 0.5, 2);
+			_datEntSetI.getEntityData().set(PritchanimalEntity.DATA_POSITION_Root_y, (int) ((-6) * (1 - (entity instanceof PritchanimalEntity _datEntI ? _datEntI.getEntityData().get(PritchanimalEntity.DATA_SCALE_Leg_y) : 0) / 100)));
+		if (entity instanceof PritchanimalEntity _datEntSetI)
+			_datEntSetI.getEntityData().set(PritchanimalEntity.DATA_size, (int) Mth.nextDouble(RandomSource.create(), 100, 100));
 	}
 }
