@@ -89,6 +89,27 @@ public class PritchanimalEntity extends Animal {
 	public static final EntityDataAccessor<Integer> DATA_SCALE_Tail_y = SynchedEntityData.defineId(PritchanimalEntity.class, EntityDataSerializers.INT);
 	public static final EntityDataAccessor<Integer> DATA_SCALE_Tail_z = SynchedEntityData.defineId(PritchanimalEntity.class, EntityDataSerializers.INT);
 	public static final EntityDataAccessor<Integer> DATA_size = SynchedEntityData.defineId(PritchanimalEntity.class, EntityDataSerializers.INT);
+	public static final EntityDataAccessor<Integer> DATA_SCALE_Flopear_x = SynchedEntityData.defineId(PritchanimalEntity.class, EntityDataSerializers.INT);
+	public static final EntityDataAccessor<Integer> DATA_SCALE_Flopear_z = SynchedEntityData.defineId(PritchanimalEntity.class, EntityDataSerializers.INT);
+	public static final EntityDataAccessor<Integer> DATA_ROTATION_Flopear_z = SynchedEntityData.defineId(PritchanimalEntity.class, EntityDataSerializers.INT);
+	public static final EntityDataAccessor<Integer> DATA_POSITION_Ear_y = SynchedEntityData.defineId(PritchanimalEntity.class, EntityDataSerializers.INT);
+	public static final EntityDataAccessor<Integer> DATA_ROTATION_Snout_x = SynchedEntityData.defineId(PritchanimalEntity.class, EntityDataSerializers.INT);
+	public static final EntityDataAccessor<Integer> DATA_SCALE_Cowhorn_x = SynchedEntityData.defineId(PritchanimalEntity.class, EntityDataSerializers.INT);
+	public static final EntityDataAccessor<Integer> DATA_SCALE_Cowhorn_y = SynchedEntityData.defineId(PritchanimalEntity.class, EntityDataSerializers.INT);
+	public static final EntityDataAccessor<Integer> DATA_SCALE_Cowhorn_z = SynchedEntityData.defineId(PritchanimalEntity.class, EntityDataSerializers.INT);
+	public static final EntityDataAccessor<Integer> DATA_SCALE_Warmhorn_x = SynchedEntityData.defineId(PritchanimalEntity.class, EntityDataSerializers.INT);
+	public static final EntityDataAccessor<Integer> DATA_SCALE_Warmhorn_y = SynchedEntityData.defineId(PritchanimalEntity.class, EntityDataSerializers.INT);
+	public static final EntityDataAccessor<Integer> DATA_SCALE_Warmhorn_z = SynchedEntityData.defineId(PritchanimalEntity.class, EntityDataSerializers.INT);
+	public static final EntityDataAccessor<Integer> DATA_SCALE_Coldhorn_x = SynchedEntityData.defineId(PritchanimalEntity.class, EntityDataSerializers.INT);
+	public static final EntityDataAccessor<Integer> DATA_SCALE_Coldhorn_y = SynchedEntityData.defineId(PritchanimalEntity.class, EntityDataSerializers.INT);
+	public static final EntityDataAccessor<Integer> DATA_SCALE_Coldhorn_z = SynchedEntityData.defineId(PritchanimalEntity.class, EntityDataSerializers.INT);
+	public static final EntityDataAccessor<Integer> DATA_SCALE_Dolphintail_x = SynchedEntityData.defineId(PritchanimalEntity.class, EntityDataSerializers.INT);
+	public static final EntityDataAccessor<Integer> DATA_SCALE_Dolphintail_y = SynchedEntityData.defineId(PritchanimalEntity.class, EntityDataSerializers.INT);
+	public static final EntityDataAccessor<Integer> DATA_SCALE_Dolphintail_z = SynchedEntityData.defineId(PritchanimalEntity.class, EntityDataSerializers.INT);
+	public static final EntityDataAccessor<Integer> DATA_horn_type = SynchedEntityData.defineId(PritchanimalEntity.class, EntityDataSerializers.INT);
+	public static final EntityDataAccessor<Integer> DATA_SCALE_Fishtail_y = SynchedEntityData.defineId(PritchanimalEntity.class, EntityDataSerializers.INT);
+	public static final EntityDataAccessor<Integer> DATA_SCALE_Fishtail_z = SynchedEntityData.defineId(PritchanimalEntity.class, EntityDataSerializers.INT);
+	public static final EntityDataAccessor<Integer> DATA_skin = SynchedEntityData.defineId(PritchanimalEntity.class, EntityDataSerializers.INT);
 	public final AnimationState animationState0 = new AnimationState();
 
 	public PritchanimalEntity(PlayMessages.SpawnEntity packet, Level world) {
@@ -151,6 +172,27 @@ public class PritchanimalEntity extends Animal {
 		this.entityData.define(DATA_SCALE_Tail_y, 0);
 		this.entityData.define(DATA_SCALE_Tail_z, 0);
 		this.entityData.define(DATA_size, 0);
+		this.entityData.define(DATA_SCALE_Flopear_x, 0);
+		this.entityData.define(DATA_SCALE_Flopear_z, 0);
+		this.entityData.define(DATA_ROTATION_Flopear_z, 0);
+		this.entityData.define(DATA_POSITION_Ear_y, 0);
+		this.entityData.define(DATA_ROTATION_Snout_x, 0);
+		this.entityData.define(DATA_SCALE_Cowhorn_x, 0);
+		this.entityData.define(DATA_SCALE_Cowhorn_y, 0);
+		this.entityData.define(DATA_SCALE_Cowhorn_z, 0);
+		this.entityData.define(DATA_SCALE_Warmhorn_x, 0);
+		this.entityData.define(DATA_SCALE_Warmhorn_y, 0);
+		this.entityData.define(DATA_SCALE_Warmhorn_z, 0);
+		this.entityData.define(DATA_SCALE_Coldhorn_x, 0);
+		this.entityData.define(DATA_SCALE_Coldhorn_y, 0);
+		this.entityData.define(DATA_SCALE_Coldhorn_z, 0);
+		this.entityData.define(DATA_SCALE_Dolphintail_x, 0);
+		this.entityData.define(DATA_SCALE_Dolphintail_y, 0);
+		this.entityData.define(DATA_SCALE_Dolphintail_z, 0);
+		this.entityData.define(DATA_horn_type, 0);
+		this.entityData.define(DATA_SCALE_Fishtail_y, 0);
+		this.entityData.define(DATA_SCALE_Fishtail_z, 0);
+		this.entityData.define(DATA_skin, 0);
 	}
 
 	@Override
@@ -235,6 +277,27 @@ public class PritchanimalEntity extends Animal {
 		compound.putInt("DataSCALE_Tail_y", this.entityData.get(DATA_SCALE_Tail_y));
 		compound.putInt("DataSCALE_Tail_z", this.entityData.get(DATA_SCALE_Tail_z));
 		compound.putInt("Datasize", this.entityData.get(DATA_size));
+		compound.putInt("DataSCALE_Flopear_x", this.entityData.get(DATA_SCALE_Flopear_x));
+		compound.putInt("DataSCALE_Flopear_z", this.entityData.get(DATA_SCALE_Flopear_z));
+		compound.putInt("DataROTATION_Flopear_z", this.entityData.get(DATA_ROTATION_Flopear_z));
+		compound.putInt("DataPOSITION_Ear_y", this.entityData.get(DATA_POSITION_Ear_y));
+		compound.putInt("DataROTATION_Snout_x", this.entityData.get(DATA_ROTATION_Snout_x));
+		compound.putInt("DataSCALE_Cowhorn_x", this.entityData.get(DATA_SCALE_Cowhorn_x));
+		compound.putInt("DataSCALE_Cowhorn_y", this.entityData.get(DATA_SCALE_Cowhorn_y));
+		compound.putInt("DataSCALE_Cowhorn_z", this.entityData.get(DATA_SCALE_Cowhorn_z));
+		compound.putInt("DataSCALE_Warmhorn_x", this.entityData.get(DATA_SCALE_Warmhorn_x));
+		compound.putInt("DataSCALE_Warmhorn_y", this.entityData.get(DATA_SCALE_Warmhorn_y));
+		compound.putInt("DataSCALE_Warmhorn_z", this.entityData.get(DATA_SCALE_Warmhorn_z));
+		compound.putInt("DataSCALE_Coldhorn_x", this.entityData.get(DATA_SCALE_Coldhorn_x));
+		compound.putInt("DataSCALE_Coldhorn_y", this.entityData.get(DATA_SCALE_Coldhorn_y));
+		compound.putInt("DataSCALE_Coldhorn_z", this.entityData.get(DATA_SCALE_Coldhorn_z));
+		compound.putInt("DataSCALE_Dolphintail_x", this.entityData.get(DATA_SCALE_Dolphintail_x));
+		compound.putInt("DataSCALE_Dolphintail_y", this.entityData.get(DATA_SCALE_Dolphintail_y));
+		compound.putInt("DataSCALE_Dolphintail_z", this.entityData.get(DATA_SCALE_Dolphintail_z));
+		compound.putInt("Datahorn_type", this.entityData.get(DATA_horn_type));
+		compound.putInt("DataSCALE_Fishtail_y", this.entityData.get(DATA_SCALE_Fishtail_y));
+		compound.putInt("DataSCALE_Fishtail_z", this.entityData.get(DATA_SCALE_Fishtail_z));
+		compound.putInt("Dataskin", this.entityData.get(DATA_skin));
 	}
 
 	@Override
@@ -322,6 +385,48 @@ public class PritchanimalEntity extends Animal {
 			this.entityData.set(DATA_SCALE_Tail_z, compound.getInt("DataSCALE_Tail_z"));
 		if (compound.contains("Datasize"))
 			this.entityData.set(DATA_size, compound.getInt("Datasize"));
+		if (compound.contains("DataSCALE_Flopear_x"))
+			this.entityData.set(DATA_SCALE_Flopear_x, compound.getInt("DataSCALE_Flopear_x"));
+		if (compound.contains("DataSCALE_Flopear_z"))
+			this.entityData.set(DATA_SCALE_Flopear_z, compound.getInt("DataSCALE_Flopear_z"));
+		if (compound.contains("DataROTATION_Flopear_z"))
+			this.entityData.set(DATA_ROTATION_Flopear_z, compound.getInt("DataROTATION_Flopear_z"));
+		if (compound.contains("DataPOSITION_Ear_y"))
+			this.entityData.set(DATA_POSITION_Ear_y, compound.getInt("DataPOSITION_Ear_y"));
+		if (compound.contains("DataROTATION_Snout_x"))
+			this.entityData.set(DATA_ROTATION_Snout_x, compound.getInt("DataROTATION_Snout_x"));
+		if (compound.contains("DataSCALE_Cowhorn_x"))
+			this.entityData.set(DATA_SCALE_Cowhorn_x, compound.getInt("DataSCALE_Cowhorn_x"));
+		if (compound.contains("DataSCALE_Cowhorn_y"))
+			this.entityData.set(DATA_SCALE_Cowhorn_y, compound.getInt("DataSCALE_Cowhorn_y"));
+		if (compound.contains("DataSCALE_Cowhorn_z"))
+			this.entityData.set(DATA_SCALE_Cowhorn_z, compound.getInt("DataSCALE_Cowhorn_z"));
+		if (compound.contains("DataSCALE_Warmhorn_x"))
+			this.entityData.set(DATA_SCALE_Warmhorn_x, compound.getInt("DataSCALE_Warmhorn_x"));
+		if (compound.contains("DataSCALE_Warmhorn_y"))
+			this.entityData.set(DATA_SCALE_Warmhorn_y, compound.getInt("DataSCALE_Warmhorn_y"));
+		if (compound.contains("DataSCALE_Warmhorn_z"))
+			this.entityData.set(DATA_SCALE_Warmhorn_z, compound.getInt("DataSCALE_Warmhorn_z"));
+		if (compound.contains("DataSCALE_Coldhorn_x"))
+			this.entityData.set(DATA_SCALE_Coldhorn_x, compound.getInt("DataSCALE_Coldhorn_x"));
+		if (compound.contains("DataSCALE_Coldhorn_y"))
+			this.entityData.set(DATA_SCALE_Coldhorn_y, compound.getInt("DataSCALE_Coldhorn_y"));
+		if (compound.contains("DataSCALE_Coldhorn_z"))
+			this.entityData.set(DATA_SCALE_Coldhorn_z, compound.getInt("DataSCALE_Coldhorn_z"));
+		if (compound.contains("DataSCALE_Dolphintail_x"))
+			this.entityData.set(DATA_SCALE_Dolphintail_x, compound.getInt("DataSCALE_Dolphintail_x"));
+		if (compound.contains("DataSCALE_Dolphintail_y"))
+			this.entityData.set(DATA_SCALE_Dolphintail_y, compound.getInt("DataSCALE_Dolphintail_y"));
+		if (compound.contains("DataSCALE_Dolphintail_z"))
+			this.entityData.set(DATA_SCALE_Dolphintail_z, compound.getInt("DataSCALE_Dolphintail_z"));
+		if (compound.contains("Datahorn_type"))
+			this.entityData.set(DATA_horn_type, compound.getInt("Datahorn_type"));
+		if (compound.contains("DataSCALE_Fishtail_y"))
+			this.entityData.set(DATA_SCALE_Fishtail_y, compound.getInt("DataSCALE_Fishtail_y"));
+		if (compound.contains("DataSCALE_Fishtail_z"))
+			this.entityData.set(DATA_SCALE_Fishtail_z, compound.getInt("DataSCALE_Fishtail_z"));
+		if (compound.contains("Dataskin"))
+			this.entityData.set(DATA_skin, compound.getInt("Dataskin"));
 	}
 
 	@Override
