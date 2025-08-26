@@ -109,7 +109,7 @@ public class PritchanimalEntity extends Animal {
 	public static final EntityDataAccessor<Integer> DATA_horn_type = SynchedEntityData.defineId(PritchanimalEntity.class, EntityDataSerializers.INT);
 	public static final EntityDataAccessor<Integer> DATA_SCALE_Fishtail_y = SynchedEntityData.defineId(PritchanimalEntity.class, EntityDataSerializers.INT);
 	public static final EntityDataAccessor<Integer> DATA_SCALE_Fishtail_z = SynchedEntityData.defineId(PritchanimalEntity.class, EntityDataSerializers.INT);
-	public static final EntityDataAccessor<Integer> DATA_skin = SynchedEntityData.defineId(PritchanimalEntity.class, EntityDataSerializers.INT);
+	public static final EntityDataAccessor<String> DATA_skin = SynchedEntityData.defineId(PritchanimalEntity.class, EntityDataSerializers.STRING);
 	public final AnimationState animationState0 = new AnimationState();
 
 	public PritchanimalEntity(PlayMessages.SpawnEntity packet, Level world) {
@@ -192,7 +192,7 @@ public class PritchanimalEntity extends Animal {
 		this.entityData.define(DATA_horn_type, 0);
 		this.entityData.define(DATA_SCALE_Fishtail_y, 0);
 		this.entityData.define(DATA_SCALE_Fishtail_z, 0);
-		this.entityData.define(DATA_skin, 0);
+		this.entityData.define(DATA_skin, "player");
 	}
 
 	@Override
@@ -297,7 +297,7 @@ public class PritchanimalEntity extends Animal {
 		compound.putInt("Datahorn_type", this.entityData.get(DATA_horn_type));
 		compound.putInt("DataSCALE_Fishtail_y", this.entityData.get(DATA_SCALE_Fishtail_y));
 		compound.putInt("DataSCALE_Fishtail_z", this.entityData.get(DATA_SCALE_Fishtail_z));
-		compound.putInt("Dataskin", this.entityData.get(DATA_skin));
+		compound.putString("Dataskin", this.entityData.get(DATA_skin));
 	}
 
 	@Override
@@ -426,7 +426,7 @@ public class PritchanimalEntity extends Animal {
 		if (compound.contains("DataSCALE_Fishtail_z"))
 			this.entityData.set(DATA_SCALE_Fishtail_z, compound.getInt("DataSCALE_Fishtail_z"));
 		if (compound.contains("Dataskin"))
-			this.entityData.set(DATA_skin, compound.getInt("Dataskin"));
+			this.entityData.set(DATA_skin, compound.getString("Dataskin"));
 	}
 
 	@Override

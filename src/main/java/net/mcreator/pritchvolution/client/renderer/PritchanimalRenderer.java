@@ -27,7 +27,8 @@ public class PritchanimalRenderer extends MobRenderer<PritchanimalEntity, Modelp
 
 	@Override
 	public ResourceLocation getTextureLocation(PritchanimalEntity entity) {
-		return ResourceLocation.parse("pritchvolution:textures/entities/player.png");
+		ResourceLocation location = ResourceLocation.parse("pritchvolution:textures/entities/"+entity.getEntityData().get(PritchanimalEntity.DATA_skin)+".png");
+		return location;
 	}
 
 	private static final class AnimatedModel extends Modelpritchanimal<PritchanimalEntity> {

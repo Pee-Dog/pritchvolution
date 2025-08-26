@@ -34,19 +34,6 @@
       }
     },
     {
-      "name": "PritchanimalOnEntityTickUpdate",
-      "type": "procedure",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "pritchanimal_on_entity_tick_update",
-      "metadata": {
-        "dependencies": [],
-        "files": [
-          "src/main/java/net/mcreator/pritchvolution/procedures/PritchanimalOnEntityTickUpdateProcedure.java"
-        ]
-      }
-    },
-    {
       "name": "PritchanimalModelVisualScale",
       "type": "procedure",
       "compiles": true,
