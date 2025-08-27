@@ -26,6 +26,22 @@
           {
             "name": "entity",
             "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
           }
         ],
         "files": [
@@ -49,6 +65,88 @@
         "return_type": "number",
         "files": [
           "src/main/java/net/mcreator/pritchvolution/procedures/PritchanimalModelVisualScaleProcedure.java"
+        ]
+      }
+    },
+    {
+      "name": "PritchanimalOnSpawn2",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "pritchanimal_on_spawn_2",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/pritchvolution/procedures/PritchanimalOnSpawn2Procedure.java"
+        ]
+      }
+    },
+    {
+      "name": "PritchanimalBreed",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "pritchanimal_breed",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "immediatesourceentity",
+            "type": "entity"
+          },
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/pritchvolution/procedures/PritchanimalBreedProcedure.java"
+        ]
+      }
+    },
+    {
+      "name": "PritchanimalRightClickedOnEntity",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "pritchanimal_right_clicked_on_entity",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/pritchvolution/procedures/PritchanimalRightClickedOnEntityProcedure.java"
         ]
       }
     }

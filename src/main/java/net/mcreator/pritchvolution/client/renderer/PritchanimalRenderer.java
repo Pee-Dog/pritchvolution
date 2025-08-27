@@ -27,8 +27,7 @@ public class PritchanimalRenderer extends MobRenderer<PritchanimalEntity, Modelp
 
 	@Override
 	public ResourceLocation getTextureLocation(PritchanimalEntity entity) {
-		ResourceLocation location = ResourceLocation.parse("pritchvolution:textures/entities/"+entity.getEntityData().get(PritchanimalEntity.DATA_skin)+".png");
-		return location;
+		return ResourceLocation.parse("pritchvolution:textures/entities/"+entity.getEntityData().get(PritchanimalEntity.DATA_skin)+".png");
 	}
 
 	private static final class AnimatedModel extends Modelpritchanimal<PritchanimalEntity> {
@@ -46,6 +45,10 @@ public class PritchanimalRenderer extends MobRenderer<PritchanimalEntity, Modelp
 				sus = entity.getEntityData().get(PritchanimalEntity.DATA_SCALE_Arm_x);
 
 				AnimationDefinition armslegstest = AnimationDefinition.Builder.withLength(0.0F).looping()
+						.addAnimation("neck",
+								new AnimationChannel(AnimationChannel.Targets.ROTATION, 
+										new Keyframe(0.0F, 
+												KeyframeAnimations.degreeVec((float) entity.getEntityData().get(PritchanimalEntity.DATA_ROTATION_Neck_x), 0.0F, 0.0F), AnimationChannel.Interpolations.LINEAR)))
 						.addAnimation("body",
 								new AnimationChannel(AnimationChannel.Targets.ROTATION, 
 										new Keyframe(0.0F, 
@@ -95,6 +98,11 @@ public class PritchanimalRenderer extends MobRenderer<PritchanimalEntity, Modelp
 										new Keyframe(0.0F, 
 												KeyframeAnimations.scaleVec((float) entity.getEntityData().get(PritchanimalEntity.DATA_SCALE_Head_x) / 100, (float) entity.getEntityData().get(PritchanimalEntity.DATA_SCALE_Head_y) / 100, 
 														(float) entity.getEntityData().get(PritchanimalEntity.DATA_SCALE_Head_z) / 100), AnimationChannel.Interpolations.LINEAR)))
+						.addAnimation("neck", 
+								new AnimationChannel(AnimationChannel.Targets.SCALE, 
+										new Keyframe(0.0F, 
+												KeyframeAnimations.scaleVec((float) entity.getEntityData().get(PritchanimalEntity.DATA_SCALE_Neck_x) / 100, (float) entity.getEntityData().get(PritchanimalEntity.DATA_SCALE_Neck_y) / 100, 
+														(float) entity.getEntityData().get(PritchanimalEntity.DATA_SCALE_Neck_z) / 100), AnimationChannel.Interpolations.LINEAR)))
 						.addAnimation("nose", 
 								new AnimationChannel(AnimationChannel.Targets.SCALE, 
 										new Keyframe(0.0F, 
@@ -198,6 +206,11 @@ public class PritchanimalRenderer extends MobRenderer<PritchanimalEntity, Modelp
 										new Keyframe(0.0F, 
 												KeyframeAnimations.posVec(0.0F, (float) entity.getEntityData().get(PritchanimalEntity.DATA_POSITION_Head_y), 
 														(float) entity.getEntityData().get(PritchanimalEntity.DATA_POSITION_Head_z)), AnimationChannel.Interpolations.LINEAR)))
+						.addAnimation("head_offset", 
+								new AnimationChannel(AnimationChannel.Targets.POSITION, 
+										new Keyframe(0.0F, 
+												KeyframeAnimations.posVec(0.0F, (float) entity.getEntityData().get(PritchanimalEntity.DATA_POSITION_HeadOffset_y), 
+														(float) entity.getEntityData().get(PritchanimalEntity.DATA_POSITION_HeadOffset_z)), AnimationChannel.Interpolations.LINEAR)))
 						.addAnimation("left_ear", 
 								new AnimationChannel(AnimationChannel.Targets.POSITION, 
 										new Keyframe(0.0F, 
