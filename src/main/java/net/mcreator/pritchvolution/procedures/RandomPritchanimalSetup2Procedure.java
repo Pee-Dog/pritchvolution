@@ -6,7 +6,7 @@ import net.minecraft.util.Mth;
 
 import net.mcreator.pritchvolution.entity.PritchanimalEntity;
 
-public class PritchanimalOnSpawn2Procedure {
+public class RandomPritchanimalSetup2Procedure {
 	public static void execute(Entity entity) {
 		if (entity == null)
 			return;

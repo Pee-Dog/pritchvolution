@@ -1,8 +1,6 @@
 package net.mcreator.pritchvolution.entity;
 
-import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.network.PlayMessages;
-import net.minecraftforge.network.NetworkHooks;
+import net.neoforged.neoforge.event.entity.RegisterSpawnPlacementsEvent;
 
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.Level;
@@ -19,8 +17,7 @@ import net.minecraft.world.entity.ai.goal.MeleeAttackGoal;
 import net.minecraft.world.entity.ai.goal.FloatGoal;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
-import net.minecraft.world.entity.SpawnPlacements;
-import net.minecraft.world.entity.MobType;
+import net.minecraft.world.entity.SpawnPlacementTypes;
 import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.LivingEntity;
@@ -35,9 +32,8 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.EntityDataAccessor;
-import net.minecraft.network.protocol.game.ClientGamePacketListener;
-import net.minecraft.network.protocol.Packet;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.core.registries.BuiltInRegistries;
 
 import net.mcreator.pritchvolution.procedures.PritchanimalOnInitialEntitySpawnProcedure;
 import net.mcreator.pritchvolution.init.PritchvolutionModItems;
@@ -116,95 +112,85 @@ public class PritchanimalEntity extends Animal {
 	public static final EntityDataAccessor<Integer> DATA_fedTimer = SynchedEntityData.defineId(PritchanimalEntity.class, EntityDataSerializers.INT);
 	public final AnimationState animationState0 = new AnimationState();
 
-	public PritchanimalEntity(PlayMessages.SpawnEntity packet, Level world) {
-		this(PritchvolutionModEntities.PRITCHANIMAL.get(), world);
-	}
-
 	public PritchanimalEntity(EntityType<PritchanimalEntity> type, Level world) {
 		super(type, world);
-		setMaxUpStep(0.6f);
 		xpReward = 0;
 		setNoAi(false);
 	}
 
 	@Override
-	public Packet<ClientGamePacketListener> getAddEntityPacket() {
-		return NetworkHooks.getEntitySpawningPacket(this);
-	}
-
-	@Override
-	protected void defineSynchedData() {
-		super.defineSynchedData();
-		this.entityData.define(DATA_armslegstest, true);
-		this.entityData.define(DATA_SCALE_Arm_x, 100);
-		this.entityData.define(DATA_SCALE_Arm_y, 100);
-		this.entityData.define(DATA_SCALE_Arm_z, 100);
-		this.entityData.define(DATA_SCALE_Leg_x, 100);
-		this.entityData.define(DATA_SCALE_Leg_y, 100);
-		this.entityData.define(DATA_SCALE_Leg_z, 100);
-		this.entityData.define(DATA_ROTATION_Arm_x, 0);
-		this.entityData.define(DATA_ROTATION_Body_x, 0);
-		this.entityData.define(DATA_SCALE_Body_x, 100);
-		this.entityData.define(DATA_SCALE_Body_y, 100);
-		this.entityData.define(DATA_SCALE_Body_z, 100);
-		this.entityData.define(DATA_SCALE_Head_x, 100);
-		this.entityData.define(DATA_SCALE_Head_y, 100);
-		this.entityData.define(DATA_SCALE_Head_z, 100);
-		this.entityData.define(DATA_POSITION_Head_y, 0);
-		this.entityData.define(DATA_POSITION_Head_z, 0);
-		this.entityData.define(DATA_POSITION_Arm_y, 0);
-		this.entityData.define(DATA_POSITION_Arm_z, 0);
-		this.entityData.define(DATA_nose_type, 0);
-		this.entityData.define(DATA_ears_type, 0);
-		this.entityData.define(DATA_tail_type, 0);
-		this.entityData.define(DATA_SCALE_Nose_x, 0);
-		this.entityData.define(DATA_SCALE_Nose_y, 0);
-		this.entityData.define(DATA_SCALE_Nose_z, 0);
-		this.entityData.define(DATA_SCALE_Snout_x, 0);
-		this.entityData.define(DATA_SCALE_Snout_z, 0);
-		this.entityData.define(DATA_SCALE_Ear_x, 0);
-		this.entityData.define(DATA_SCALE_Ear_y, 0);
-		this.entityData.define(DATA_SCALE_Ear_z, 0);
-		this.entityData.define(DATA_SCALE_Bunnyear_x, 0);
-		this.entityData.define(DATA_SCALE_Bunnyear_y, 0);
-		this.entityData.define(DATA_SCALE_Bunnyear_z, 0);
-		this.entityData.define(DATA_POSITION_Root_y, 0);
-		this.entityData.define(DATA_SCALE_Beak_x, 0);
-		this.entityData.define(DATA_SCALE_Beak_y, 0);
-		this.entityData.define(DATA_SCALE_Beak_z, 0);
-		this.entityData.define(DATA_SCALE_Tail_x, 0);
-		this.entityData.define(DATA_SCALE_Tail_y, 0);
-		this.entityData.define(DATA_SCALE_Tail_z, 0);
-		this.entityData.define(DATA_size, 0);
-		this.entityData.define(DATA_SCALE_Flopear_x, 0);
-		this.entityData.define(DATA_SCALE_Flopear_z, 0);
-		this.entityData.define(DATA_ROTATION_Flopear_z, 0);
-		this.entityData.define(DATA_POSITION_Ear_y, 0);
-		this.entityData.define(DATA_ROTATION_Snout_x, 0);
-		this.entityData.define(DATA_SCALE_Cowhorn_x, 0);
-		this.entityData.define(DATA_SCALE_Cowhorn_y, 0);
-		this.entityData.define(DATA_SCALE_Cowhorn_z, 0);
-		this.entityData.define(DATA_SCALE_Warmhorn_x, 0);
-		this.entityData.define(DATA_SCALE_Warmhorn_y, 0);
-		this.entityData.define(DATA_SCALE_Warmhorn_z, 0);
-		this.entityData.define(DATA_SCALE_Coldhorn_x, 0);
-		this.entityData.define(DATA_SCALE_Coldhorn_y, 0);
-		this.entityData.define(DATA_SCALE_Coldhorn_z, 0);
-		this.entityData.define(DATA_SCALE_Dolphintail_x, 0);
-		this.entityData.define(DATA_SCALE_Dolphintail_y, 0);
-		this.entityData.define(DATA_SCALE_Dolphintail_z, 0);
-		this.entityData.define(DATA_horn_type, 0);
-		this.entityData.define(DATA_SCALE_Fishtail_y, 0);
-		this.entityData.define(DATA_SCALE_Fishtail_z, 0);
-		this.entityData.define(DATA_skin, "player");
-		this.entityData.define(DATA_POSITION_HeadOffset_y, 0);
-		this.entityData.define(DATA_SCALE_Neck_x, 0);
-		this.entityData.define(DATA_SCALE_Neck_y, 0);
-		this.entityData.define(DATA_SCALE_Neck_z, 0);
-		this.entityData.define(DATA_ROTATION_Neck_x, 0);
-		this.entityData.define(DATA_POSITION_HeadOffset_z, 0);
-		this.entityData.define(DATA_isInitialized, false);
-		this.entityData.define(DATA_fedTimer, -1);
+	protected void defineSynchedData(SynchedEntityData.Builder builder) {
+		super.defineSynchedData(builder);
+		builder.define(DATA_armslegstest, true);
+		builder.define(DATA_SCALE_Arm_x, 100);
+		builder.define(DATA_SCALE_Arm_y, 100);
+		builder.define(DATA_SCALE_Arm_z, 100);
+		builder.define(DATA_SCALE_Leg_x, 100);
+		builder.define(DATA_SCALE_Leg_y, 100);
+		builder.define(DATA_SCALE_Leg_z, 100);
+		builder.define(DATA_ROTATION_Arm_x, 0);
+		builder.define(DATA_ROTATION_Body_x, 0);
+		builder.define(DATA_SCALE_Body_x, 100);
+		builder.define(DATA_SCALE_Body_y, 100);
+		builder.define(DATA_SCALE_Body_z, 100);
+		builder.define(DATA_SCALE_Head_x, 100);
+		builder.define(DATA_SCALE_Head_y, 100);
+		builder.define(DATA_SCALE_Head_z, 100);
+		builder.define(DATA_POSITION_Head_y, 0);
+		builder.define(DATA_POSITION_Head_z, 0);
+		builder.define(DATA_POSITION_Arm_y, 0);
+		builder.define(DATA_POSITION_Arm_z, 0);
+		builder.define(DATA_nose_type, 0);
+		builder.define(DATA_ears_type, 0);
+		builder.define(DATA_tail_type, 0);
+		builder.define(DATA_SCALE_Nose_x, 0);
+		builder.define(DATA_SCALE_Nose_y, 0);
+		builder.define(DATA_SCALE_Nose_z, 0);
+		builder.define(DATA_SCALE_Snout_x, 0);
+		builder.define(DATA_SCALE_Snout_z, 0);
+		builder.define(DATA_SCALE_Ear_x, 0);
+		builder.define(DATA_SCALE_Ear_y, 0);
+		builder.define(DATA_SCALE_Ear_z, 0);
+		builder.define(DATA_SCALE_Bunnyear_x, 0);
+		builder.define(DATA_SCALE_Bunnyear_y, 0);
+		builder.define(DATA_SCALE_Bunnyear_z, 0);
+		builder.define(DATA_POSITION_Root_y, 0);
+		builder.define(DATA_SCALE_Beak_x, 0);
+		builder.define(DATA_SCALE_Beak_y, 0);
+		builder.define(DATA_SCALE_Beak_z, 0);
+		builder.define(DATA_SCALE_Tail_x, 0);
+		builder.define(DATA_SCALE_Tail_y, 0);
+		builder.define(DATA_SCALE_Tail_z, 0);
+		builder.define(DATA_size, 0);
+		builder.define(DATA_SCALE_Flopear_x, 0);
+		builder.define(DATA_SCALE_Flopear_z, 0);
+		builder.define(DATA_ROTATION_Flopear_z, 0);
+		builder.define(DATA_POSITION_Ear_y, 0);
+		builder.define(DATA_ROTATION_Snout_x, 0);
+		builder.define(DATA_SCALE_Cowhorn_x, 0);
+		builder.define(DATA_SCALE_Cowhorn_y, 0);
+		builder.define(DATA_SCALE_Cowhorn_z, 0);
+		builder.define(DATA_SCALE_Warmhorn_x, 0);
+		builder.define(DATA_SCALE_Warmhorn_y, 0);
+		builder.define(DATA_SCALE_Warmhorn_z, 0);
+		builder.define(DATA_SCALE_Coldhorn_x, 0);
+		builder.define(DATA_SCALE_Coldhorn_y, 0);
+		builder.define(DATA_SCALE_Coldhorn_z, 0);
+		builder.define(DATA_SCALE_Dolphintail_x, 0);
+		builder.define(DATA_SCALE_Dolphintail_y, 0);
+		builder.define(DATA_SCALE_Dolphintail_z, 0);
+		builder.define(DATA_horn_type, 0);
+		builder.define(DATA_SCALE_Fishtail_y, 0);
+		builder.define(DATA_SCALE_Fishtail_z, 0);
+		builder.define(DATA_skin, "player");
+		builder.define(DATA_POSITION_HeadOffset_y, 0);
+		builder.define(DATA_SCALE_Neck_x, 0);
+		builder.define(DATA_SCALE_Neck_y, 0);
+		builder.define(DATA_SCALE_Neck_z, 0);
+		builder.define(DATA_ROTATION_Neck_x, 0);
+		builder.define(DATA_POSITION_HeadOffset_z, 0);
+		builder.define(DATA_isInitialized, false);
+		builder.define(DATA_fedTimer, -1);
 	}
 
 	@Override
@@ -212,8 +198,8 @@ public class PritchanimalEntity extends Animal {
 		super.registerGoals();
 		this.goalSelector.addGoal(1, new MeleeAttackGoal(this, 1.2, false) {
 			@Override
-			protected double getAttackReachSqr(LivingEntity entity) {
-				return this.mob.getBbWidth() * this.mob.getBbWidth() + entity.getBbWidth();
+			protected boolean canPerformAttack(LivingEntity entity) {
+				return this.isTimeToAttack() && this.mob.distanceToSqr(entity) < (this.mob.getBbWidth() * this.mob.getBbWidth() + entity.getBbWidth()) && this.mob.getSensing().hasLineOfSight(entity);
 			}
 		});
 		this.goalSelector.addGoal(2, new TemptGoal(this, 1.5, Ingredient.of(Items.WHEAT), false));
@@ -224,18 +210,13 @@ public class PritchanimalEntity extends Animal {
 	}
 
 	@Override
-	public MobType getMobType() {
-		return MobType.UNDEFINED;
-	}
-
-	@Override
 	public SoundEvent getHurtSound(DamageSource ds) {
-		return ForgeRegistries.SOUND_EVENTS.getValue(ResourceLocation.parse("entity.generic.hurt"));
+		return BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.parse("entity.generic.hurt"));
 	}
 
 	@Override
 	public SoundEvent getDeathSound() {
-		return ForgeRegistries.SOUND_EVENTS.getValue(ResourceLocation.parse("entity.generic.death"));
+		return BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.parse("entity.generic.death"));
 	}
 
 	@Override
@@ -475,7 +456,7 @@ public class PritchanimalEntity extends Animal {
 	@Override
 	public AgeableMob getBreedOffspring(ServerLevel serverWorld, AgeableMob ageable) {
 		PritchanimalEntity retval = PritchvolutionModEntities.PRITCHANIMAL.get().create(serverWorld);
-		retval.finalizeSpawn(serverWorld, serverWorld.getCurrentDifficultyAt(retval.blockPosition()), MobSpawnType.BREEDING, null, null);
+		retval.finalizeSpawn(serverWorld, serverWorld.getCurrentDifficultyAt(retval.blockPosition()), MobSpawnType.BREEDING, null);
 		return retval;
 	}
 
@@ -484,9 +465,10 @@ public class PritchanimalEntity extends Animal {
 		return Ingredient.of(new ItemStack(PritchvolutionModItems.PRITCHANIMAL_SPAWN_EGG.get())).test(stack);
 	}
 
-	public static void init() {
-		SpawnPlacements.register(PritchvolutionModEntities.PRITCHANIMAL.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-				(entityType, world, reason, pos, random) -> (world.getDifficulty() != Difficulty.PEACEFUL && Monster.isDarkEnoughToSpawn(world, pos, random) && Mob.checkMobSpawnRules(entityType, world, reason, pos, random)));
+	public static void init(RegisterSpawnPlacementsEvent event) {
+		event.register(PritchvolutionModEntities.PRITCHANIMAL.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+				(entityType, world, reason, pos, random) -> (world.getDifficulty() != Difficulty.PEACEFUL && Monster.isDarkEnoughToSpawn(world, pos, random) && Mob.checkMobSpawnRules(entityType, world, reason, pos, random)),
+				RegisterSpawnPlacementsEvent.Operation.REPLACE);
 	}
 
 	public static AttributeSupplier.Builder createAttributes() {
@@ -496,6 +478,7 @@ public class PritchanimalEntity extends Animal {
 		builder = builder.add(Attributes.ARMOR, 0);
 		builder = builder.add(Attributes.ATTACK_DAMAGE, 3);
 		builder = builder.add(Attributes.FOLLOW_RANGE, 16);
+		builder = builder.add(Attributes.STEP_HEIGHT, 0.6);
 		return builder;
 	}
 }
