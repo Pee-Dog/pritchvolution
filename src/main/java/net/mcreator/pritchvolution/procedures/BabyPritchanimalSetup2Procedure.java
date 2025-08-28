@@ -116,18 +116,42 @@ public class BabyPritchanimalSetup2Procedure {
 								+ (father instanceof PritchanimalEntity _datEntI ? _datEntI.getEntityData().get(PritchanimalEntity.DATA_POSITION_Ear_y) : 0)));
 		} else if ((entity instanceof PritchanimalEntity _datEntI ? _datEntI.getEntityData().get(PritchanimalEntity.DATA_ears_type) : 0) == 2) {
 			if (entity instanceof PritchanimalEntity _datEntSetI)
-				_datEntSetI.getEntityData().set(PritchanimalEntity.DATA_SCALE_Ear_x,
+				_datEntSetI.getEntityData().set(PritchanimalEntity.DATA_SCALE_Bunnyear_x,
 						(int) (Math.random()
-								* ((mother instanceof PritchanimalEntity _datEntI ? _datEntI.getEntityData().get(PritchanimalEntity.DATA_SCALE_Ear_x) : 0)
-										- (father instanceof PritchanimalEntity _datEntI ? _datEntI.getEntityData().get(PritchanimalEntity.DATA_SCALE_Ear_x) : 0))
-								+ (father instanceof PritchanimalEntity _datEntI ? _datEntI.getEntityData().get(PritchanimalEntity.DATA_SCALE_Ear_x) : 0)));
+								* ((mother instanceof PritchanimalEntity _datEntI ? _datEntI.getEntityData().get(PritchanimalEntity.DATA_SCALE_Bunnyear_x) : 0)
+										- (father instanceof PritchanimalEntity _datEntI ? _datEntI.getEntityData().get(PritchanimalEntity.DATA_SCALE_Bunnyear_x) : 0))
+								+ (father instanceof PritchanimalEntity _datEntI ? _datEntI.getEntityData().get(PritchanimalEntity.DATA_SCALE_Bunnyear_x) : 0)));
+			if (entity instanceof PritchanimalEntity _datEntSetI)
+				_datEntSetI.getEntityData().set(PritchanimalEntity.DATA_SCALE_Bunnyear_y,
+						(int) (Math.random()
+								* ((mother instanceof PritchanimalEntity _datEntI ? _datEntI.getEntityData().get(PritchanimalEntity.DATA_SCALE_Bunnyear_y) : 0)
+										- (father instanceof PritchanimalEntity _datEntI ? _datEntI.getEntityData().get(PritchanimalEntity.DATA_SCALE_Bunnyear_y) : 0))
+								+ (father instanceof PritchanimalEntity _datEntI ? _datEntI.getEntityData().get(PritchanimalEntity.DATA_SCALE_Bunnyear_y) : 0)));
+			if (entity instanceof PritchanimalEntity _datEntSetI)
+				_datEntSetI.getEntityData().set(PritchanimalEntity.DATA_SCALE_Bunnyear_z,
+						(int) (Math.random()
+								* ((mother instanceof PritchanimalEntity _datEntI ? _datEntI.getEntityData().get(PritchanimalEntity.DATA_SCALE_Bunnyear_z) : 0)
+										- (father instanceof PritchanimalEntity _datEntI ? _datEntI.getEntityData().get(PritchanimalEntity.DATA_SCALE_Bunnyear_z) : 0))
+								+ (father instanceof PritchanimalEntity _datEntI ? _datEntI.getEntityData().get(PritchanimalEntity.DATA_SCALE_Bunnyear_z) : 0)));
 		} else if ((entity instanceof PritchanimalEntity _datEntI ? _datEntI.getEntityData().get(PritchanimalEntity.DATA_ears_type) : 0) == 3) {
 			if (entity instanceof PritchanimalEntity _datEntSetI)
-				_datEntSetI.getEntityData().set(PritchanimalEntity.DATA_SCALE_Flopear_x, (int) Mth.nextDouble(RandomSource.create(), 25, 150));
+				_datEntSetI.getEntityData().set(PritchanimalEntity.DATA_SCALE_Flopear_x,
+						(int) (Math.random()
+								* ((mother instanceof PritchanimalEntity _datEntI ? _datEntI.getEntityData().get(PritchanimalEntity.DATA_SCALE_Flopear_x) : 0)
+										- (father instanceof PritchanimalEntity _datEntI ? _datEntI.getEntityData().get(PritchanimalEntity.DATA_SCALE_Flopear_x) : 0))
+								+ (father instanceof PritchanimalEntity _datEntI ? _datEntI.getEntityData().get(PritchanimalEntity.DATA_SCALE_Flopear_x) : 0)));
 			if (entity instanceof PritchanimalEntity _datEntSetI)
-				_datEntSetI.getEntityData().set(PritchanimalEntity.DATA_SCALE_Flopear_z, (int) Mth.nextDouble(RandomSource.create(), 25, 150));
+				_datEntSetI.getEntityData().set(PritchanimalEntity.DATA_SCALE_Flopear_z,
+						(int) (Math.random()
+								* ((mother instanceof PritchanimalEntity _datEntI ? _datEntI.getEntityData().get(PritchanimalEntity.DATA_SCALE_Flopear_z) : 0)
+										- (father instanceof PritchanimalEntity _datEntI ? _datEntI.getEntityData().get(PritchanimalEntity.DATA_SCALE_Flopear_z) : 0))
+								+ (father instanceof PritchanimalEntity _datEntI ? _datEntI.getEntityData().get(PritchanimalEntity.DATA_SCALE_Flopear_z) : 0)));
 			if (entity instanceof PritchanimalEntity _datEntSetI)
-				_datEntSetI.getEntityData().set(PritchanimalEntity.DATA_ROTATION_Flopear_z, (int) Mth.nextDouble(RandomSource.create(), -90, 90));
+				_datEntSetI.getEntityData().set(PritchanimalEntity.DATA_ROTATION_Flopear_z,
+						(int) (Math.random()
+								* ((mother instanceof PritchanimalEntity _datEntI ? _datEntI.getEntityData().get(PritchanimalEntity.DATA_ROTATION_Flopear_z) : 0)
+										- (father instanceof PritchanimalEntity _datEntI ? _datEntI.getEntityData().get(PritchanimalEntity.DATA_ROTATION_Flopear_z) : 0))
+								+ (father instanceof PritchanimalEntity _datEntI ? _datEntI.getEntityData().get(PritchanimalEntity.DATA_ROTATION_Flopear_z) : 0)));
 		}
 		if (entity instanceof PritchanimalEntity _datEntSetI)
 			_datEntSetI.getEntityData().set(PritchanimalEntity.DATA_horn_type, Mth.nextInt(RandomSource.create(), 0, 4));
