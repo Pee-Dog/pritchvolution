@@ -1,4 +1,6 @@
 {
   "item.pritchvolution.pritchanimal_spawn_egg": "Pritch Animal Spawn Egg",
-  "entity.pritchvolution.pritchanimal": "Pritch Animal"
+  "entity.pritchvolution.pritchanimal": "Pritch Animal",
+  "item.pritchvolution.random_pritchanimal_generator_spawn_egg": "Random Pritchanimal Generator Spawn Egg",
+  "entity.pritchvolution.random_pritchanimal_generator": "Random Pritchanimal Generator"
 }
