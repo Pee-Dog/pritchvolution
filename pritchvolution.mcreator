@@ -9,9 +9,9 @@
       "metadata": {
         "files": [
           "src/main/java/net/mcreator/pritchvolution/entity/PritchanimalEntity.java",
-          "src/main/resources/data/pritchvolution/neoforge/biome_modifier/pritchanimal_biome_modifier.json",
           "src/main/java/net/mcreator/pritchvolution/client/renderer/PritchanimalRenderer.java",
-          "src/main/resources/assets/pritchvolution/models/item/pritchanimal_spawn_egg.json"
+          "src/main/resources/assets/pritchvolution/models/item/pritchanimal_spawn_egg.json",
+          "src/main/resources/data/pritchvolution/forge/biome_modifier/pritchanimal_biome_modifier.json"
         ]
       }
     },
@@ -95,28 +95,6 @@
       }
     },
     {
-      "name": "PritchanimalRightClickedOnEntity",
-      "type": "procedure",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "pritchanimal_right_clicked_on_entity",
-      "metadata": {
-        "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          },
-          {
-            "name": "sourceentity",
-            "type": "entity"
-          }
-        ],
-        "files": [
-          "src/main/java/net/mcreator/pritchvolution/procedures/PritchanimalRightClickedOnEntityProcedure.java"
-        ]
-      }
-    },
-    {
       "name": "RandomPritchanimalSetup1",
       "type": "procedure",
       "compiles": true,
@@ -135,20 +113,54 @@
       }
     },
     {
-      "name": "RandomPritchanimalSetup2",
+      "name": "BabyPritchanimalSetup1",
       "type": "procedure",
       "compiles": true,
       "locked_code": false,
-      "registry_name": "random_pritchanimal_setup_2",
+      "registry_name": "baby_pritchanimal_setup_1",
       "metadata": {
         "dependencies": [
           {
             "name": "entity",
             "type": "entity"
+          },
+          {
+            "name": "immediatesourceentity",
+            "type": "entity"
+          },
+          {
+            "name": "sourceentity",
+            "type": "entity"
           }
         ],
         "files": [
-          "src/main/java/net/mcreator/pritchvolution/procedures/RandomPritchanimalSetup2Procedure.java"
+          "src/main/java/net/mcreator/pritchvolution/procedures/BabyPritchanimalSetup1Procedure.java"
+        ]
+      }
+    },
+    {
+      "name": "BabyPritchanimalSetup2",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "baby_pritchanimal_setup_2",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "immediatesourceentity",
+            "type": "entity"
+          },
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/pritchvolution/procedures/BabyPritchanimalSetup2Procedure.java"
         ]
       }
     },
@@ -187,17 +199,42 @@
       }
     },
     {
-      "name": "RandomPritchanimalGenerator",
-      "type": "livingentity",
+      "name": "RandomPritchanimalSetup2",
+      "type": "procedure",
       "compiles": true,
       "locked_code": false,
-      "registry_name": "random_pritchanimal_generator",
+      "registry_name": "random_pritchanimal_setup_2",
       "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ],
         "files": [
-          "src/main/java/net/mcreator/pritchvolution/client/renderer/RandomPritchanimalGeneratorRenderer.java",
-          "src/main/resources/data/pritchvolution/neoforge/biome_modifier/random_pritchanimal_generator_biome_modifier.json",
-          "src/main/resources/assets/pritchvolution/models/item/random_pritchanimal_generator_spawn_egg.json",
-          "src/main/java/net/mcreator/pritchvolution/entity/RandomPritchanimalGeneratorEntity.java"
+          "src/main/java/net/mcreator/pritchvolution/procedures/RandomPritchanimalSetup2Procedure.java"
+        ]
+      }
+    },
+    {
+      "name": "PritchanimalRightClickedOnEntity",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "pritchanimal_right_clicked_on_entity",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/pritchvolution/procedures/PritchanimalRightClickedOnEntityProcedure.java"
         ]
       }
     },
@@ -236,54 +273,17 @@
       }
     },
     {
-      "name": "BabyPritchanimalSetup2",
-      "type": "procedure",
+      "name": "RandomPritchanimalGenerator",
+      "type": "livingentity",
       "compiles": true,
       "locked_code": false,
-      "registry_name": "baby_pritchanimal_setup_2",
+      "registry_name": "random_pritchanimal_generator",
       "metadata": {
-        "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          },
-          {
-            "name": "immediatesourceentity",
-            "type": "entity"
-          },
-          {
-            "name": "sourceentity",
-            "type": "entity"
-          }
-        ],
         "files": [
-          "src/main/java/net/mcreator/pritchvolution/procedures/BabyPritchanimalSetup2Procedure.java"
-        ]
-      }
-    },
-    {
-      "name": "BabyPritchanimalSetup1",
-      "type": "procedure",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "baby_pritchanimal_setup_1",
-      "metadata": {
-        "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          },
-          {
-            "name": "immediatesourceentity",
-            "type": "entity"
-          },
-          {
-            "name": "sourceentity",
-            "type": "entity"
-          }
-        ],
-        "files": [
-          "src/main/java/net/mcreator/pritchvolution/procedures/BabyPritchanimalSetup1Procedure.java"
+          "src/main/java/net/mcreator/pritchvolution/client/renderer/RandomPritchanimalGeneratorRenderer.java",
+          "src/main/resources/data/pritchvolution/neoforge/biome_modifier/random_pritchanimal_generator_biome_modifier.json",
+          "src/main/resources/assets/pritchvolution/models/item/random_pritchanimal_generator_spawn_egg.json",
+          "src/main/java/net/mcreator/pritchvolution/entity/RandomPritchanimalGeneratorEntity.java"
         ]
       }
     }
@@ -329,7 +329,6 @@
     "dependants": [],
     "mcreatorDependencies": [],
     "currentGenerator": "neoforge-1.21.1",
-    "credits": "Created using mod maker MCreator - https://mcreator.net/about",
     "modElementsPackage": "net.mcreator.pritchvolution"
   },
   "mcreatorVersion": 202500228610
