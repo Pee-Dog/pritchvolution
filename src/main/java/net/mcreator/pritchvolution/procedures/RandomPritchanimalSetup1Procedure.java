@@ -57,5 +57,15 @@ public class RandomPritchanimalSetup1Procedure {
 					(int) ((entity instanceof PritchanimalEntity _datEntI ? _datEntI.getEntityData().get(PritchanimalEntity.DATA_SCALE_Body_z) : 0) - Mth.nextDouble(RandomSource.create(), 0, 25)));
 		if (entity instanceof PritchanimalEntity _datEntSetI)
 			_datEntSetI.getEntityData().set(PritchanimalEntity.DATA_roamType, Mth.nextInt(RandomSource.create(), 0, 3));
+		if (entity instanceof PritchanimalEntity _datEntSetI)
+			_datEntSetI.getEntityData().set(PritchanimalEntity.DATA_hue, Mth.nextInt(RandomSource.create(), 0, 255));
+		if (entity instanceof PritchanimalEntity _datEntSetI)
+			_datEntSetI.getEntityData().set(PritchanimalEntity.DATA_saturation, Mth.nextInt(RandomSource.create(), 0, 255));
+		if (entity instanceof PritchanimalEntity _datEntSetI)
+			_datEntSetI.getEntityData().set(PritchanimalEntity.DATA_brightness, Mth.nextInt(RandomSource.create(), 125, 255));
+		if (entity instanceof PritchanimalEntity _datEntSetL)
+			_datEntSetL.getEntityData().set(PritchanimalEntity.DATA_hasArms, (Math.random() > 0.1));
+		if (entity instanceof PritchanimalEntity _datEntSetL)
+			_datEntSetL.getEntityData().set(PritchanimalEntity.DATA_hasLegs, (Math.random() > 0.1));
 	}
 }

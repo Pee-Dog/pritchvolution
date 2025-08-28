@@ -131,5 +131,21 @@ public class BabyPritchanimalSetup1Procedure {
 							* ((mother instanceof PritchanimalEntity _datEntI ? _datEntI.getEntityData().get(PritchanimalEntity.DATA_SCALE_Neck_z) : 0)
 									- (father instanceof PritchanimalEntity _datEntI ? _datEntI.getEntityData().get(PritchanimalEntity.DATA_SCALE_Neck_z) : 0))
 							+ (father instanceof PritchanimalEntity _datEntI ? _datEntI.getEntityData().get(PritchanimalEntity.DATA_SCALE_Neck_z) : 0)));
+		if (entity instanceof PritchanimalEntity _datEntSetI)
+			_datEntSetI.getEntityData().set(PritchanimalEntity.DATA_hue, (int) (Math.random()
+					* ((mother instanceof PritchanimalEntity _datEntI ? _datEntI.getEntityData().get(PritchanimalEntity.DATA_hue) : 0) - (father instanceof PritchanimalEntity _datEntI ? _datEntI.getEntityData().get(PritchanimalEntity.DATA_hue) : 0))
+					+ (father instanceof PritchanimalEntity _datEntI ? _datEntI.getEntityData().get(PritchanimalEntity.DATA_hue) : 0)));
+		if (entity instanceof PritchanimalEntity _datEntSetI)
+			_datEntSetI.getEntityData().set(PritchanimalEntity.DATA_saturation,
+					(int) (Math.random()
+							* ((mother instanceof PritchanimalEntity _datEntI ? _datEntI.getEntityData().get(PritchanimalEntity.DATA_saturation) : 0)
+									- (father instanceof PritchanimalEntity _datEntI ? _datEntI.getEntityData().get(PritchanimalEntity.DATA_saturation) : 0))
+							+ (father instanceof PritchanimalEntity _datEntI ? _datEntI.getEntityData().get(PritchanimalEntity.DATA_saturation) : 0)));
+		if (entity instanceof PritchanimalEntity _datEntSetI)
+			_datEntSetI.getEntityData().set(PritchanimalEntity.DATA_brightness,
+					(int) (Math.random()
+							* ((mother instanceof PritchanimalEntity _datEntI ? _datEntI.getEntityData().get(PritchanimalEntity.DATA_brightness) : 0)
+									- (father instanceof PritchanimalEntity _datEntI ? _datEntI.getEntityData().get(PritchanimalEntity.DATA_brightness) : 0))
+							+ (father instanceof PritchanimalEntity _datEntI ? _datEntI.getEntityData().get(PritchanimalEntity.DATA_brightness) : 0)));
 	}
 }

@@ -16,7 +16,10 @@ public class PritchanimalOnInitialEntitySpawnProcedure {
 		if ((entity instanceof PritchanimalEntity _datEntL0 && _datEntL0.getEntityData().get(PritchanimalEntity.DATA_isInitialized)) == false) {
 			if (entity instanceof PritchanimalEntity _datEntSetL)
 				_datEntSetL.getEntityData().set(PritchanimalEntity.DATA_isInitialized, true);
-			ScaleNeckY = (float) (entity instanceof PritchanimalEntity _datEntI ? _datEntI.getEntityData().get(PritchanimalEntity.DATA_SCALE_Neck_y) : 0) / 100;
+			ScaleNeckY = 0;
+			if (entity instanceof PritchanimalEntity _datEntL2 && _datEntL2.getEntityData().get(PritchanimalEntity.DATA_hasNeck)) {
+				ScaleNeckY = (float) (entity instanceof PritchanimalEntity _datEntI ? _datEntI.getEntityData().get(PritchanimalEntity.DATA_SCALE_Neck_y) : 0) / 100;
+			}
 			if (entity instanceof PritchanimalEntity _datEntSetI)
 				_datEntSetI.getEntityData().set(PritchanimalEntity.DATA_POSITION_HeadOffset_y,
 						(int) (8 * ScaleNeckY * Math.cos(Math.toRadians(entity instanceof PritchanimalEntity _datEntI ? _datEntI.getEntityData().get(PritchanimalEntity.DATA_ROTATION_Neck_x) : 0))));

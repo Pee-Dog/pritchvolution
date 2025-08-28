@@ -4,7 +4,7 @@
       "name": "Pritchanimal",
       "type": "livingentity",
       "compiles": true,
-      "locked_code": true,
+      "locked_code": false,
       "registry_name": "pritchanimal",
       "metadata": {
         "files": [

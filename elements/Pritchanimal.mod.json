@@ -621,25 +621,6 @@
         "value": 0
       },
       {
-        "name": "hasHead",
-        "type": "logic",
-        "value": false
-      },
-      {
-        "min": -2147483648,
-        "max": 2147483647,
-        "name": "hasArms",
-        "type": "integer",
-        "value": 0
-      },
-      {
-        "min": -2147483648,
-        "max": 2147483647,
-        "name": "hasLegs",
-        "type": "integer",
-        "value": 0
-      },
-      {
         "min": -2147483648,
         "max": 2147483647,
         "name": "hue",
@@ -659,6 +640,66 @@
         "name": "brightness",
         "type": "integer",
         "value": 0
+      },
+      {
+        "name": "hasHead",
+        "type": "logic",
+        "value": true
+      },
+      {
+        "name": "hasArms",
+        "type": "logic",
+        "value": true
+      },
+      {
+        "name": "hasLegs",
+        "type": "logic",
+        "value": true
+      },
+      {
+        "name": "hasNeck",
+        "type": "logic",
+        "value": false
+      },
+      {
+        "name": "hasNose",
+        "type": "logic",
+        "value": false
+      },
+      {
+        "name": "hasSnout",
+        "type": "logic",
+        "value": false
+      },
+      {
+        "name": "hasEars",
+        "type": "logic",
+        "value": false
+      },
+      {
+        "name": "hasBunnyears",
+        "type": "logic",
+        "value": false
+      },
+      {
+        "name": "hasFlopears",
+        "type": "logic",
+        "value": false
+      },
+      {
+        "name": "hasCowhorn",
+        "type": "logic",
+        "value": false
+      },
+      {
+        "name": "hasColdhorn",
+        "type": "logic",
+        "value": false
+      },
+      {
+        "name": "hasWarmhorn",
+        "type": "logic",
+        "value": false
       }
     ],
     "onMobTickUpdate": {
