@@ -1,8 +1,21 @@
 package net.mcreator.pritchvolution.procedures;
 
-import net.minecraftforge.eventbus.api.Event;
+import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
+import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.bus.api.Event;
 
-@Mod.EventBusSubscriber
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.InteractionHand;
+
+import net.mcreator.pritchvolution.entity.PritchanimalEntity;
+
+import javax.annotation.Nullable;
+
+@EventBusSubscriber
 public class PritchanimalRightClickedOnEntityProcedure {
 	@SubscribeEvent
 	public static void onRightClickEntity(PlayerInteractEvent.EntityInteract event) {

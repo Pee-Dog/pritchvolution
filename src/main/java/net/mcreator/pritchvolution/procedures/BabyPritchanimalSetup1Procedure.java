@@ -1,6 +1,12 @@
 package net.mcreator.pritchvolution.procedures;
 
-import net.minecraftforge.eventbus.api.Event;
+import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.util.RandomSource;
+import net.minecraft.util.Mth;
+
+import net.mcreator.pritchvolution.entity.PritchanimalEntity;
 
 public class BabyPritchanimalSetup1Procedure {
 	public static void execute(Entity entity, Entity immediatesourceentity, Entity sourceentity) {
