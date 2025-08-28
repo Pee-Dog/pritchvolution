@@ -16,6 +16,8 @@ public class PritchvolutionModItems {
 	public static final DeferredItem<Item> PRITCHANIMAL_SPAWN_EGG = REGISTRY.register("pritchanimal_spawn_egg", () -> new DeferredSpawnEggItem(PritchvolutionModEntities.PRITCHANIMAL, -1, -16777216, new Item.Properties()));
 	public static final DeferredItem<Item> RANDOM_PRITCHANIMAL_GENERATOR_SPAWN_EGG = REGISTRY.register("random_pritchanimal_generator_spawn_egg",
 			() -> new DeferredSpawnEggItem(PritchvolutionModEntities.RANDOM_PRITCHANIMAL_GENERATOR, -65383, -16777216, new Item.Properties()));
+	public static final DeferredItem<Item> HUMAN_PRITCHANIMAL_GENERATOR_SPAWN_EGG = REGISTRY.register("human_pritchanimal_generator_spawn_egg",
+			() -> new DeferredSpawnEggItem(PritchvolutionModEntities.HUMAN_PRITCHANIMAL_GENERATOR, -13421569, -16777216, new Item.Properties()));
 	// Start of user code block custom items
 	// End of user code block custom items
 }

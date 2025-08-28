@@ -9,9 +9,9 @@
       "metadata": {
         "files": [
           "src/main/java/net/mcreator/pritchvolution/entity/PritchanimalEntity.java",
+          "src/main/resources/data/pritchvolution/neoforge/biome_modifier/pritchanimal_biome_modifier.json",
           "src/main/java/net/mcreator/pritchvolution/client/renderer/PritchanimalRenderer.java",
-          "src/main/resources/assets/pritchvolution/models/item/pritchanimal_spawn_egg.json",
-          "src/main/resources/data/pritchvolution/forge/biome_modifier/pritchanimal_biome_modifier.json"
+          "src/main/resources/assets/pritchvolution/models/item/pritchanimal_spawn_egg.json"
         ]
       }
     },
@@ -286,6 +286,148 @@
           "src/main/java/net/mcreator/pritchvolution/entity/RandomPritchanimalGeneratorEntity.java"
         ]
       }
+    },
+    {
+      "name": "HumanPritchanimalGenerator",
+      "type": "livingentity",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "human_pritchanimal_generator",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/pritchvolution/neoforge/biome_modifier/human_pritchanimal_generator_biome_modifier.json",
+          "src/main/java/net/mcreator/pritchvolution/client/renderer/HumanPritchanimalGeneratorRenderer.java",
+          "src/main/resources/assets/pritchvolution/models/item/human_pritchanimal_generator_spawn_egg.json",
+          "src/main/java/net/mcreator/pritchvolution/entity/HumanPritchanimalGeneratorEntity.java"
+        ]
+      }
+    },
+    {
+      "name": "HumanPritchanimalGeneratorOnInitialEntitySpawn",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "human_pritchanimal_generator_on_initial_entity_spawn",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/pritchvolution/procedures/HumanPritchanimalGeneratorOnInitialEntitySpawnProcedure.java"
+        ]
+      }
+    },
+    {
+      "name": "HumanPritchanimalSetup1",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "human_pritchanimal_setup_1",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/pritchvolution/procedures/HumanPritchanimalSetup1Procedure.java"
+        ]
+      }
+    },
+    {
+      "name": "HumanPritchanimalSetup2",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "human_pritchanimal_setup_2",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/pritchvolution/procedures/HumanPritchanimalSetup2Procedure.java"
+        ]
+      }
+    },
+    {
+      "name": "RoamWalk",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "roam_walk",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ],
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/pritchvolution/procedures/RoamWalkProcedure.java"
+        ]
+      }
+    },
+    {
+      "name": "RoamSwim",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "roam_swim",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ],
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/pritchvolution/procedures/RoamSwimProcedure.java"
+        ]
+      }
+    },
+    {
+      "name": "RoamFly",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "roam_fly",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ],
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/pritchvolution/procedures/RoamFlyProcedure.java"
+        ]
+      }
     }
   ],
   "variable_elements": [],
@@ -297,7 +439,9 @@
       "item.pritchvolution.pritchanimal_spawn_egg": "Pritch Animal Spawn Egg",
       "entity.pritchvolution.pritchanimal": "Pritch Animal",
       "item.pritchvolution.random_pritchanimal_generator_spawn_egg": "Random Pritchanimal Generator Spawn Egg",
-      "entity.pritchvolution.random_pritchanimal_generator": "Random Pritchanimal Generator"
+      "entity.pritchvolution.random_pritchanimal_generator": "Random Pritchanimal Generator",
+      "entity.pritchvolution.human_pritchanimal_generator": "Human Pritchanimal Generator",
+      "item.pritchvolution.human_pritchanimal_generator_spawn_egg": "Human Pritchanimal Generator Spawn Egg"
     }
   },
   "metadata": {

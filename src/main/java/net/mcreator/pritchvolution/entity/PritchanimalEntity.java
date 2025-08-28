@@ -110,6 +110,13 @@ public class PritchanimalEntity extends Animal {
 	public static final EntityDataAccessor<Integer> DATA_POSITION_HeadOffset_z = SynchedEntityData.defineId(PritchanimalEntity.class, EntityDataSerializers.INT);
 	public static final EntityDataAccessor<Boolean> DATA_isInitialized = SynchedEntityData.defineId(PritchanimalEntity.class, EntityDataSerializers.BOOLEAN);
 	public static final EntityDataAccessor<Integer> DATA_fedTimer = SynchedEntityData.defineId(PritchanimalEntity.class, EntityDataSerializers.INT);
+	public static final EntityDataAccessor<Integer> DATA_roamType = SynchedEntityData.defineId(PritchanimalEntity.class, EntityDataSerializers.INT);
+	public static final EntityDataAccessor<Boolean> DATA_hasHead = SynchedEntityData.defineId(PritchanimalEntity.class, EntityDataSerializers.BOOLEAN);
+	public static final EntityDataAccessor<Integer> DATA_hasArms = SynchedEntityData.defineId(PritchanimalEntity.class, EntityDataSerializers.INT);
+	public static final EntityDataAccessor<Integer> DATA_hasLegs = SynchedEntityData.defineId(PritchanimalEntity.class, EntityDataSerializers.INT);
+	public static final EntityDataAccessor<Integer> DATA_hue = SynchedEntityData.defineId(PritchanimalEntity.class, EntityDataSerializers.INT);
+	public static final EntityDataAccessor<Integer> DATA_saturation = SynchedEntityData.defineId(PritchanimalEntity.class, EntityDataSerializers.INT);
+	public static final EntityDataAccessor<Integer> DATA_brightness = SynchedEntityData.defineId(PritchanimalEntity.class, EntityDataSerializers.INT);
 	public final AnimationState animationState0 = new AnimationState();
 
 	public PritchanimalEntity(EntityType<PritchanimalEntity> type, Level world) {
@@ -191,6 +198,13 @@ public class PritchanimalEntity extends Animal {
 		builder.define(DATA_POSITION_HeadOffset_z, 0);
 		builder.define(DATA_isInitialized, false);
 		builder.define(DATA_fedTimer, -1);
+		builder.define(DATA_roamType, 0);
+		builder.define(DATA_hasHead, false);
+		builder.define(DATA_hasArms, 0);
+		builder.define(DATA_hasLegs, 0);
+		builder.define(DATA_hue, 0);
+		builder.define(DATA_saturation, 0);
+		builder.define(DATA_brightness, 0);
 	}
 
 	@Override
@@ -202,7 +216,7 @@ public class PritchanimalEntity extends Animal {
 				return this.isTimeToAttack() && this.mob.distanceToSqr(entity) < (this.mob.getBbWidth() * this.mob.getBbWidth() + entity.getBbWidth()) && this.mob.getSensing().hasLineOfSight(entity);
 			}
 		});
-		this.goalSelector.addGoal(2, new TemptGoal(this, 1.5, Ingredient.of(Items.WHEAT), false));
+		this.goalSelector.addGoal(2, new TemptGoal(this, 1, Ingredient.of(Items.WHEAT), false));
 		this.goalSelector.addGoal(3, new RandomStrollGoal(this, 1));
 		this.targetSelector.addGoal(4, new HurtByTargetGoal(this));
 		this.goalSelector.addGoal(5, new RandomLookAroundGoal(this));
@@ -292,6 +306,13 @@ public class PritchanimalEntity extends Animal {
 		compound.putInt("DataPOSITION_HeadOffset_z", this.entityData.get(DATA_POSITION_HeadOffset_z));
 		compound.putBoolean("DataisInitialized", this.entityData.get(DATA_isInitialized));
 		compound.putInt("DatafedTimer", this.entityData.get(DATA_fedTimer));
+		compound.putInt("DataroamType", this.entityData.get(DATA_roamType));
+		compound.putBoolean("DatahasHead", this.entityData.get(DATA_hasHead));
+		compound.putInt("DatahasArms", this.entityData.get(DATA_hasArms));
+		compound.putInt("DatahasLegs", this.entityData.get(DATA_hasLegs));
+		compound.putInt("Datahue", this.entityData.get(DATA_hue));
+		compound.putInt("Datasaturation", this.entityData.get(DATA_saturation));
+		compound.putInt("Databrightness", this.entityData.get(DATA_brightness));
 	}
 
 	@Override
@@ -437,6 +458,20 @@ public class PritchanimalEntity extends Animal {
 			this.entityData.set(DATA_isInitialized, compound.getBoolean("DataisInitialized"));
 		if (compound.contains("DatafedTimer"))
 			this.entityData.set(DATA_fedTimer, compound.getInt("DatafedTimer"));
+		if (compound.contains("DataroamType"))
+			this.entityData.set(DATA_roamType, compound.getInt("DataroamType"));
+		if (compound.contains("DatahasHead"))
+			this.entityData.set(DATA_hasHead, compound.getBoolean("DatahasHead"));
+		if (compound.contains("DatahasArms"))
+			this.entityData.set(DATA_hasArms, compound.getInt("DatahasArms"));
+		if (compound.contains("DatahasLegs"))
+			this.entityData.set(DATA_hasLegs, compound.getInt("DatahasLegs"));
+		if (compound.contains("Datahue"))
+			this.entityData.set(DATA_hue, compound.getInt("Datahue"));
+		if (compound.contains("Datasaturation"))
+			this.entityData.set(DATA_saturation, compound.getInt("Datasaturation"));
+		if (compound.contains("Databrightness"))
+			this.entityData.set(DATA_brightness, compound.getInt("Databrightness"));
 	}
 
 	@Override

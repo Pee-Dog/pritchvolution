@@ -41,5 +41,9 @@ public class PritchanimalOnInitialEntitySpawnProcedure {
 						(int) ((-10) * ScaleBodyY * Math.sin(Math.toRadians(entity instanceof PritchanimalEntity _datEntI ? _datEntI.getEntityData().get(PritchanimalEntity.DATA_ROTATION_Body_x) : 0))));
 		}
 		PritchanimalFedTimerProcedure.execute(world, x, y, z, entity);
+		if (Math.random() < 0.001) {
+			if (entity instanceof PritchanimalEntity _datEntSetI)
+				_datEntSetI.getEntityData().set(PritchanimalEntity.DATA_fedTimer, 200);
+		}
 	}
 }

@@ -55,5 +55,7 @@ public class RandomPritchanimalSetup1Procedure {
 		if (entity instanceof PritchanimalEntity _datEntSetI)
 			_datEntSetI.getEntityData().set(PritchanimalEntity.DATA_SCALE_Neck_z,
 					(int) ((entity instanceof PritchanimalEntity _datEntI ? _datEntI.getEntityData().get(PritchanimalEntity.DATA_SCALE_Body_z) : 0) - Mth.nextDouble(RandomSource.create(), 0, 25)));
+		if (entity instanceof PritchanimalEntity _datEntSetI)
+			_datEntSetI.getEntityData().set(PritchanimalEntity.DATA_roamType, Mth.nextInt(RandomSource.create(), 0, 3));
 	}
 }
