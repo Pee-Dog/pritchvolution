@@ -1,6 +1,6 @@
 package net.mcreator.pritchvolution.procedures;
 
-import net.minecraft.world.entity.Entity;
+import net.minecraftforge.eventbus.api.Event;
 
 public class PritchanimalBreedProcedure {
 	public static void execute(Entity entity, Entity immediatesourceentity, Entity sourceentity) {

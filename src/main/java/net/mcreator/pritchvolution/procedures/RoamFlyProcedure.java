@@ -1,0 +1,14 @@
+package net.mcreator.pritchvolution.procedures;
+
+import net.minecraftforge.eventbus.api.Event;
+
+public class RoamFlyProcedure {
+	public static boolean execute(Entity entity) {
+		if (entity == null)
+			return false;
+		if ((entity instanceof PritchanimalEntity _datEntI ? _datEntI.getEntityData().get(PritchanimalEntity.DATA_roamType) : 0) == 3) {
+			return true;
+		}
+		return false;
+	}
+}

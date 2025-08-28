@@ -1,0 +1,8 @@
+{
+  "_fv": 79,
+  "_type": "procedure",
+  "definition": {
+    "procedurexml": "<xml xmlns=\"https://developers.google.com/blockly/xml\"><variables><variable type=\"Entity\" id=\"pritchanimal\">pritchanimal</variable></variables><block type=\"event_trigger\" deletable=\"false\" x=\"40\" y=\"40\"><field name=\"trigger\">no_ext_trigger</field><next><block type=\"variables_set_entity\"><mutation xmlns=\"http://www.w3.org/1999/xhtml\" is_player_var=\"false\" has_entity=\"false\"></mutation><field name=\"VAR\">local:pritchanimal</field><value name=\"VAL\"><block type=\"spawn_entity_get\"><field name=\"entity\">CUSTOM:Pritchanimal</field><value name=\"x\"><block type=\"coord_x\"></block></value><value name=\"y\"><block type=\"coord_y\"></block></value><value name=\"z\"><block type=\"coord_z\"></block></value></block></value><next><block type=\"call_procedure\"><mutation xmlns=\"http://www.w3.org/1999/xhtml\" inputs=\"0\"></mutation><field name=\"procedure\">RandomPritchanimalSetup1</field><next><block type=\"call_procedure\"><mutation xmlns=\"http://www.w3.org/1999/xhtml\" inputs=\"0\"></mutation><field name=\"procedure\">RandomPritchanimalSetup2</field><next><block type=\"entity_despawn\"><value name=\"entity\"><block type=\"entity_from_deps\"></block></value></block></next></block></next></block></next></block></next></block></xml>",
+    "skipDependencyNullCheck": false
+  }
+}

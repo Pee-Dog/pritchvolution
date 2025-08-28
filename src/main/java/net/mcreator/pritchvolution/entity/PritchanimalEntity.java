@@ -110,6 +110,22 @@ public class PritchanimalEntity extends Animal {
 	public static final EntityDataAccessor<Integer> DATA_POSITION_HeadOffset_z = SynchedEntityData.defineId(PritchanimalEntity.class, EntityDataSerializers.INT);
 	public static final EntityDataAccessor<Boolean> DATA_isInitialized = SynchedEntityData.defineId(PritchanimalEntity.class, EntityDataSerializers.BOOLEAN);
 	public static final EntityDataAccessor<Integer> DATA_fedTimer = SynchedEntityData.defineId(PritchanimalEntity.class, EntityDataSerializers.INT);
+	public static final EntityDataAccessor<Integer> DATA_roamType = SynchedEntityData.defineId(PritchanimalEntity.class, EntityDataSerializers.INT);
+	public static final EntityDataAccessor<Integer> DATA_hue = SynchedEntityData.defineId(PritchanimalEntity.class, EntityDataSerializers.INT);
+	public static final EntityDataAccessor<Integer> DATA_saturation = SynchedEntityData.defineId(PritchanimalEntity.class, EntityDataSerializers.INT);
+	public static final EntityDataAccessor<Integer> DATA_brightness = SynchedEntityData.defineId(PritchanimalEntity.class, EntityDataSerializers.INT);
+	public static final EntityDataAccessor<Boolean> DATA_hasHead = SynchedEntityData.defineId(PritchanimalEntity.class, EntityDataSerializers.BOOLEAN);
+	public static final EntityDataAccessor<Boolean> DATA_hasArms = SynchedEntityData.defineId(PritchanimalEntity.class, EntityDataSerializers.BOOLEAN);
+	public static final EntityDataAccessor<Boolean> DATA_hasLegs = SynchedEntityData.defineId(PritchanimalEntity.class, EntityDataSerializers.BOOLEAN);
+	public static final EntityDataAccessor<Boolean> DATA_hasNeck = SynchedEntityData.defineId(PritchanimalEntity.class, EntityDataSerializers.BOOLEAN);
+	public static final EntityDataAccessor<Boolean> DATA_hasNose = SynchedEntityData.defineId(PritchanimalEntity.class, EntityDataSerializers.BOOLEAN);
+	public static final EntityDataAccessor<Boolean> DATA_hasSnout = SynchedEntityData.defineId(PritchanimalEntity.class, EntityDataSerializers.BOOLEAN);
+	public static final EntityDataAccessor<Boolean> DATA_hasEars = SynchedEntityData.defineId(PritchanimalEntity.class, EntityDataSerializers.BOOLEAN);
+	public static final EntityDataAccessor<Boolean> DATA_hasBunnyears = SynchedEntityData.defineId(PritchanimalEntity.class, EntityDataSerializers.BOOLEAN);
+	public static final EntityDataAccessor<Boolean> DATA_hasFlopears = SynchedEntityData.defineId(PritchanimalEntity.class, EntityDataSerializers.BOOLEAN);
+	public static final EntityDataAccessor<Boolean> DATA_hasCowhorn = SynchedEntityData.defineId(PritchanimalEntity.class, EntityDataSerializers.BOOLEAN);
+	public static final EntityDataAccessor<Boolean> DATA_hasColdhorn = SynchedEntityData.defineId(PritchanimalEntity.class, EntityDataSerializers.BOOLEAN);
+	public static final EntityDataAccessor<Boolean> DATA_hasWarmhorn = SynchedEntityData.defineId(PritchanimalEntity.class, EntityDataSerializers.BOOLEAN);
 	public final AnimationState animationState0 = new AnimationState();
 
 	public PritchanimalEntity(EntityType<PritchanimalEntity> type, Level world) {
@@ -191,6 +207,22 @@ public class PritchanimalEntity extends Animal {
 		builder.define(DATA_POSITION_HeadOffset_z, 0);
 		builder.define(DATA_isInitialized, false);
 		builder.define(DATA_fedTimer, -1);
+		builder.define(DATA_roamType, 0);
+		builder.define(DATA_hue, 0);
+		builder.define(DATA_saturation, 0);
+		builder.define(DATA_brightness, 0);
+		builder.define(DATA_hasHead, true);
+		builder.define(DATA_hasArms, true);
+		builder.define(DATA_hasLegs, true);
+		builder.define(DATA_hasNeck, false);
+		builder.define(DATA_hasNose, false);
+		builder.define(DATA_hasSnout, false);
+		builder.define(DATA_hasEars, false);
+		builder.define(DATA_hasBunnyears, false);
+		builder.define(DATA_hasFlopears, false);
+		builder.define(DATA_hasCowhorn, false);
+		builder.define(DATA_hasColdhorn, false);
+		builder.define(DATA_hasWarmhorn, false);
 	}
 
 	@Override
@@ -202,7 +234,7 @@ public class PritchanimalEntity extends Animal {
 				return this.isTimeToAttack() && this.mob.distanceToSqr(entity) < (this.mob.getBbWidth() * this.mob.getBbWidth() + entity.getBbWidth()) && this.mob.getSensing().hasLineOfSight(entity);
 			}
 		});
-		this.goalSelector.addGoal(2, new TemptGoal(this, 1.5, Ingredient.of(Items.WHEAT), false));
+		this.goalSelector.addGoal(2, new TemptGoal(this, 1, Ingredient.of(Items.WHEAT), false));
 		this.goalSelector.addGoal(3, new RandomStrollGoal(this, 1));
 		this.targetSelector.addGoal(4, new HurtByTargetGoal(this));
 		this.goalSelector.addGoal(5, new RandomLookAroundGoal(this));
@@ -292,6 +324,22 @@ public class PritchanimalEntity extends Animal {
 		compound.putInt("DataPOSITION_HeadOffset_z", this.entityData.get(DATA_POSITION_HeadOffset_z));
 		compound.putBoolean("DataisInitialized", this.entityData.get(DATA_isInitialized));
 		compound.putInt("DatafedTimer", this.entityData.get(DATA_fedTimer));
+		compound.putInt("DataroamType", this.entityData.get(DATA_roamType));
+		compound.putInt("Datahue", this.entityData.get(DATA_hue));
+		compound.putInt("Datasaturation", this.entityData.get(DATA_saturation));
+		compound.putInt("Databrightness", this.entityData.get(DATA_brightness));
+		compound.putBoolean("DatahasHead", this.entityData.get(DATA_hasHead));
+		compound.putBoolean("DatahasArms", this.entityData.get(DATA_hasArms));
+		compound.putBoolean("DatahasLegs", this.entityData.get(DATA_hasLegs));
+		compound.putBoolean("DatahasNeck", this.entityData.get(DATA_hasNeck));
+		compound.putBoolean("DatahasNose", this.entityData.get(DATA_hasNose));
+		compound.putBoolean("DatahasSnout", this.entityData.get(DATA_hasSnout));
+		compound.putBoolean("DatahasEars", this.entityData.get(DATA_hasEars));
+		compound.putBoolean("DatahasBunnyears", this.entityData.get(DATA_hasBunnyears));
+		compound.putBoolean("DatahasFlopears", this.entityData.get(DATA_hasFlopears));
+		compound.putBoolean("DatahasCowhorn", this.entityData.get(DATA_hasCowhorn));
+		compound.putBoolean("DatahasColdhorn", this.entityData.get(DATA_hasColdhorn));
+		compound.putBoolean("DatahasWarmhorn", this.entityData.get(DATA_hasWarmhorn));
 	}
 
 	@Override
@@ -437,6 +485,38 @@ public class PritchanimalEntity extends Animal {
 			this.entityData.set(DATA_isInitialized, compound.getBoolean("DataisInitialized"));
 		if (compound.contains("DatafedTimer"))
 			this.entityData.set(DATA_fedTimer, compound.getInt("DatafedTimer"));
+		if (compound.contains("DataroamType"))
+			this.entityData.set(DATA_roamType, compound.getInt("DataroamType"));
+		if (compound.contains("Datahue"))
+			this.entityData.set(DATA_hue, compound.getInt("Datahue"));
+		if (compound.contains("Datasaturation"))
+			this.entityData.set(DATA_saturation, compound.getInt("Datasaturation"));
+		if (compound.contains("Databrightness"))
+			this.entityData.set(DATA_brightness, compound.getInt("Databrightness"));
+		if (compound.contains("DatahasHead"))
+			this.entityData.set(DATA_hasHead, compound.getBoolean("DatahasHead"));
+		if (compound.contains("DatahasArms"))
+			this.entityData.set(DATA_hasArms, compound.getBoolean("DatahasArms"));
+		if (compound.contains("DatahasLegs"))
+			this.entityData.set(DATA_hasLegs, compound.getBoolean("DatahasLegs"));
+		if (compound.contains("DatahasNeck"))
+			this.entityData.set(DATA_hasNeck, compound.getBoolean("DatahasNeck"));
+		if (compound.contains("DatahasNose"))
+			this.entityData.set(DATA_hasNose, compound.getBoolean("DatahasNose"));
+		if (compound.contains("DatahasSnout"))
+			this.entityData.set(DATA_hasSnout, compound.getBoolean("DatahasSnout"));
+		if (compound.contains("DatahasEars"))
+			this.entityData.set(DATA_hasEars, compound.getBoolean("DatahasEars"));
+		if (compound.contains("DatahasBunnyears"))
+			this.entityData.set(DATA_hasBunnyears, compound.getBoolean("DatahasBunnyears"));
+		if (compound.contains("DatahasFlopears"))
+			this.entityData.set(DATA_hasFlopears, compound.getBoolean("DatahasFlopears"));
+		if (compound.contains("DatahasCowhorn"))
+			this.entityData.set(DATA_hasCowhorn, compound.getBoolean("DatahasCowhorn"));
+		if (compound.contains("DatahasColdhorn"))
+			this.entityData.set(DATA_hasColdhorn, compound.getBoolean("DatahasColdhorn"));
+		if (compound.contains("DatahasWarmhorn"))
+			this.entityData.set(DATA_hasWarmhorn, compound.getBoolean("DatahasWarmhorn"));
 	}
 
 	@Override

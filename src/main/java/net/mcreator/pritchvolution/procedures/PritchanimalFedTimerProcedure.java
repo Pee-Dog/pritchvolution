@@ -24,7 +24,7 @@ public class PritchanimalFedTimerProcedure {
 			_datEntSetI.getEntityData().set(PritchanimalEntity.DATA_fedTimer, (int) ((entity instanceof PritchanimalEntity _datEntI ? _datEntI.getEntityData().get(PritchanimalEntity.DATA_fedTimer) : 0) - 1));
 		if ((entity instanceof PritchanimalEntity _datEntI ? _datEntI.getEntityData().get(PritchanimalEntity.DATA_fedTimer) : 0) > 0) {
 			if (world instanceof ServerLevel _level)
-				_level.sendParticles(ParticleTypes.HEART, x, y, z, (int) 0.5, 0.5, 0.5, 0.5, 1);
+				_level.sendParticles(ParticleTypes.HEART, x, y, z, (int) 1, 1, 1, 1, 1);
 			for (Entity entityiterator : world.getEntities(entity, new AABB((x + 10), (y + 10), (z + 10), (x - 10), (y - 10), (z - 10)))) {
 				if ((entityiterator instanceof PritchanimalEntity _datEntI ? _datEntI.getEntityData().get(PritchanimalEntity.DATA_fedTimer) : 0) > 0) {
 					if (entity instanceof Mob _entity)

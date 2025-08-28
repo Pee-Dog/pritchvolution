@@ -612,6 +612,94 @@
         "name": "fedTimer",
         "type": "integer",
         "value": -1
+      },
+      {
+        "min": -2147483648,
+        "max": 2147483647,
+        "name": "roamType",
+        "type": "integer",
+        "value": 0
+      },
+      {
+        "min": -2147483648,
+        "max": 2147483647,
+        "name": "hue",
+        "type": "integer",
+        "value": 0
+      },
+      {
+        "min": -2147483648,
+        "max": 2147483647,
+        "name": "saturation",
+        "type": "integer",
+        "value": 0
+      },
+      {
+        "min": -2147483648,
+        "max": 2147483647,
+        "name": "brightness",
+        "type": "integer",
+        "value": 0
+      },
+      {
+        "name": "hasHead",
+        "type": "logic",
+        "value": true
+      },
+      {
+        "name": "hasArms",
+        "type": "logic",
+        "value": true
+      },
+      {
+        "name": "hasLegs",
+        "type": "logic",
+        "value": true
+      },
+      {
+        "name": "hasNeck",
+        "type": "logic",
+        "value": false
+      },
+      {
+        "name": "hasNose",
+        "type": "logic",
+        "value": false
+      },
+      {
+        "name": "hasSnout",
+        "type": "logic",
+        "value": false
+      },
+      {
+        "name": "hasEars",
+        "type": "logic",
+        "value": false
+      },
+      {
+        "name": "hasBunnyears",
+        "type": "logic",
+        "value": false
+      },
+      {
+        "name": "hasFlopears",
+        "type": "logic",
+        "value": false
+      },
+      {
+        "name": "hasCowhorn",
+        "type": "logic",
+        "value": false
+      },
+      {
+        "name": "hasColdhorn",
+        "type": "logic",
+        "value": false
+      },
+      {
+        "name": "hasWarmhorn",
+        "type": "logic",
+        "value": false
       }
     ],
     "onMobTickUpdate": {
@@ -619,7 +707,7 @@
     },
     "hasAI": true,
     "aiBase": "(none)",
-    "aixml": "<xml xmlns=\"https://developers.google.com/blockly/xml\"><block type=\"aitasks_container\" deletable=\"false\" x=\"40\" y=\"40\"><next><block type=\"attack_on_collide\"><field name=\"speed\">1.2</field><field name=\"longmemory\">FALSE</field><field name=\"condition\">null,null</field><next><block type=\"follow_item_in_hands\"><field name=\"speed\">1.5</field><field name=\"scared\">FALSE</field><field name=\"condition\">null,null</field><value name=\"item\"><block type=\"mcitem_all\"><field name=\"value\">Items.WHEAT</field></block></value><next><block type=\"wander\"><field name=\"speed\">1</field><field name=\"condition\">null,null</field><next><block type=\"attack_action\"><field name=\"callhelp\">FALSE</field><field name=\"condition\">null,null</field><next><block type=\"look_around\"><field name=\"condition\">null,null</field><next><block type=\"swim_in_water\"><field name=\"condition\">null,null</field></block></next></block></next></block></next></block></next></block></next></block></next></block></xml>",
+    "aixml": "<xml xmlns=\"https://developers.google.com/blockly/xml\"><block type=\"aitasks_container\" deletable=\"false\" x=\"40\" y=\"40\"><next><block type=\"attack_on_collide\"><field name=\"speed\">1.2</field><field name=\"longmemory\">FALSE</field><field name=\"condition\">null,null</field><next><block type=\"follow_item_in_hands\"><field name=\"speed\">1</field><field name=\"scared\">FALSE</field><field name=\"condition\">null,null</field><value name=\"item\"><block type=\"mcitem_all\"><field name=\"value\">Items.WHEAT</field></block></value><next><block type=\"wander\"><field name=\"speed\">1</field><field name=\"condition\">null,null</field><next><block type=\"attack_action\"><field name=\"callhelp\">FALSE</field><field name=\"condition\">null,null</field><next><block type=\"look_around\"><field name=\"condition\">null,null</field><next><block type=\"swim_in_water\"><field name=\"condition\">null,null</field></block></next></block></next></block></next></block></next></block></next></block></next></block><block type=\"swim\" x=\"809\" y=\"244\"><field name=\"speed\">1</field><field name=\"condition\">RoamSwim,RoamSwim</field><next><block type=\"fly\"><field name=\"speed\">0.8</field><field name=\"condition\">RoamFly,RoamFly</field></block></next></block></xml>",
     "breedable": true,
     "tameable": false,
     "breedTriggerItems": [

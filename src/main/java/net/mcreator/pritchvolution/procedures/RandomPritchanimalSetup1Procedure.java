@@ -1,12 +1,6 @@
 package net.mcreator.pritchvolution.procedures;
 
-import net.minecraft.world.entity.ai.attributes.Attributes;
-import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.util.RandomSource;
-import net.minecraft.util.Mth;
-
-import net.mcreator.pritchvolution.entity.PritchanimalEntity;
+import net.minecraftforge.eventbus.api.Event;
 
 public class RandomPritchanimalSetup1Procedure {
 	public static void execute(Entity entity) {
@@ -55,5 +49,17 @@ public class RandomPritchanimalSetup1Procedure {
 		if (entity instanceof PritchanimalEntity _datEntSetI)
 			_datEntSetI.getEntityData().set(PritchanimalEntity.DATA_SCALE_Neck_z,
 					(int) ((entity instanceof PritchanimalEntity _datEntI ? _datEntI.getEntityData().get(PritchanimalEntity.DATA_SCALE_Body_z) : 0) - Mth.nextDouble(RandomSource.create(), 0, 25)));
+		if (entity instanceof PritchanimalEntity _datEntSetI)
+			_datEntSetI.getEntityData().set(PritchanimalEntity.DATA_roamType, Mth.nextInt(RandomSource.create(), 0, 3));
+		if (entity instanceof PritchanimalEntity _datEntSetI)
+			_datEntSetI.getEntityData().set(PritchanimalEntity.DATA_hue, Mth.nextInt(RandomSource.create(), 0, 255));
+		if (entity instanceof PritchanimalEntity _datEntSetI)
+			_datEntSetI.getEntityData().set(PritchanimalEntity.DATA_saturation, Mth.nextInt(RandomSource.create(), 0, 255));
+		if (entity instanceof PritchanimalEntity _datEntSetI)
+			_datEntSetI.getEntityData().set(PritchanimalEntity.DATA_brightness, Mth.nextInt(RandomSource.create(), 125, 255));
+		if (entity instanceof PritchanimalEntity _datEntSetL)
+			_datEntSetL.getEntityData().set(PritchanimalEntity.DATA_hasArms, (Math.random() > 0.1));
+		if (entity instanceof PritchanimalEntity _datEntSetL)
+			_datEntSetL.getEntityData().set(PritchanimalEntity.DATA_hasLegs, (Math.random() > 0.1));
 	}
 }

@@ -3,13 +3,13 @@ package net.mcreator.pritchvolution.entity;
 import net.minecraft.nbt.Tag;
 import net.minecraft.network.syncher.EntityDataAccessor;
 
-public class RandomPritchanimalGeneratorEntity extends Monster {
+public class HumanPritchanimalGeneratorEntity extends Monster {
 
-	public RandomPritchanimalGeneratorEntity(PlayMessages.SpawnEntity packet, Level world) {
-		this(PritchvolutionModEntities.RANDOM_PRITCHANIMAL_GENERATOR.get(), world);
+	public HumanPritchanimalGeneratorEntity(PlayMessages.SpawnEntity packet, Level world) {
+		this(PritchvolutionModEntities.HUMAN_PRITCHANIMAL_GENERATOR.get(), world);
 	}
 
-	public RandomPritchanimalGeneratorEntity(EntityType<RandomPritchanimalGeneratorEntity> type, Level world) {
+	public HumanPritchanimalGeneratorEntity(EntityType<HumanPritchanimalGeneratorEntity> type, Level world) {
 		super(type, world);
 		setMaxUpStep(0.6f);
 		xpReward = 0;
@@ -61,15 +61,8 @@ public class RandomPritchanimalGeneratorEntity extends Monster {
 		return ForgeRegistries.SOUND_EVENTS.getValue(ResourceLocation.parse("entity.generic.death"));
 	}
 
-	@Override
-	public SpawnGroupData finalizeSpawn(ServerLevelAccessor world, DifficultyInstance difficulty, MobSpawnType reason, @Nullable SpawnGroupData livingdata, @Nullable CompoundTag tag) {
-		SpawnGroupData retval = super.finalizeSpawn(world, difficulty, reason, livingdata, tag);
-		RandomPritchanimalGeneratorOnInitialEntitySpawnProcedure.execute(world, this.getX(), this.getY(), this.getZ(), this);
-		return retval;
-	}
-
 	public static void init() {
-		SpawnPlacements.register(PritchvolutionModEntities.RANDOM_PRITCHANIMAL_GENERATOR.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+		SpawnPlacements.register(PritchvolutionModEntities.HUMAN_PRITCHANIMAL_GENERATOR.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
 				(entityType, world, reason, pos, random) -> (world.getDifficulty() != Difficulty.PEACEFUL && Monster.isDarkEnoughToSpawn(world, pos, random) && Mob.checkMobSpawnRules(entityType, world, reason, pos, random)));
 
 	}

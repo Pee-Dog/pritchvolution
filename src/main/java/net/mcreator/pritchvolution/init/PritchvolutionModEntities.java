@@ -17,6 +17,7 @@ import net.minecraft.world.entity.Entity;
 
 import net.mcreator.pritchvolution.entity.RandomPritchanimalGeneratorEntity;
 import net.mcreator.pritchvolution.entity.PritchanimalEntity;
+import net.mcreator.pritchvolution.entity.HumanPritchanimalGeneratorEntity;
 import net.mcreator.pritchvolution.PritchvolutionMod;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
@@ -31,6 +32,11 @@ public class PritchvolutionModEntities {
 					.setCustomClientFactory(RandomPritchanimalGeneratorEntity::new)
 
 					.sized(0.6f, 1.8f));
+	public static final RegistryObject<EntityType<HumanPritchanimalGeneratorEntity>> HUMAN_PRITCHANIMAL_GENERATOR = register("human_pritchanimal_generator",
+			EntityType.Builder.<HumanPritchanimalGeneratorEntity>of(HumanPritchanimalGeneratorEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3)
+					.setCustomClientFactory(HumanPritchanimalGeneratorEntity::new)
+
+					.sized(0.6f, 1.8f));
 
 	// Start of user code block custom entities
 	// End of user code block custom entities
@@ -43,6 +49,7 @@ public class PritchvolutionModEntities {
 		event.enqueueWork(() -> {
 			PritchanimalEntity.init();
 			RandomPritchanimalGeneratorEntity.init();
+			HumanPritchanimalGeneratorEntity.init();
 		});
 	}
 
@@ -50,5 +57,6 @@ public class PritchvolutionModEntities {
 	public static void registerAttributes(EntityAttributeCreationEvent event) {
 		event.put(PRITCHANIMAL.get(), PritchanimalEntity.createAttributes().build());
 		event.put(RANDOM_PRITCHANIMAL_GENERATOR.get(), RandomPritchanimalGeneratorEntity.createAttributes().build());
+		event.put(HUMAN_PRITCHANIMAL_GENERATOR.get(), HumanPritchanimalGeneratorEntity.createAttributes().build());
 	}
 }
