@@ -94,15 +94,26 @@ public class RandomPritchanimalSetup2Procedure {
 		if (entity instanceof PritchanimalEntity _datEntSetI)
 			_datEntSetI.getEntityData().set(PritchanimalEntity.DATA_size, (int) Mth.nextDouble(RandomSource.create(), 50, 150));
 		RandomSkin = Math.random();
-		if (RandomSkin > 0.75) {
+		if (RandomSkin > 0.8) {
 			if (entity instanceof PritchanimalEntity _datEntSetS)
 				_datEntSetS.getEntityData().set(PritchanimalEntity.DATA_skin, "cow");
-		} else if (RandomSkin > 0.5) {
+		} else if (RandomSkin > 0.6) {
 			if (entity instanceof PritchanimalEntity _datEntSetS)
 				_datEntSetS.getEntityData().set(PritchanimalEntity.DATA_skin, "chicken");
-		} else if (RandomSkin > 0.25) {
+		} else if (RandomSkin > 0.4) {
 			if (entity instanceof PritchanimalEntity _datEntSetS)
 				_datEntSetS.getEntityData().set(PritchanimalEntity.DATA_skin, "sheep");
+		} else if (RandomSkin > 0.2) {
+			if (entity instanceof PritchanimalEntity _datEntSetS)
+				_datEntSetS.getEntityData().set(PritchanimalEntity.DATA_skin, "creeper");
 		}
+		if (entity instanceof PritchanimalEntity _datEntSetL)
+			_datEntSetL.getEntityData().set(PritchanimalEntity.DATA_hasNose, (Math.random() > 0.33));
+		if (entity instanceof PritchanimalEntity _datEntSetL)
+			_datEntSetL.getEntityData().set(PritchanimalEntity.DATA_hasEars, (Math.random() > 0.33));
+		if (entity instanceof PritchanimalEntity _datEntSetL)
+			_datEntSetL.getEntityData().set(PritchanimalEntity.DATA_hasHorns, (Math.random() > 0.7));
+		if (entity instanceof PritchanimalEntity _datEntSetL)
+			_datEntSetL.getEntityData().set(PritchanimalEntity.DATA_hasTail, (Math.random() > 0.5));
 	}
 }

@@ -71,5 +71,11 @@ public class RandomPritchanimalSetup1Procedure {
 			_datEntSetL.getEntityData().set(PritchanimalEntity.DATA_hasNeck, (Math.random() > 0.9));
 		if (entity instanceof PritchanimalEntity _datEntSetL)
 			_datEntSetL.getEntityData().set(PritchanimalEntity.DATA_hasHead, (Math.random() > 0.1));
+		if (entity instanceof PritchanimalEntity _datEntSetI)
+			_datEntSetI.getEntityData().set(PritchanimalEntity.DATA_arm_type, Mth.nextInt(RandomSource.create(), 0, 1));
+		if (Math.random() > 0.8) {
+			if (entity instanceof PritchanimalEntity _datEntSetI)
+				_datEntSetI.getEntityData().set(PritchanimalEntity.DATA_leg_type, 1);
+		}
 	}
 }

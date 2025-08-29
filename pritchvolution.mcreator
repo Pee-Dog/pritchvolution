@@ -10,10 +10,10 @@
         "files": [
           "src/main/java/net/mcreator/pritchvolution/entity/PritchanimalEntity.java",
           "src/main/java/net/mcreator/pritchvolution/client/renderer/PritchanimalRenderer.java",
-          "src/main/resources/assets/pritchvolution/models/item/pritchanimal_spawn_egg.json",
-          "src/main/resources/data/pritchvolution/forge/biome_modifier/pritchanimal_biome_modifier.json"
+          "src/main/resources/assets/pritchvolution/models/item/pritchanimal_spawn_egg.json"
         ]
-      }
+      },
+      "path": "~/Human"
     },
     {
       "name": "PritchanimalOnInitialEntitySpawn",
@@ -338,7 +338,8 @@
           "src/main/resources/assets/pritchvolution/models/item/human_pritchanimal_generator_spawn_egg.json",
           "src/main/java/net/mcreator/pritchvolution/entity/HumanPritchanimalGeneratorEntity.java"
         ]
-      }
+      },
+      "path": "~/Human"
     },
     {
       "name": "HumanPritchanimalSetup2",
@@ -356,7 +357,8 @@
         "files": [
           "src/main/java/net/mcreator/pritchvolution/procedures/HumanPritchanimalSetup2Procedure.java"
         ]
-      }
+      },
+      "path": "~/Human"
     },
     {
       "name": "HumanPritchanimalSetup1",
@@ -374,7 +376,8 @@
         "files": [
           "src/main/java/net/mcreator/pritchvolution/procedures/HumanPritchanimalSetup1Procedure.java"
         ]
-      }
+      },
+      "path": "~/Human"
     },
     {
       "name": "RoamFly",
@@ -427,7 +430,8 @@
         "files": [
           "src/main/java/net/mcreator/pritchvolution/procedures/HumanPritchanimalGeneratorOnInitialEntitySpawnProcedure.java"
         ]
-      }
+      },
+      "path": "~/Human"
     }
   ],
   "variable_elements": [],
@@ -447,18 +451,23 @@
   "metadata": {
     "files": [
       "src/main/resources/pack.mcmeta",
-      "src/main/java/net/mcreator/pritchvolution/PritchvolutionMod.java",
       "src/main/java/net/mcreator/pritchvolution/init/PritchvolutionModModels.java",
       "src/main/resources/META-INF/neoforge.mods.toml",
       "src/main/java/net/mcreator/pritchvolution/init/PritchvolutionModTabs.java",
+      "src/main/java/net/mcreator/pritchvolution/PritchvolutionMod.java",
       "src/main/java/net/mcreator/pritchvolution/init/PritchvolutionModItems.java",
-      "src/main/java/net/mcreator/pritchvolution/init/PritchvolutionModEntityRenderers.java",
-      "src/main/java/net/mcreator/pritchvolution/init/PritchvolutionModEntities.java"
+      "src/main/java/net/mcreator/pritchvolution/init/PritchvolutionModEntities.java",
+      "src/main/java/net/mcreator/pritchvolution/init/PritchvolutionModEntityRenderers.java"
     ]
   },
   "foldersRoot": {
     "name": "~",
-    "children": []
+    "children": [
+      {
+        "name": "Human",
+        "children": []
+      }
+    ]
   },
   "workspaceSettings": {
     "modid": "pritchvolution",

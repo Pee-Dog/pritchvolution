@@ -42,6 +42,13 @@ public class PritchanimalOnInitialEntitySpawnProcedure {
 			if (entity instanceof PritchanimalEntity _datEntSetI)
 				_datEntSetI.getEntityData().set(PritchanimalEntity.DATA_POSITION_Arm_z,
 						(int) ((-10) * ScaleBodyY * Math.sin(Math.toRadians(entity instanceof PritchanimalEntity _datEntI ? _datEntI.getEntityData().get(PritchanimalEntity.DATA_ROTATION_Body_x) : 0))));
+			if (entity instanceof PritchanimalEntity _datEntSetI)
+				_datEntSetI.getEntityData().set(PritchanimalEntity.DATA_POSITION_Frontleg_y,
+						(int) (12 * (ScaleBodyY - 1) * Math.cos(Math.toRadians(entity instanceof PritchanimalEntity _datEntI ? _datEntI.getEntityData().get(PritchanimalEntity.DATA_ROTATION_Body_x) : 0))
+								- 10 * Math.sin(Math.toRadians(entity instanceof PritchanimalEntity _datEntI ? _datEntI.getEntityData().get(PritchanimalEntity.DATA_ROTATION_Body_x) : 0))));
+			if (entity instanceof PritchanimalEntity _datEntSetI)
+				_datEntSetI.getEntityData().set(PritchanimalEntity.DATA_POSITION_Frontleg_z,
+						(int) ((-1) * (10 + 12 * (ScaleBodyY - 1)) * Math.sin(Math.toRadians(entity instanceof PritchanimalEntity _datEntI ? _datEntI.getEntityData().get(PritchanimalEntity.DATA_ROTATION_Body_x) : 0))));
 		}
 		PritchanimalFedTimerProcedure.execute(world, x, y, z, entity);
 		if (Math.random() < 0.001) {

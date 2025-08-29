@@ -2,12 +2,10 @@ package net.mcreator.pritchvolution.entity;
 
 import net.neoforged.neoforge.event.entity.RegisterSpawnPlacementsEvent;
 
-import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.ai.goal.TemptGoal;
@@ -17,7 +15,6 @@ import net.minecraft.world.entity.ai.goal.MeleeAttackGoal;
 import net.minecraft.world.entity.ai.goal.FloatGoal;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
-import net.minecraft.world.entity.SpawnPlacementTypes;
 import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.LivingEntity;
@@ -25,7 +22,6 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.AnimationState;
 import net.minecraft.world.entity.AgeableMob;
 import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.Difficulty;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.resources.ResourceLocation;
@@ -121,12 +117,18 @@ public class PritchanimalEntity extends Animal {
 	public static final EntityDataAccessor<Boolean> DATA_hasNose = SynchedEntityData.defineId(PritchanimalEntity.class, EntityDataSerializers.BOOLEAN);
 	public static final EntityDataAccessor<Boolean> DATA_hasEars = SynchedEntityData.defineId(PritchanimalEntity.class, EntityDataSerializers.BOOLEAN);
 	public static final EntityDataAccessor<Boolean> DATA_hasHorns = SynchedEntityData.defineId(PritchanimalEntity.class, EntityDataSerializers.BOOLEAN);
+	public static final EntityDataAccessor<Boolean> DATA_hasTail = SynchedEntityData.defineId(PritchanimalEntity.class, EntityDataSerializers.BOOLEAN);
+	public static final EntityDataAccessor<Integer> DATA_POSITION_Frontleg_y = SynchedEntityData.defineId(PritchanimalEntity.class, EntityDataSerializers.INT);
+	public static final EntityDataAccessor<Integer> DATA_POSITION_Frontleg_z = SynchedEntityData.defineId(PritchanimalEntity.class, EntityDataSerializers.INT);
+	public static final EntityDataAccessor<Integer> DATA_arm_type = SynchedEntityData.defineId(PritchanimalEntity.class, EntityDataSerializers.INT);
+	public static final EntityDataAccessor<Integer> DATA_leg_type = SynchedEntityData.defineId(PritchanimalEntity.class, EntityDataSerializers.INT);
 	public final AnimationState animationState0 = new AnimationState();
 
 	public PritchanimalEntity(EntityType<PritchanimalEntity> type, Level world) {
 		super(type, world);
 		xpReward = 0;
 		setNoAi(false);
+		setPersistenceRequired();
 	}
 
 	@Override
@@ -213,6 +215,11 @@ public class PritchanimalEntity extends Animal {
 		builder.define(DATA_hasNose, false);
 		builder.define(DATA_hasEars, false);
 		builder.define(DATA_hasHorns, false);
+		builder.define(DATA_hasTail, false);
+		builder.define(DATA_POSITION_Frontleg_y, 0);
+		builder.define(DATA_POSITION_Frontleg_z, 0);
+		builder.define(DATA_arm_type, 0);
+		builder.define(DATA_leg_type, 0);
 	}
 
 	@Override
@@ -229,6 +236,11 @@ public class PritchanimalEntity extends Animal {
 		this.targetSelector.addGoal(4, new HurtByTargetGoal(this));
 		this.goalSelector.addGoal(5, new RandomLookAroundGoal(this));
 		this.goalSelector.addGoal(6, new FloatGoal(this));
+	}
+
+	@Override
+	public boolean removeWhenFarAway(double distanceToClosestPlayer) {
+		return false;
 	}
 
 	@Override
@@ -325,6 +337,11 @@ public class PritchanimalEntity extends Animal {
 		compound.putBoolean("DatahasNose", this.entityData.get(DATA_hasNose));
 		compound.putBoolean("DatahasEars", this.entityData.get(DATA_hasEars));
 		compound.putBoolean("DatahasHorns", this.entityData.get(DATA_hasHorns));
+		compound.putBoolean("DatahasTail", this.entityData.get(DATA_hasTail));
+		compound.putInt("DataPOSITION_Frontleg_y", this.entityData.get(DATA_POSITION_Frontleg_y));
+		compound.putInt("DataPOSITION_Frontleg_z", this.entityData.get(DATA_POSITION_Frontleg_z));
+		compound.putInt("Dataarm_type", this.entityData.get(DATA_arm_type));
+		compound.putInt("Dataleg_type", this.entityData.get(DATA_leg_type));
 	}
 
 	@Override
@@ -492,6 +509,16 @@ public class PritchanimalEntity extends Animal {
 			this.entityData.set(DATA_hasEars, compound.getBoolean("DatahasEars"));
 		if (compound.contains("DatahasHorns"))
 			this.entityData.set(DATA_hasHorns, compound.getBoolean("DatahasHorns"));
+		if (compound.contains("DatahasTail"))
+			this.entityData.set(DATA_hasTail, compound.getBoolean("DatahasTail"));
+		if (compound.contains("DataPOSITION_Frontleg_y"))
+			this.entityData.set(DATA_POSITION_Frontleg_y, compound.getInt("DataPOSITION_Frontleg_y"));
+		if (compound.contains("DataPOSITION_Frontleg_z"))
+			this.entityData.set(DATA_POSITION_Frontleg_z, compound.getInt("DataPOSITION_Frontleg_z"));
+		if (compound.contains("Dataarm_type"))
+			this.entityData.set(DATA_arm_type, compound.getInt("Dataarm_type"));
+		if (compound.contains("Dataleg_type"))
+			this.entityData.set(DATA_leg_type, compound.getInt("Dataleg_type"));
 	}
 
 	@Override
@@ -521,9 +548,6 @@ public class PritchanimalEntity extends Animal {
 	}
 
 	public static void init(RegisterSpawnPlacementsEvent event) {
-		event.register(PritchvolutionModEntities.PRITCHANIMAL.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-				(entityType, world, reason, pos, random) -> (world.getDifficulty() != Difficulty.PEACEFUL && Monster.isDarkEnoughToSpawn(world, pos, random) && Mob.checkMobSpawnRules(entityType, world, reason, pos, random)),
-				RegisterSpawnPlacementsEvent.Operation.REPLACE);
 	}
 
 	public static AttributeSupplier.Builder createAttributes() {

@@ -175,5 +175,19 @@ public class BabyPritchanimalSetup1Procedure {
 			if (entity instanceof PritchanimalEntity _datEntSetL)
 				_datEntSetL.getEntityData().set(PritchanimalEntity.DATA_hasHead, (father instanceof PritchanimalEntity _datEntL102 && _datEntL102.getEntityData().get(PritchanimalEntity.DATA_hasHead)));
 		}
+		if (Math.random() > 0.5) {
+			if (entity instanceof PritchanimalEntity _datEntSetI)
+				_datEntSetI.getEntityData().set(PritchanimalEntity.DATA_arm_type, (int) (father instanceof PritchanimalEntity _datEntI ? _datEntI.getEntityData().get(PritchanimalEntity.DATA_arm_type) : 0));
+		} else {
+			if (entity instanceof PritchanimalEntity _datEntSetI)
+				_datEntSetI.getEntityData().set(PritchanimalEntity.DATA_arm_type, (int) (mother instanceof PritchanimalEntity _datEntI ? _datEntI.getEntityData().get(PritchanimalEntity.DATA_arm_type) : 0));
+		}
+		if (Math.random() > 0.5) {
+			if (entity instanceof PritchanimalEntity _datEntSetI)
+				_datEntSetI.getEntityData().set(PritchanimalEntity.DATA_leg_type, (int) (father instanceof PritchanimalEntity _datEntI ? _datEntI.getEntityData().get(PritchanimalEntity.DATA_leg_type) : 0));
+		} else {
+			if (entity instanceof PritchanimalEntity _datEntSetI)
+				_datEntSetI.getEntityData().set(PritchanimalEntity.DATA_leg_type, (int) (mother instanceof PritchanimalEntity _datEntI ? _datEntI.getEntityData().get(PritchanimalEntity.DATA_leg_type) : 0));
+		}
 	}
 }
