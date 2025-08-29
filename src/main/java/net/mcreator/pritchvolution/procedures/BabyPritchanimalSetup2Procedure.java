@@ -265,5 +265,33 @@ public class BabyPritchanimalSetup2Procedure {
 			if (entity instanceof PritchanimalEntity _datEntSetS)
 				_datEntSetS.getEntityData().set(PritchanimalEntity.DATA_skin, "sheep");
 		}
+		if (Math.random() > 0.5) {
+			if (entity instanceof PritchanimalEntity _datEntSetL)
+				_datEntSetL.getEntityData().set(PritchanimalEntity.DATA_hasNose, (mother instanceof PritchanimalEntity _datEntL162 && _datEntL162.getEntityData().get(PritchanimalEntity.DATA_hasNose)));
+		} else {
+			if (entity instanceof PritchanimalEntity _datEntSetL)
+				_datEntSetL.getEntityData().set(PritchanimalEntity.DATA_hasNose, (father instanceof PritchanimalEntity _datEntL164 && _datEntL164.getEntityData().get(PritchanimalEntity.DATA_hasNose)));
+		}
+		if (Math.random() > 0.5) {
+			if (entity instanceof PritchanimalEntity _datEntSetL)
+				_datEntSetL.getEntityData().set(PritchanimalEntity.DATA_hasEars, (mother instanceof PritchanimalEntity _datEntL166 && _datEntL166.getEntityData().get(PritchanimalEntity.DATA_hasEars)));
+		} else {
+			if (entity instanceof PritchanimalEntity _datEntSetL)
+				_datEntSetL.getEntityData().set(PritchanimalEntity.DATA_hasEars, (father instanceof PritchanimalEntity _datEntL168 && _datEntL168.getEntityData().get(PritchanimalEntity.DATA_hasEars)));
+		}
+		if (Math.random() > 0.5) {
+			if (entity instanceof PritchanimalEntity _datEntSetL)
+				_datEntSetL.getEntityData().set(PritchanimalEntity.DATA_hasHorns, (mother instanceof PritchanimalEntity _datEntL170 && _datEntL170.getEntityData().get(PritchanimalEntity.DATA_hasHorns)));
+		} else {
+			if (entity instanceof PritchanimalEntity _datEntSetL)
+				_datEntSetL.getEntityData().set(PritchanimalEntity.DATA_hasHorns, (father instanceof PritchanimalEntity _datEntL172 && _datEntL172.getEntityData().get(PritchanimalEntity.DATA_hasHorns)));
+		}
+		if (Math.random() > 0.5) {
+			if (entity instanceof PritchanimalEntity _datEntSetL)
+				_datEntSetL.getEntityData().set(PritchanimalEntity.DATA_hasTail, (mother instanceof PritchanimalEntity _datEntL174 && _datEntL174.getEntityData().get(PritchanimalEntity.DATA_hasTail)));
+		} else {
+			if (entity instanceof PritchanimalEntity _datEntSetL)
+				_datEntSetL.getEntityData().set(PritchanimalEntity.DATA_hasTail, (father instanceof PritchanimalEntity _datEntL176 && _datEntL176.getEntityData().get(PritchanimalEntity.DATA_hasTail)));
+		}
 	}
 }

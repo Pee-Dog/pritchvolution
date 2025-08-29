@@ -164,7 +164,7 @@ public class PritchanimalRenderer extends MobRenderer<PritchanimalEntity, Modelp
 				float scaleNoseX = 0.0F;
 				float scaleNoseY = 0.0F;
 				float scaleNoseZ = 0.0F;
-				if (entity.getEntityData().get(PritchanimalEntity.DATA_nose_type) == 0) {
+				if (entity.getEntityData().get(PritchanimalEntity.DATA_nose_type) == 0 && entity.getEntityData().get(PritchanimalEntity.DATA_hasNose)) {
 					scaleNoseX = (float) entity.getEntityData().get(PritchanimalEntity.DATA_SCALE_Nose_x) / 100;
 					scaleNoseY = (float) entity.getEntityData().get(PritchanimalEntity.DATA_SCALE_Nose_y) / 100;
 					scaleNoseZ = (float) entity.getEntityData().get(PritchanimalEntity.DATA_SCALE_Nose_z) / 100;
@@ -173,7 +173,7 @@ public class PritchanimalRenderer extends MobRenderer<PritchanimalEntity, Modelp
 				float scaleSnoutX = 0.0F;
 				float scaleSnoutZ = 0.0F;
 				float rotationSnoutX = 0.0F;
-				if (entity.getEntityData().get(PritchanimalEntity.DATA_nose_type) == 1) {
+				if (entity.getEntityData().get(PritchanimalEntity.DATA_nose_type) == 1 && entity.getEntityData().get(PritchanimalEntity.DATA_hasNose)) {
 					scaleSnoutX = (float) entity.getEntityData().get(PritchanimalEntity.DATA_SCALE_Snout_x) / 100;
 					scaleSnoutZ = (float) entity.getEntityData().get(PritchanimalEntity.DATA_SCALE_Snout_z) / 100;
 					rotationSnoutX = (float) entity.getEntityData().get(PritchanimalEntity.DATA_ROTATION_Snout_x);
@@ -182,7 +182,16 @@ public class PritchanimalRenderer extends MobRenderer<PritchanimalEntity, Modelp
 				float scaleBeakX = 0.0F;
 				float scaleBeakY = 0.0F;
 				float scaleBeakZ = 0.0F;
-				if (entity.getEntityData().get(PritchanimalEntity.DATA_nose_type) == 2) {
+				if (entity.getEntityData().get(PritchanimalEntity.DATA_nose_type) == 2 && entity.getEntityData().get(PritchanimalEntity.DATA_hasNose)) {
+					scaleBeakX = (float) entity.getEntityData().get(PritchanimalEntity.DATA_SCALE_Beak_x) / 100;
+					scaleBeakY = (float) entity.getEntityData().get(PritchanimalEntity.DATA_SCALE_Beak_y) / 100;
+					scaleBeakZ = (float) entity.getEntityData().get(PritchanimalEntity.DATA_SCALE_Beak_z) / 100;
+				}	
+				//Ears offset
+				float scaleEarsX = 0.0F;
+				float scaleBeakY = 0.0F;
+				float scaleBeakZ = 0.0F;
+				if (entity.getEntityData().get(PritchanimalEntity.DATA_nose_type) == 2 && entity.getEntityData().get(PritchanimalEntity.DATA_hasNose)) {
 					scaleBeakX = (float) entity.getEntityData().get(PritchanimalEntity.DATA_SCALE_Beak_x) / 100;
 					scaleBeakY = (float) entity.getEntityData().get(PritchanimalEntity.DATA_SCALE_Beak_y) / 100;
 					scaleBeakZ = (float) entity.getEntityData().get(PritchanimalEntity.DATA_SCALE_Beak_z) / 100;

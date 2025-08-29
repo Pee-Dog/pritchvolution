@@ -104,5 +104,13 @@ public class RandomPritchanimalSetup2Procedure {
 			if (entity instanceof PritchanimalEntity _datEntSetS)
 				_datEntSetS.getEntityData().set(PritchanimalEntity.DATA_skin, "sheep");
 		}
+		if (entity instanceof PritchanimalEntity _datEntSetL)
+			_datEntSetL.getEntityData().set(PritchanimalEntity.DATA_hasNose, (Math.random() > 0.33));
+		if (entity instanceof PritchanimalEntity _datEntSetL)
+			_datEntSetL.getEntityData().set(PritchanimalEntity.DATA_hasEars, (Math.random() > 0.33));
+		if (entity instanceof PritchanimalEntity _datEntSetL)
+			_datEntSetL.getEntityData().set(PritchanimalEntity.DATA_hasHorns, (Math.random() > 0.33));
+		if (entity instanceof PritchanimalEntity _datEntSetL)
+			_datEntSetL.getEntityData().set(PritchanimalEntity.DATA_hasTail, (Math.random() > 0.5));
 	}
 }

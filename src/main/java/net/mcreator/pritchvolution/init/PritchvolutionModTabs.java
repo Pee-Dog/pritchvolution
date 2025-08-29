@@ -21,7 +21,6 @@ public class PritchvolutionModTabs {
 	@SubscribeEvent
 	public static void buildTabContentsVanilla(BuildCreativeModeTabContentsEvent tabData) {
 		if (tabData.getTabKey() == CreativeModeTabs.SPAWN_EGGS) {
-			tabData.accept(PritchvolutionModItems.PRITCHANIMAL_SPAWN_EGG.get());
 			tabData.accept(PritchvolutionModItems.RANDOM_PRITCHANIMAL_GENERATOR_SPAWN_EGG.get());
 			tabData.accept(PritchvolutionModItems.HUMAN_PRITCHANIMAL_GENERATOR_SPAWN_EGG.get());
 		}

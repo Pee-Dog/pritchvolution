@@ -3,7 +3,7 @@
     {
       "name": "Pritchanimal",
       "type": "livingentity",
-      "compiles": true,
+      "compiles": false,
       "locked_code": true,
       "registry_name": "pritchanimal",
       "metadata": {
@@ -141,7 +141,7 @@
     {
       "name": "BabyPritchanimalSetup2",
       "type": "procedure",
-      "compiles": true,
+      "compiles": false,
       "locked_code": false,
       "registry_name": "baby_pritchanimal_setup_2",
       "metadata": {
@@ -201,7 +201,7 @@
     {
       "name": "RandomPritchanimalSetup2",
       "type": "procedure",
-      "compiles": true,
+      "compiles": false,
       "locked_code": false,
       "registry_name": "random_pritchanimal_setup_2",
       "metadata": {
