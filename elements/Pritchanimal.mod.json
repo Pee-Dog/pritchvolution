@@ -412,7 +412,7 @@
         "max": 2147483647,
         "name": "size",
         "type": "integer",
-        "value": 0
+        "value": 100
       },
       {
         "min": -2147483648,

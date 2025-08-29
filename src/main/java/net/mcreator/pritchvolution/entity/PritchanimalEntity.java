@@ -174,7 +174,7 @@ public class PritchanimalEntity extends Animal {
 		builder.define(DATA_SCALE_Tail_x, 0);
 		builder.define(DATA_SCALE_Tail_y, 0);
 		builder.define(DATA_SCALE_Tail_z, 0);
-		builder.define(DATA_size, 0);
+		builder.define(DATA_size, 100);
 		builder.define(DATA_SCALE_Flopear_x, 0);
 		builder.define(DATA_SCALE_Flopear_z, 0);
 		builder.define(DATA_ROTATION_Flopear_z, 0);

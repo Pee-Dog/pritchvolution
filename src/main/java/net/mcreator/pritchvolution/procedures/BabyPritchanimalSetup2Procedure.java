@@ -1,6 +1,10 @@
 package net.mcreator.pritchvolution.procedures;
 
-import net.neoforged.bus.api.Event;
+import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.Entity;
+
+import net.mcreator.pritchvolution.entity.PritchanimalEntity;
 
 public class BabyPritchanimalSetup2Procedure {
 	public static void execute(Entity entity, Entity immediatesourceentity, Entity sourceentity) {
@@ -247,12 +251,12 @@ public class BabyPritchanimalSetup2Procedure {
 							+ (father instanceof PritchanimalEntity _datEntI ? _datEntI.getEntityData().get(PritchanimalEntity.DATA_SCALE_Dolphintail_z) : 0)));
 		if (entity instanceof PritchanimalEntity _datEntSetI)
 			_datEntSetI.getEntityData().set(PritchanimalEntity.DATA_POSITION_Root_y, (int) ((-6) * (1 - (float) (entity instanceof PritchanimalEntity _datEntI ? _datEntI.getEntityData().get(PritchanimalEntity.DATA_SCALE_Leg_y) : 0) / 100)));
-		if (entity instanceof PritchanimalEntity _datEntSetI)
-			_datEntSetI.getEntityData().set(PritchanimalEntity.DATA_size,
-					(int) (Math.random()
-							* ((mother instanceof PritchanimalEntity _datEntI ? _datEntI.getEntityData().get(PritchanimalEntity.DATA_size) : 0)
-									- (father instanceof PritchanimalEntity _datEntI ? _datEntI.getEntityData().get(PritchanimalEntity.DATA_size) : 0))
-							+ (father instanceof PritchanimalEntity _datEntI ? _datEntI.getEntityData().get(PritchanimalEntity.DATA_size) : 0)));
+		if (entity instanceof LivingEntity _livingEntity158 && _livingEntity158.getAttributes().hasAttribute(Attributes.SCALE))
+			_livingEntity158.getAttribute(Attributes.SCALE)
+					.setBaseValue((Math.random()
+							* ((mother instanceof LivingEntity _livingEntity155 && _livingEntity155.getAttributes().hasAttribute(Attributes.SCALE) ? _livingEntity155.getAttribute(Attributes.SCALE).getBaseValue() : 0)
+									- (father instanceof LivingEntity _livingEntity156 && _livingEntity156.getAttributes().hasAttribute(Attributes.SCALE) ? _livingEntity156.getAttribute(Attributes.SCALE).getBaseValue() : 0))
+							+ (father instanceof LivingEntity _livingEntity157 && _livingEntity157.getAttributes().hasAttribute(Attributes.SCALE) ? _livingEntity157.getAttribute(Attributes.SCALE).getBaseValue() : 0)));
 		if (Math.random() < 0.5) {
 			if (entity instanceof PritchanimalEntity _datEntSetS)
 				_datEntSetS.getEntityData().set(PritchanimalEntity.DATA_skin, (father instanceof PritchanimalEntity _datEntS ? _datEntS.getEntityData().get(PritchanimalEntity.DATA_skin) : ""));

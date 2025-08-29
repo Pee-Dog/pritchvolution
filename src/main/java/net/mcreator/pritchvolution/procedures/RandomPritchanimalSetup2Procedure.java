@@ -1,6 +1,12 @@
 package net.mcreator.pritchvolution.procedures;
 
-import net.neoforged.bus.api.Event;
+import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.util.RandomSource;
+import net.minecraft.util.Mth;
+
+import net.mcreator.pritchvolution.entity.PritchanimalEntity;
 
 public class RandomPritchanimalSetup2Procedure {
 	public static void execute(Entity entity) {
@@ -87,8 +93,8 @@ public class RandomPritchanimalSetup2Procedure {
 			_datEntSetI.getEntityData().set(PritchanimalEntity.DATA_SCALE_Dolphintail_z, (int) Mth.nextDouble(RandomSource.create(), 50, 200));
 		if (entity instanceof PritchanimalEntity _datEntSetI)
 			_datEntSetI.getEntityData().set(PritchanimalEntity.DATA_POSITION_Root_y, (int) ((-6) * (1 - (float) (entity instanceof PritchanimalEntity _datEntI ? _datEntI.getEntityData().get(PritchanimalEntity.DATA_SCALE_Leg_y) : 0) / 100)));
-		if (entity instanceof PritchanimalEntity _datEntSetI)
-			_datEntSetI.getEntityData().set(PritchanimalEntity.DATA_size, (int) Mth.nextDouble(RandomSource.create(), 50, 150));
+		if (entity instanceof LivingEntity _livingEntity80 && _livingEntity80.getAttributes().hasAttribute(Attributes.SCALE))
+			_livingEntity80.getAttribute(Attributes.SCALE).setBaseValue((Mth.nextDouble(RandomSource.create(), 0.5, 1.5)));
 		RandomSkin = Math.random();
 		if (RandomSkin > 0.8) {
 			if (entity instanceof PritchanimalEntity _datEntSetS)
