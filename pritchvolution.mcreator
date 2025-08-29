@@ -446,11 +446,11 @@
   },
   "metadata": {
     "files": [
-      "src/main/resources/pack.mcmeta",
       "src/main/java/net/mcreator/pritchvolution/PritchvolutionMod.java",
       "src/main/java/net/mcreator/pritchvolution/init/PritchvolutionModModels.java",
-      "src/main/resources/META-INF/neoforge.mods.toml",
+      "src/main/resources/pack.mcmeta",
       "src/main/java/net/mcreator/pritchvolution/init/PritchvolutionModTabs.java",
+      "src/main/resources/META-INF/neoforge.mods.toml",
       "src/main/java/net/mcreator/pritchvolution/init/PritchvolutionModItems.java",
       "src/main/java/net/mcreator/pritchvolution/init/PritchvolutionModEntityRenderers.java",
       "src/main/java/net/mcreator/pritchvolution/init/PritchvolutionModEntities.java"

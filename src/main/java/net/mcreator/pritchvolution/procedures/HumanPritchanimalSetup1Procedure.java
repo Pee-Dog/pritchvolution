@@ -53,5 +53,11 @@ public class HumanPritchanimalSetup1Procedure {
 			_datEntSetI.getEntityData().set(PritchanimalEntity.DATA_SCALE_Neck_y, 0);
 		if (entity instanceof PritchanimalEntity _datEntSetI)
 			_datEntSetI.getEntityData().set(PritchanimalEntity.DATA_SCALE_Neck_z, 0);
+		if (entity instanceof PritchanimalEntity _datEntSetI)
+			_datEntSetI.getEntityData().set(PritchanimalEntity.DATA_hue, 21);
+		if (entity instanceof PritchanimalEntity _datEntSetI)
+			_datEntSetI.getEntityData().set(PritchanimalEntity.DATA_saturation, 136);
+		if (entity instanceof PritchanimalEntity _datEntSetI)
+			_datEntSetI.getEntityData().set(PritchanimalEntity.DATA_brightness, 255);
 	}
 }

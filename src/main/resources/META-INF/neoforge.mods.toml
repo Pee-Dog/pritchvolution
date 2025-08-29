@@ -13,6 +13,10 @@ authors="MCreator"
 # Start of user code block mod configuration
 # End of user code block mod configuration
 
+
+# Start of user code block custom mixins
+# End of user code block custom mixins
+
 [[dependencies.pritchvolution]]
     modId="neoforge"
     type="required"
@@ -28,11 +32,6 @@ authors="MCreator"
     side="BOTH"
 
 
-
-
-
-# Start of user code block custom mixins
-# End of user code block custom mixins
 
 
 # Start of user code block dependencies configuration
