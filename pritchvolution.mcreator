@@ -9,9 +9,9 @@
       "metadata": {
         "files": [
           "src/main/java/net/mcreator/pritchvolution/entity/PritchanimalEntity.java",
-          "src/main/resources/data/pritchvolution/neoforge/biome_modifier/pritchanimal_biome_modifier.json",
           "src/main/java/net/mcreator/pritchvolution/client/renderer/PritchanimalRenderer.java",
-          "src/main/resources/assets/pritchvolution/models/item/pritchanimal_spawn_egg.json"
+          "src/main/resources/assets/pritchvolution/models/item/pritchanimal_spawn_egg.json",
+          "src/main/resources/data/pritchvolution/forge/biome_modifier/pritchanimal_biome_modifier.json"
         ]
       }
     },
@@ -288,6 +288,44 @@
       }
     },
     {
+      "name": "RoamSwim",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "roam_swim",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ],
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/pritchvolution/procedures/RoamSwimProcedure.java"
+        ]
+      }
+    },
+    {
+      "name": "RoamWalk",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "roam_walk",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ],
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/pritchvolution/procedures/RoamWalkProcedure.java"
+        ]
+      }
+    },
+    {
       "name": "HumanPritchanimalGenerator",
       "type": "livingentity",
       "compiles": true,
@@ -299,6 +337,61 @@
           "src/main/java/net/mcreator/pritchvolution/client/renderer/HumanPritchanimalGeneratorRenderer.java",
           "src/main/resources/assets/pritchvolution/models/item/human_pritchanimal_generator_spawn_egg.json",
           "src/main/java/net/mcreator/pritchvolution/entity/HumanPritchanimalGeneratorEntity.java"
+        ]
+      }
+    },
+    {
+      "name": "HumanPritchanimalSetup2",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "human_pritchanimal_setup_2",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/pritchvolution/procedures/HumanPritchanimalSetup2Procedure.java"
+        ]
+      }
+    },
+    {
+      "name": "HumanPritchanimalSetup1",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "human_pritchanimal_setup_1",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/pritchvolution/procedures/HumanPritchanimalSetup1Procedure.java"
+        ]
+      }
+    },
+    {
+      "name": "RoamFly",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "roam_fly",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ],
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/pritchvolution/procedures/RoamFlyProcedure.java"
         ]
       }
     },
@@ -333,99 +426,6 @@
         ],
         "files": [
           "src/main/java/net/mcreator/pritchvolution/procedures/HumanPritchanimalGeneratorOnInitialEntitySpawnProcedure.java"
-        ]
-      }
-    },
-    {
-      "name": "HumanPritchanimalSetup1",
-      "type": "procedure",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "human_pritchanimal_setup_1",
-      "metadata": {
-        "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          }
-        ],
-        "files": [
-          "src/main/java/net/mcreator/pritchvolution/procedures/HumanPritchanimalSetup1Procedure.java"
-        ]
-      }
-    },
-    {
-      "name": "HumanPritchanimalSetup2",
-      "type": "procedure",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "human_pritchanimal_setup_2",
-      "metadata": {
-        "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          }
-        ],
-        "files": [
-          "src/main/java/net/mcreator/pritchvolution/procedures/HumanPritchanimalSetup2Procedure.java"
-        ]
-      }
-    },
-    {
-      "name": "RoamWalk",
-      "type": "procedure",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "roam_walk",
-      "metadata": {
-        "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          }
-        ],
-        "return_type": "logic",
-        "files": [
-          "src/main/java/net/mcreator/pritchvolution/procedures/RoamWalkProcedure.java"
-        ]
-      }
-    },
-    {
-      "name": "RoamSwim",
-      "type": "procedure",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "roam_swim",
-      "metadata": {
-        "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          }
-        ],
-        "return_type": "logic",
-        "files": [
-          "src/main/java/net/mcreator/pritchvolution/procedures/RoamSwimProcedure.java"
-        ]
-      }
-    },
-    {
-      "name": "RoamFly",
-      "type": "procedure",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "roam_fly",
-      "metadata": {
-        "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          }
-        ],
-        "return_type": "logic",
-        "files": [
-          "src/main/java/net/mcreator/pritchvolution/procedures/RoamFlyProcedure.java"
         ]
       }
     }

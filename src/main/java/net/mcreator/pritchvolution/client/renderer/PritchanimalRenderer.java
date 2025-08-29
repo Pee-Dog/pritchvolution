@@ -172,11 +172,20 @@ public class PritchanimalRenderer extends MobRenderer<PritchanimalEntity, Modelp
 				//Snout offset
 				float scaleSnoutX = 0.0F;
 				float scaleSnoutZ = 0.0F;
-				float RotationSnoutX = 0.0F;
+				float rotationSnoutX = 0.0F;
 				if (entity.getEntityData().get(PritchanimalEntity.DATA_nose_type) == 1) {
 					scaleSnoutX = (float) entity.getEntityData().get(PritchanimalEntity.DATA_SCALE_Snout_x) / 100;
 					scaleSnoutZ = (float) entity.getEntityData().get(PritchanimalEntity.DATA_SCALE_Snout_z) / 100;
-					RotationSnoutX = (float) entity.getEntityData().get(PritchanimalEntity.DATA_ROTATION_Snout_x);
+					rotationSnoutX = (float) entity.getEntityData().get(PritchanimalEntity.DATA_ROTATION_Snout_x);
+				}	
+				//Beak offset
+				float scaleBeakX = 0.0F;
+				float scaleBeakY = 0.0F;
+				float scaleBeakZ = 0.0F;
+				if (entity.getEntityData().get(PritchanimalEntity.DATA_nose_type) == 2) {
+					scaleBeakX = (float) entity.getEntityData().get(PritchanimalEntity.DATA_SCALE_Beak_x) / 100;
+					scaleBeakY = (float) entity.getEntityData().get(PritchanimalEntity.DATA_SCALE_Beak_y) / 100;
+					scaleBeakZ = (float) entity.getEntityData().get(PritchanimalEntity.DATA_SCALE_Beak_z) / 100;
 				}	
 				//Neck offset
 				float scaleNeckX = 0.0F;
@@ -221,7 +230,8 @@ public class PritchanimalRenderer extends MobRenderer<PritchanimalEntity, Modelp
 										new Keyframe(0.0F, KeyframeAnimations.degreeVec(0.0F, 0.0F, -(float) entity.getEntityData().get(PritchanimalEntity.DATA_ROTATION_Flopear_z)), AnimationChannel.Interpolations.LINEAR)))
 						.addAnimation("snout",
 								new AnimationChannel(AnimationChannel.Targets.ROTATION,
-										new Keyframe(0.0F, KeyframeAnimations.degreeVec((float) entity.getEntityData().get(PritchanimalEntity.DATA_ROTATION_Snout_x), 0.0F, 0.0F), AnimationChannel.Interpolations.LINEAR)))
+										new Keyframe(0.0F, KeyframeAnimations.degreeVec(rotationSnoutX, 0.0F, 0.0F), 
+										AnimationChannel.Interpolations.LINEAR)))
 						.addAnimation("left_arm",
 								new AnimationChannel(AnimationChannel.Targets.ROTATION,
 										new Keyframe(0.0F, KeyframeAnimations.degreeVec((float) entity.getEntityData().get(PritchanimalEntity.DATA_ROTATION_Arm_x), 0.0F, 0.0F), AnimationChannel.Interpolations.LINEAR)))
@@ -268,14 +278,13 @@ public class PritchanimalRenderer extends MobRenderer<PritchanimalEntity, Modelp
 												AnimationChannel.Interpolations.LINEAR)))
 						.addAnimation("snout", new AnimationChannel(AnimationChannel.Targets.SCALE,
 								new Keyframe(0.0F, 
-												KeyframeAnimations.scaleVec(scaleSnoutX, scaleNoseY, scaleSnoutZ),
+												KeyframeAnimations.scaleVec(scaleSnoutX, 1.0F, scaleSnoutZ),
 
 										AnimationChannel.Interpolations.LINEAR)))
 						.addAnimation("beak",
 								new AnimationChannel(AnimationChannel.Targets.SCALE,
 										new Keyframe(0.0F,
-												KeyframeAnimations.scaleVec((float) entity.getEntityData().get(PritchanimalEntity.DATA_SCALE_Beak_x) / 100, (float) entity.getEntityData().get(PritchanimalEntity.DATA_SCALE_Beak_y) / 100,
-														(float) entity.getEntityData().get(PritchanimalEntity.DATA_SCALE_Beak_z) / 100),
+												KeyframeAnimations.scaleVec(scaleBeakX, scaleBeakY, scaleBeakZ),
 												AnimationChannel.Interpolations.LINEAR)))
 						.addAnimation("left_ear",
 								new AnimationChannel(AnimationChannel.Targets.SCALE,
