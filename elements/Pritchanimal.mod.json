@@ -667,37 +667,12 @@
         "value": false
       },
       {
-        "name": "hasSnout",
-        "type": "logic",
-        "value": false
-      },
-      {
         "name": "hasEars",
         "type": "logic",
         "value": false
       },
       {
-        "name": "hasBunnyears",
-        "type": "logic",
-        "value": false
-      },
-      {
-        "name": "hasFlopears",
-        "type": "logic",
-        "value": false
-      },
-      {
-        "name": "hasCowhorn",
-        "type": "logic",
-        "value": false
-      },
-      {
-        "name": "hasColdhorn",
-        "type": "logic",
-        "value": false
-      },
-      {
-        "name": "hasWarmhorn",
+        "name": "hasHorns",
         "type": "logic",
         "value": false
       }

@@ -67,5 +67,9 @@ public class RandomPritchanimalSetup1Procedure {
 			_datEntSetL.getEntityData().set(PritchanimalEntity.DATA_hasArms, (Math.random() > 0.1));
 		if (entity instanceof PritchanimalEntity _datEntSetL)
 			_datEntSetL.getEntityData().set(PritchanimalEntity.DATA_hasLegs, (Math.random() > 0.1));
+		if (entity instanceof PritchanimalEntity _datEntSetL)
+			_datEntSetL.getEntityData().set(PritchanimalEntity.DATA_hasNeck, (Math.random() > 0.9));
+		if (entity instanceof PritchanimalEntity _datEntSetL)
+			_datEntSetL.getEntityData().set(PritchanimalEntity.DATA_hasHead, (Math.random() > 0.1));
 	}
 }

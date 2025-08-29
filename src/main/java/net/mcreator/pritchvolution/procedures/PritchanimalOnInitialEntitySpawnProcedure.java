@@ -17,7 +17,7 @@ public class PritchanimalOnInitialEntitySpawnProcedure {
 			if (entity instanceof PritchanimalEntity _datEntSetL)
 				_datEntSetL.getEntityData().set(PritchanimalEntity.DATA_isInitialized, true);
 			ScaleNeckY = 0;
-			if (entity instanceof PritchanimalEntity _datEntL2 && _datEntL2.getEntityData().get(PritchanimalEntity.DATA_hasNeck)) {
+			if ((entity instanceof PritchanimalEntity _datEntL2 && _datEntL2.getEntityData().get(PritchanimalEntity.DATA_hasNeck)) == true) {
 				ScaleNeckY = (float) (entity instanceof PritchanimalEntity _datEntI ? _datEntI.getEntityData().get(PritchanimalEntity.DATA_SCALE_Neck_y) : 0) / 100;
 			}
 			if (entity instanceof PritchanimalEntity _datEntSetI)
