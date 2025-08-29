@@ -1,12 +1,6 @@
 package net.mcreator.pritchvolution.procedures;
 
-import net.minecraft.world.entity.ai.attributes.Attributes;
-import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.util.RandomSource;
-import net.minecraft.util.Mth;
-
-import net.mcreator.pritchvolution.entity.PritchanimalEntity;
+import net.neoforged.bus.api.Event;
 
 public class HumanPritchanimalSetup1Procedure {
 	public static void execute(Entity entity) {

@@ -1,8 +1,6 @@
 package net.mcreator.pritchvolution.procedures;
 
-import net.minecraft.world.entity.Entity;
-
-import net.mcreator.pritchvolution.entity.PritchanimalEntity;
+import net.neoforged.bus.api.Event;
 
 public class BabyPritchanimalSetup2Procedure {
 	public static void execute(Entity entity, Entity immediatesourceentity, Entity sourceentity) {
